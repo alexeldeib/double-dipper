@@ -2,7 +2,9 @@
 
 The weekly recap for the Double Dipper fantasy league: **https://double-dip.alexeldeib.xyz**
 
-Every Tuesday at 7pm Pacific, a GitHub Action pulls the week from Sleeper, picks the trophies, has Claude write the jokes, and redeploys the site. Share the link once; it updates itself.
+Every Tuesday at 9am Eastern, a GitHub Action pulls the week from Sleeper, picks the trophies, has Claude write the jokes, and redeploys the site. Share the link once; it updates itself.
+
+To tweak a joke before the league sees it, edit that week's `weeks/2026-NN.json` on GitHub (the `copy` section) and commit. The site redeploys in about a minute.
 
 ## One-time setup
 

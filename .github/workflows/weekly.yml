@@ -2,7 +2,7 @@ name: Weekly recap
 
 on:
   schedule:
-    - cron: "0 2 * * 3" # Tuesday 7pm Pacific (Wednesday 02:00 UTC)
+    - cron: "0 13 * * 2" # Tuesday 9am Eastern (8am once daylight saving ends)
   workflow_dispatch:
     inputs:
       week:
@@ -18,7 +18,7 @@ on:
         default: false
   push:
     branches: [main]
-    paths: [template.html, recap.py, prompt.md, punchup.md]
+    paths: [template.html, recap.py, prompt.md, punchup.md, "weeks/**"] # hand edits to a week redeploy the site
 
 permissions:
   contents: write

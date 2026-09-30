@@ -626,7 +626,7 @@ def page(shell, f, c, url, data):
             f'<main>{lead}{rundown}{rankings}{trophies}{scoreboard}{upcoming}{nerd}</main>'
             f'<footer class="foot">{signoff}'
             f'<nav aria-labelledby="arc-h"><h2 id="arc-h" class="foot-h">Previously on {e(league)}</h2><ul class="archive">{archive}</ul></nav>'
-            f'<p class="fine">Numbers from Sleeper. Jokes from Claude. Updates Tuesday nights.</p></footer>')
+            f'<p class="fine">Numbers from Sleeper. Jokes from Claude. Updates Tuesday mornings.</p></footer>')
     title = f"{league} Wk {wk}: {head}"
     return (shell.replace("{{title}}", e(title)).replace("{{description}}", e(c.get("dek") or ""))
             .replace("{{url}}", e(url)).replace("{{body}}", body))
