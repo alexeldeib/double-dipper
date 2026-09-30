@@ -278,7 +278,9 @@ def build_facts(week=None):
 
     # Next week: pairings, projections for the lineups as currently set, and lineup PSAs.
     nxt = None
-    upcoming = [m for m in get(f"{api}/matchups/{week + 1}", []) if m.get("matchup_id")]
+    # Only the latest week gets a preview: lineups and injury tags are live data, wrong for past weeks.
+    latest = week == int(cfg.get("last_scored_leg") or 0)
+    upcoming = [m for m in get(f"{api}/matchups/{week + 1}", []) if m.get("matchup_id")] if latest else []
     if upcoming:
         nproj = {x["player_id"]: (x.get("stats") or {}).get(pts_key) or 0
                  for x in get(PROJ.format(season, week + 1), [])}
@@ -345,104 +347,191 @@ def template_copy(f):
                 pen_notes=[], award_lines=[], game_lines=[], preview_lines=[], signoff="")
 
 
+BIG = ("blowout", "high", "low", "close", "heartbreaker")  # the big stuff; every other trophy is an "other fun stat"
+
+
+def ems(s):
+    """Rough width of s set in the display caps, in em, so big type can be sized to fit its column."""
+    return sum(.11 if ch == " " else .27 if ch in "I1.,:;'’!|" else .73 if ch in "@MW%" else .53 for ch in s.upper())
+
+
+def ring(w, h):
+    """A telestrator loop around a w x h box: one stroke that overshoots where it started."""
+    return (f"M{w * .68:.0f} {h * .05:.0f} C{w * .3:.0f} {h * -.03:.0f} {w * .02:.0f} {h * .12:.0f} {w * .03:.0f} {h * .5:.0f} "
+            f"C{w * .04:.0f} {h * .9:.0f} {w * .42:.0f} {h * 1.01:.0f} {w * .68:.0f} {h * .96:.0f} "
+            f"C{w * .96:.0f} {h * .91:.0f} {w * 1.01:.0f} {h * .52:.0f} {w * .94:.0f} {h * .28:.0f} "
+            f"C{w * .87:.0f} {h * .07:.0f} {w * .56:.0f} {h * -.01:.0f} {w * .3:.0f} {h * .1:.0f}")
+
+
+ARROW = ('<svg class="arrow" viewBox="0 0 40 44" aria-hidden="true" focusable="false">'
+         '<path pathLength="1" d="M36 2 C30 14 18 26 8 40 M18 36 L8 40 L8 29"/></svg>')
+SCRIBBLE = ('<svg class="scrib" viewBox="0 0 120 12" preserveAspectRatio="none" aria-hidden="true" focusable="false">'
+            '<path d="M3 8 C28 3 52 10 78 5 S108 3 117 7"/></svg>')
+
+
 def page(shell, f, c, url, data):
     e = html.escape
     who = {t["team"]: t for t in f["teams"]}
     lines = {k: {x["key"]: x["line"] for x in c.get(k) or []} for k in ("award_lines", "game_lines", "preview_lines")}
-    notes = c.get("pen_notes") or []
+    notes = [(n or "").strip() for n in c.get("pen_notes") or []]
+    wk, league = f["week"], f["league"]
 
-    def note(i):
-        return f'<p class="pen">{e(notes[i])}</p>' if i < len(notes) else ""
+    def lit(s, pattern=r"(?<![\w.])[-+$]?\d+(?:[.,]\d+)*(?:%|st|nd|rd|th)?(?!\w)", hit=""):  # escape, light up numbers
+        return re.sub(pattern, lambda m: f'<b class="hit">{m[0]}</b>' if m[0] == hit else f"<b>{m[0]}</b>", e(s, quote=False))
 
-    def avatar(team_name, size=36):
-        t = who.get(team_name, {})
+    def fit(name):  # widest word, so CSS can shrink a long name instead of breaking it mid-word
+        return f"{max(map(ems, name.split() or [''])):.2f}"
+
+    def note(i, extra=""):
+        return f'<p class="pen">{e(notes[i])}{extra}</p>' if i < len(notes) and notes[i] else ""
+
+    def avatar(team, size):
+        t = who.get(team, {})
         if t.get("avatar"):
-            return f'<img class="av" src="{e(t["avatar"])}" alt="" width="{size}" height="{size}" loading="lazy">'
-        return f'<span class="av">{e(team_name[:1].upper())}</span>'
+            return f'<img class="av" src="{e(t["avatar"])}" alt="" width="{size}" height="{size}" loading="lazy" decoding="async">'
+        return f'<span class="av" aria-hidden="true">{e(team[:1].upper())}</span>'
 
-    def face(team_name):
-        t = who.get(team_name, {})
-        sub = f"<small>{e(team_name)}</small>" if t.get("manager", team_name) != team_name else ""
-        return f'<div class="face">{avatar(team_name)}<p>@{e(t.get("manager", team_name))}{sub}</p></div>'
+    def lower_third(team, size):
+        mgr = who.get(team, {}).get("manager") or team
+        sub = f'<span class="l3-team">{e(team)}</span>' if mgr != team else ""
+        return (f'<div class="l3">{avatar(team, size)}<p><span class="l3-name" style="--n:{fit("@" + mgr)}">@{e(mgr)}</span>'
+                f'{sub}</p></div>')
 
-    def vs(v):
+    def tape(v):
         if not v:
             return ""
-        return '<div class="vs">' + "".join(
-            f'<span class="tag">{e(v[k + "_tag"])}</span><span>{e(v[k])}</span><b>{v[k + "_pts"]:.2f}</b>'
-            for k in "ab") + "</div>"
+        top = max(v["a_pts"], v["b_pts"]) or 1
+        return '<div class="tape">' + "".join(
+            f'<p class="tp tp-{k}"><span class="tp-tag">{e(v[k + "_tag"])}</span><span class="tp-name">{e(v[k])}</span>'
+            f'<b class="tp-pts">{v[k + "_pts"]:.2f}</b><span class="tp-bar" style="--p:{max(v[k + "_pts"], 0) / top * 100:.0f}%">'
+            f'</span></p>' for k in "ab") + "</div>"
 
     def line(kind, key, cls):
         text = lines[kind].get(str(key))
         return f'<p class="{cls}">{e(text)}</p>' if text else ""
 
-    def row(team_name, pts, win=False):
-        shown = "" if pts is None else f"{pts:.2f}"
-        return f'<p class="g-row{" win" if win else ""}">{avatar(team_name, 24)}<span>{e(team_name)}</span><b>{shown}</b></p>'
+    def bumper(hid, title, kicker, pen=""):
+        return f'<div class="bump"><h2 id="{hid}"><span>{e(title)}</span></h2><p class="bump-k">{e(kicker)}</p>{pen}</div>'
 
-    trophies = "".join(
-        f'<article class="trophy"><p class="t-label"><span aria-hidden="true">{a["emoji"]}</span>{e(a["label"])}</p>'
-        f'{face(a["team"])}<p class="t-stat">{e(a["stat"])}</p>{line("award_lines", a["key"], "t-line")}'
-        f'{vs(a.get("vs"))}</article>' for a in f["awards"])
+    def bug_row(team, pts, cls, fmt):
+        shown = "–" if pts is None else fmt.format(pts)
+        return (f'<p class="sb-row {cls}">{avatar(team, 34)}<span class="sb-t" style="--n:{fit(team)}">{e(team)}</span>'
+                f'<b class="sb-s">{shown}</b></p>')
+
+    # Lead: headline, dek, and the stat graphic with the analyst's circle around the number.
+    head, value, cap = c.get("headline") or "", c.get("hero_value") or "", c.get("hero_caption") or ""
+    stat = ""
+    if value:
+        lw = ems(value) + .02 * len(value)
+        vb = round(100 * (lw + .5))
+        stat = (f'<div class="stat" style="--lw:{lw:.2f}"><p class="stat-tab">The number</p>'
+                f'<div class="stat-box"><span class="led-glow"><span class="led">{e(value)}</span></span>'
+                f'<svg class="ring" viewBox="0 0 {vb} 118" preserveAspectRatio="none" aria-hidden="true" focusable="false">'
+                f'<path pathLength="1" d="{ring(vb, 118)}"/></svg></div>'
+                f'{note(0, ARROW)}{f"<p class=stat-cap>{e(cap)}</p>" if cap else ""}</div>')
+
+    def crawl_item(i, g):
+        quip = lines["game_lines"].get(str(i))
+        return (f'<span class="ci"><b class="ci-k">Final</b><span class="ci-t">{e(g["win"]["team"])}</span>'
+                f'<b class="ci-s">{g["win"]["pts"]:.2f}</b><span class="ci-t ci-l">{e(g["lose"]["team"])}</span>'
+                f'<b class="ci-s ci-l">{g["lose"]["pts"]:.2f}</b>{f"<span class=ci-q>{e(quip)}</span>" if quip else ""}</span>')
+
+    reel = "".join(crawl_item(i, g) for i, g in enumerate(f["games"], 1))
+    secs = max(30, len(re.sub("<[^>]+>", "", reel)) // 8)  # about 65px a second
+    crawl = (f'<div class="crawl"><p class="crawl-k" aria-hidden="true">Finals</p>'
+             f'<input type="checkbox" id="hold" class="hold-box"><label for="hold" class="hold"><span class="sr">Pause the scores ticker</span></label>'
+             f'<div class="crawl-view" aria-hidden="true"><p class="crawl-track" style="--dur:{secs}s">'
+             f'<span class="crawl-set">{reel}</span><span class="crawl-set">{reel}</span></p></div></div>') if reel else ""
+    dek = lit(c.get("dek") or "", r"@\w+")  # light up the @mentions
+    lead = (f'<section class="lead" aria-labelledby="lead-h" data-wk="{wk}"><div class="lead-in"><div class="lead-copy">'
+            f'<p class="kick">Week {wk} · Top story</p>'
+            f'<h1 id="lead-h" class="headline" style="--hw:{max(map(ems, head.split() or [""])):.2f};--ht:{ems(head):.2f}">{e(head)}</h1>'
+            f'<p class="dek">{dek}</p></div>{stat}</div>{crawl}</section>')
+
+    # Trophies: the big stuff first, then the other fun stats. Every winner gets a lower third.
+    def award(a):
+        big = a["key"] in BIG
+        return (f'<article class="aw{" aw-big" if big else ""}"><h4 class="aw-tag"><span aria-hidden="true">{e(a["emoji"])}</span>'
+                f'{e(a["label"])}</h4>{lower_third(a["team"], 64 if big else 52)}<p class="aw-stat">{lit(a["stat"], hit=value)}</p>'
+                f'{line("award_lines", a["key"], "aw-line")}{tape(a.get("vs"))}</article>')
+
+    big = "".join(award(a) for a in f["awards"] if a["key"] in BIG)
+    more = "".join(award(a) for a in f["awards"] if a["key"] not in BIG)
+    count = f"The hardware · {len(f['awards'])} awards"
+    trophies = (f'<section class="seg" aria-labelledby="tro-h">{bumper("tro-h", "Trophies", count, note(1, SCRIBBLE))}'
+                + (f'<h3 class="sr">The big stuff</h3><div class="aws aws-big">{big}</div>' if big else "")
+                + (f'<h3 class="sub">Other fun stats</h3><div class="aws aws-more">{more}</div>' if more else "")
+                + "</section>")
+
     games = "".join(
-        f'<article class="game">{row(g["win"]["team"], g["win"]["pts"], True)}{row(g["lose"]["team"], g["lose"]["pts"])}'
-        f'<p class="g-duel">{e(g["win"]["top"]["player"])} {g["win"]["top"]["pts"]:.1f} <i>vs</i> '
-        f'{e(g["lose"]["top"]["player"])} {g["lose"]["top"]["pts"]:.1f}</p>{line("game_lines", i, "g-line")}</article>'
+        f'<article class="sb"><h3 class="sr">{e(g["win"]["team"])} beat {e(g["lose"]["team"])}</h3>'
+        f'<p class="sb-top"><span class="chip">Final</span><span>Game {i}</span><span class="sb-m">+{g["margin"]:.2f}</span></p>'
+        f'{bug_row(g["win"]["team"], g["win"]["pts"], "win", "{:.2f}")}{bug_row(g["lose"]["team"], g["lose"]["pts"], "lose", "{:.2f}")}'
+        f'<p class="sb-duel"><span class="k">Top guns</span><span>{e(g["win"]["top"]["player"])} <b>{g["win"]["top"]["pts"]:.1f}</b></span>'
+        f'<span><i>vs</i>{e(g["lose"]["top"]["player"])} <b>{g["lose"]["top"]["pts"]:.1f}</b></span></p>'
+        f'{line("game_lines", i, "sb-line")}</article>'
         for i, g in enumerate(f["games"], 1))
+    scoreboard = (f'<section class="seg" aria-labelledby="sb-h">{bumper("sb-h", "Scoreboard", f"Week {wk} finals")}'
+                  f'<div class="bugs">{games}</div></section>')
 
     upcoming = ""
     n = f.get("next")
     if n:
-        rows = "".join(
-            f'<article class="game">{row(g["a"], g["a_proj"])}{row(g["b"], g["b_proj"])}'
-            f'{line("preview_lines", i, "g-line")}</article>' for i, g in enumerate(n["games"], 1))
-        psa = "".join(f'<li><b>{e(x["player"])}</b> <span class="tag">{e(x["status"])}</span> '
-                      f'in the {e(x["team"])} lineup</li>' for x in n["psa"])
-        psa = f'<div class="psa"><p class="kicker">Lineup PSA</p><ul>{psa}</ul></div>' if psa else ""
-        upcoming = (f'<section aria-labelledby="next-h"><div class="h-row"><h2 id="next-h">Week {n["week"]}</h2>'
-                    f'<p class="kicker">Projected</p></div><div class="games">{rows}</div>{psa}</section>')
+        def preview(i, g):
+            a, b = g.get("a_proj"), g.get("b_proj")
+            fav = "a" if (a or 0) > (b or 0) else "b" if (b or 0) > (a or 0) else ""
+            return (f'<article class="sb pre"><h3 class="sr">{e(g["a"])} vs {e(g["b"])}</h3>'
+                    f'<p class="sb-top"><span class="chip">Wk {n["week"]}</span><span>Projected</span></p>'
+                    f'{bug_row(g["a"], a, "fav" if fav == "a" else "", "{:.1f}")}'
+                    f'{bug_row(g["b"], b, "fav" if fav == "b" else "", "{:.1f}")}{line("preview_lines", i, "sb-line")}</article>')
 
-    cut = f.get("playoff_teams") or 0
-    standings = "".join(
-        f'<tr{" class=cut" if i == cut else ""}><td>{i}</td><th scope="row">{e(s["team"])}</th>'
-        f'<td>{s["w"]}-{s["l"]}{"-" + str(s["t"]) if s["t"] else ""}</td><td>{s["pf"]:.2f}</td><td>{s["pa"]:.2f}</td>'
-        f'<td>{s["all_play"]}</td><td>{s["luck"]:+.2f}</td><td>{s["bench_left"]:.1f}</td></tr>'
-        for i, s in enumerate(f["standings"], 1))
+        psa = "".join(f'<li><span class="st">{e(x["status"])}</span><span><b>{e(x["player"])}</b> in the {e(x["team"])} lineup</span></li>'
+                      for x in n.get("psa") or [])
+        psa = f'<aside class="psa" aria-labelledby="psa-h"><h3 id="psa-h">Lineup PSA</h3><ul>{psa}</ul></aside>' if psa else ""
+        next_title = f"Week {n['week']}"
+        upcoming = (f'<section class="seg" aria-labelledby="next-h">{bumper("next-h", next_title, "Coming up · projected")}'
+                    f'<div class="bugs">{"".join(preview(i, g) for i, g in enumerate(n["games"], 1))}{psa}</div></section>')
+
+    cut, rows = f.get("playoff_teams") or 0, []
+    for i, s in enumerate(f["standings"], 1):
+        rows.append(f'<tr{" class=in" if i <= cut else ""}><th scope="row"><span class="rk">{i}</span>{e(s["team"])}</th>'
+                    f'<td>{s["w"]}-{s["l"]}{"-" + str(s["t"]) if s["t"] else ""}</td><td>{s["pf"]:.2f}</td><td>{s["pa"]:.2f}</td>'
+                    f'<td>{s["all_play"]}</td><td class="{"pos" if s["luck"] > 0 else "neg"}">{s["luck"]:+.2f}</td>'
+                    f'<td>{s["bench_left"]:.1f}</td></tr>')
+        if i == cut < len(f["standings"]):
+            rows.append(f'<tr class="cut"><td colspan="7"><span>Playoff line · top {cut} get in</span></td></tr>')
     teams_wk = sorted((t for g in f["games"] for t in (g["win"], g["lose"])), key=lambda t: -t["eff"])
     report = "".join(
         f'<tr><th scope="row">{e(t["team"])}</th><td>{t["pts"]:.2f}</td><td>{t["opt"]:.2f}</td>'
-        f'<td>{t["opt"] - t["pts"]:.2f}</td><td>{t["eff"]:g}%</td></tr>' for t in teams_wk)
-    archive = "".join(
-        f'<li><a href="{SITE}{d["facts"]["season"]}/{d["facts"]["week"]}/">Week {d["facts"]["week"]}: '
-        f'{e(d["copy"]["headline"])}</a></li>' for d in reversed(data))
+        f'<td>{t["opt"] - t["pts"]:.2f}</td><td class="eff">{t["eff"]:g}%<span style="--p:{t["eff"]:g}%"></span></td></tr>'
+        for t in teams_wk)
+    nerd = (f'<section class="seg" aria-labelledby="nerd-h">{bumper("nerd-h", "Nerd Corner", "Standings & lineup math", note(2, SCRIBBLE))}'
+            f'<div class="boards"><div class="scroll" tabindex="0" role="region" aria-label="Standings table">'
+            f'<table class="standings"><caption>Standings</caption><thead><tr><th scope="col">Team</th><th scope="col">W-L</th>'
+            f'<th scope="col">PF</th><th scope="col">PA</th><th scope="col" title="Record if you played every team every week">All-play</th>'
+            f'<th scope="col" title="Wins above what your all-play rate predicts">Luck</th>'
+            f'<th scope="col" title="Season points left on the bench">Benched</th></tr></thead><tbody>{"".join(rows)}</tbody></table></div>'
+            f'<div class="scroll" tabindex="0" role="region" aria-label="Lineup report table"><table class="report">'
+            f'<caption>Lineup report, week {wk}</caption><thead><tr><th scope="col">Team</th><th scope="col">Pts</th>'
+            f'<th scope="col">Max</th><th scope="col">Left</th><th scope="col">Eff</th></tr></thead><tbody>{report}</tbody></table></div>'
+            f'</div></section>')
 
-    body = f"""
-<header class="mast"><p class="brand">Double<br>Dipper</p><p class="sticker">Wk {f["week"]}</p></header>
-<section class="lead">
-  <p class="kicker">{e(f["league"])} · Week {f["week"]}</p>
-  <h1><span class="hl">{e(c["headline"])}</span></h1>
-  <p class="dek">{e(c["dek"])}</p>
-  <div class="hero"><p class="hero-num">{e(c["hero_value"])}</p><p class="hero-cap">{e(c["hero_caption"])}</p>{note(0)}</div>
-</section>
-<section aria-labelledby="tro-h"><div class="h-row"><h2 id="tro-h">Trophies</h2>{note(1)}</div><div class="trophies">{trophies}</div></section>
-<section aria-labelledby="sb-h"><h2 id="sb-h">Scoreboard</h2><div class="games">{games}</div></section>
-{upcoming}
-<section aria-labelledby="nerd-h">
-  <div class="h-row"><h2 id="nerd-h">Nerd Corner</h2>{note(2)}</div>
-  <div class="scroll"><table class="standings"><caption>Standings</caption>
-    <thead><tr><th scope="col">#</th><th scope="col">Team</th><th scope="col">W-L</th><th scope="col">PF</th><th scope="col">PA</th><th scope="col" title="Record if you played every team every week">All-play</th><th scope="col" title="Wins above what your all-play rate predicts">Luck</th><th scope="col" title="Season points left on the bench">Benched</th></tr></thead>
-    <tbody>{standings}</tbody></table></div>
-  <div class="scroll"><table class="report"><caption>Lineup report, week {f["week"]}</caption>
-    <thead><tr><th scope="col">Team</th><th scope="col">Pts</th><th scope="col">Max</th><th scope="col">Left</th><th scope="col">Eff</th></tr></thead>
-    <tbody>{report}</tbody></table></div>
-</section>
-<footer>
-  {f'<p class="signoff">{e(c["signoff"])}</p>' if c.get("signoff") else ""}
-  <ul class="archive">{archive}</ul>
-  <p class="fine">Numbers from Sleeper. Jokes from Claude. Updates Tuesday nights.</p>
-</footer>"""
-    title = f"Double Dipper Wk {f['week']}: {c['headline']}"
-    return (shell.replace("{{title}}", e(title)).replace("{{description}}", e(c["dek"]))
+    here = (f["season"], f["week"])
+    archive = "".join(
+        f'<li><a href="{SITE}{d["facts"]["season"]}/{d["facts"]["week"]}/"'
+        f'{" aria-current=page" if (d["facts"]["season"], d["facts"]["week"]) == here else ""}>'
+        f'<span class="arc-wk">Wk {d["facts"]["week"]}</span>{e(d["copy"].get("headline") or "")}</a></li>' for d in reversed(data))
+    mark = "".join(w[:1] for w in league.split()[:2]).upper()
+    signoff = f'<p class="pen signoff">{e(c["signoff"])}{SCRIBBLE}</p>' if c.get("signoff") else ""
+    body = (f'<header class="mast"><div class="mast-in"><p class="mark" aria-hidden="true">{e(mark)}</p>'
+            f'<p class="brand"><b>{e(league)}</b><span>{e(str(f["season"]))} season recap</span></p>'
+            f'<p class="clock"><span class="wk">Wk {wk}</span><span class="fin">Final</span></p></div></header>'
+            f'<main>{lead}{trophies}{scoreboard}{upcoming}{nerd}</main>'
+            f'<footer class="foot">{signoff}'
+            f'<nav aria-labelledby="arc-h"><h2 id="arc-h" class="foot-h">Previously on {e(league)}</h2><ul class="archive">{archive}</ul></nav>'
+            f'<p class="fine">Numbers from Sleeper. Jokes from Claude. Updates Tuesday nights.</p></footer>')
+    title = f"{league} Wk {wk}: {head}"
+    return (shell.replace("{{title}}", e(title)).replace("{{description}}", e(c.get("dek") or ""))
             .replace("{{url}}", e(url)).replace("{{body}}", body))
 
 
