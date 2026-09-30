@@ -720,25 +720,40 @@ def render():
         shutil.copyfile(icon, docs / icon.name)
 
 
+def save(path, week):
+    path.write_text(json.dumps(week, indent=1, ensure_ascii=False) + "\n")
+
+
 def main():
     if sys.argv[1:] != ["render"]:
         facts = build_facts(os.environ.get("WEEK"))
         path = ROOT / "weeks" / f"{facts['season']}-{facts['week']:02d}.json"
         saved = load(path) if path.exists() else None
         copy = saved and saved["copy"]
-        if saved and os.environ.get("GITHUB_EVENT_NAME") == "schedule" and copy.get("by") != "template":
-            # Sleeper hasn't scored a newer week, or this is the retry run: leave the published week, hand edits and all.
-            print(f"::notice::Week {facts['week']} is already up and Sleeper has nothing newer. Nothing to do.")
-            facts = saved["facts"]
-        elif (not copy or os.environ.get("FRESH") == "true"
-                or (copy.get("by") == "template" and os.environ.get("ANTHROPIC_API_KEY"))):
-            earlier = [load(q) for q in sorted((ROOT / "weeks").glob(f"{facts['season']}-*.json"))]
-            fresh = write_copy(facts, [dict(week=d["facts"]["week"], **{k: v for k, v in d["copy"].items() if k not in ("by", "news")})
-                                       for d in earlier if d["facts"]["week"] < facts["week"]])
-            if fresh.get("by") != "template" or not copy:  # a failed rewrite never replaces jokes we already have
-                copy = fresh
-        path.parent.mkdir(exist_ok=True)
-        path.write_text(json.dumps(dict(facts=facts, copy=copy), indent=1, ensure_ascii=False) + "\n")
+        if saved and saved.get("locked") and os.environ.get("DRY_RUN") != "true":
+            # Frozen: no run rewrites it, fresh or not. Hand edits on GitHub still work; dry runs save nothing.
+            print(f"::notice::Week {facts['week']} is locked, so this run leaves it alone. "
+                  f"To rewrite it, delete the \"locked\" line from {path.relative_to(ROOT)}.")
+        else:
+            if saved and os.environ.get("GITHUB_EVENT_NAME") == "schedule" and copy.get("by") != "template":
+                # Sleeper hasn't scored a newer week, or this is the retry run: leave the published week, hand edits and all.
+                print(f"::notice::Week {facts['week']} is already up and Sleeper has nothing newer. Nothing to do.")
+                facts = saved["facts"]
+            elif (not copy or os.environ.get("FRESH") == "true"
+                    or (copy.get("by") == "template" and os.environ.get("ANTHROPIC_API_KEY"))):
+                earlier = [load(q) for q in sorted((ROOT / "weeks").glob(f"{facts['season']}-*.json"))]
+                fresh = write_copy(facts, [dict(week=d["facts"]["week"], **{k: v for k, v in d["copy"].items() if k not in ("by", "news")})
+                                           for d in earlier if d["facts"]["week"] < facts["week"]])
+                if fresh.get("by") != "template" or not copy:  # a failed rewrite never replaces jokes we already have
+                    copy = fresh
+            path.parent.mkdir(exist_ok=True)
+            save(path, {**({"locked": True} if saved and saved.get("locked") else {}), "facts": facts, "copy": copy})
+            if not saved:  # a new week just went up: freeze every week before it
+                for q in sorted((ROOT / "weeks").glob(f"{facts['season']}-*.json")):
+                    d = load(q)
+                    if d["facts"]["week"] < facts["week"] and not d.get("locked"):
+                        save(q, {"locked": True, **d})
+                        print(f"::notice::Locked week {d['facts']['week']} now that week {facts['week']} is up.")
         if os.environ.get("GITHUB_ENV"):  # tells the workflow's later steps which week this run wrote
             with open(os.environ["GITHUB_ENV"], "a") as env:
                 env.write(f"WEEK_FILE={path.relative_to(ROOT)}\n")
