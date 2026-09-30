@@ -15,6 +15,7 @@ gh secret set ANTHROPIC_API_KEY -R alexeldeib/double-dipper
 ## Knobs
 
 - `prompt.md` sets the writer's voice and league lore. Add in-jokes, rivalries, and past champions there.
+- `punchup.md` is the second pass: Claude rereads its draft as an editor and makes it funnier.
 - `template.html` controls the look. `recap.py` builds the facts and the page.
 - To redo a week, open **Actions → Weekly recap → Run workflow**. Enter a week number, and tick **fresh** to rewrite the jokes.
 

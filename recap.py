@@ -327,25 +327,35 @@ SCHEMA = {"type": "object", "additionalProperties": False,
                          "preview_lines": LINES, "signoff": {"type": "string"}}}
 
 
-def write_copy(facts, last_week=None):
+def write_copy(facts, previous=()):
+    """Claude drafts the week, then a second pass punches it up. `previous` is this season's earlier copy."""
     if not os.environ.get("ANTHROPIC_API_KEY"):
         print("::warning::ANTHROPIC_API_KEY is not set, so this week gets template copy instead of jokes.")
         return template_copy(facts)
     try:
         import anthropic
 
-        msg = anthropic.Anthropic().beta.messages.create(
-            model=MODEL,
-            max_tokens=16000,
-            betas=["server-side-fallback-2026-07-01"],
-            system=(ROOT / "prompt.md").read_text(),
-            messages=[{"role": "user", "content": json.dumps(dict(facts=facts, last_week_copy=last_week), ensure_ascii=False)}],
-            extra_body={"fallbacks": "default",
-                        "output_config": {"effort": "high", "format": {"type": "json_schema", "schema": SCHEMA}}},
-        )
-        if msg.stop_reason != "end_turn":
-            raise RuntimeError(f"stop_reason={msg.stop_reason}")
-        return dict(json.loads(next(b.text for b in msg.content if b.type == "text")), by=msg.model)
+        client, brief = anthropic.Anthropic(), (ROOT / "prompt.md").read_text()
+
+        def ask(system, payload):
+            msg = client.beta.messages.create(
+                model=MODEL,
+                max_tokens=16000,
+                betas=["server-side-fallback-2026-07-01"],
+                system=system,
+                messages=[{"role": "user", "content": json.dumps(payload, ensure_ascii=False)}],
+                extra_body={"fallbacks": "default",
+                            "output_config": {"effort": "high", "format": {"type": "json_schema", "schema": SCHEMA}}},
+            )
+            if msg.stop_reason != "end_turn":
+                raise RuntimeError(f"stop_reason={msg.stop_reason}")
+            return json.loads(next(b.text for b in msg.content if b.type == "text")), msg.model
+
+        prior = list(previous)
+        draft, _ = ask(brief, dict(facts=facts, previous_weeks=prior))
+        final, model = ask(brief + "\n\n---\n\n" + (ROOT / "punchup.md").read_text(),
+                           dict(facts=facts, previous_weeks=prior, draft=draft))
+        return dict(final, by=f"{model} (draft + punch-up)")
     except Exception as e:  # ponytail: any failure falls back to template copy so the numbers still ship
         print(f"::warning::Claude couldn't write the copy ({e}); using template copy.")
         return template_copy(facts)
@@ -404,7 +414,7 @@ def page(shell, f, c, url, data):
     who = {t["team"]: t for t in f["teams"]}
     lines = {k: {x["key"]: x["line"] for x in c.get(k) or []}
              for k in ("award_lines", "game_lines", "preview_lines", "power_lines")}
-    notes = [(n or "").strip() for n in c.get("pen_notes") or []]
+    notes = [n if len(n) <= 22 else "" for n in ((n or "").strip() for n in c.get("pen_notes") or [])]  # marker notes stay short
     wk, league = f["week"], f["league"]
 
     def lit(s, pattern=r"(?<![\w.])[-+$]?\d+(?:[.,]\d+)*(?:%|st|nd|rd|th)?(?!\w)", hit=""):  # escape, light up numbers
@@ -643,8 +653,9 @@ def main():
         copy = json.loads(path.read_text())["copy"] if path.exists() else None
         if (not copy or os.environ.get("FRESH") == "true"
                 or (copy.get("by") == "template" and os.environ.get("ANTHROPIC_API_KEY"))):
-            prev = ROOT / "weeks" / f"{facts['season']}-{facts['week'] - 1:02d}.json"
-            copy = write_copy(facts, json.loads(prev.read_text())["copy"] if prev.exists() else None)
+            earlier = [json.loads(q.read_text()) for q in sorted((ROOT / "weeks").glob(f"{facts['season']}-*.json"))]
+            copy = write_copy(facts, [dict(week=d["facts"]["week"], **{k: v for k, v in d["copy"].items() if k != "by"})
+                                      for d in earlier if d["facts"]["week"] < facts["week"]])
         path.parent.mkdir(exist_ok=True)
         path.write_text(json.dumps(dict(facts=facts, copy=copy), indent=1, ensure_ascii=False) + "\n")
     render()

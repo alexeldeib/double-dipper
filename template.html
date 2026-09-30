@@ -176,7 +176,7 @@ a.step:focus-visible, .wk-list a:focus-visible { outline-offset: -3px; }
 .bump h2 { grid-column: 1 / -1; grid-row: 1; display: flex; border-bottom: 3px solid var(--volt); font-size: clamp(2.1rem, 10.5vw, 3.1rem); line-height: .95; letter-spacing: .005em; }
 .bump h2 span { background: var(--volt); color: var(--ink); padding: .14em .6em .08em .28em; }
 .bump-k { grid-column: 1; grid-row: 2; white-space: nowrap; padding-top: 12px; color: var(--aqua); font-size: .95rem; letter-spacing: .08em; line-height: 1.1; }
-.bump .pen { grid-column: 2; grid-row: 2; justify-self: end; text-align: right; margin: 18px 4px 0 0; font-size: clamp(1.45rem, 6.5vw, 1.9rem); }
+.bump .pen { grid-column: 1 / -1; grid-row: 3; justify-self: end; text-align: right; margin: 16px 4px 6px 0; font-size: clamp(1.45rem, 6.5vw, 1.9rem); }
 .sub { display: flex; align-items: center; gap: 14px; margin-top: 16px; color: var(--chalk); font-size: 1.3rem; line-height: 1; letter-spacing: .02em; }
 .sub::after { content: ""; flex: 1; height: 2px; background: var(--line); }
 
@@ -362,7 +362,6 @@ thead th:first-child { text-align: left; }
   th, td { padding: 11px 10px; }
 }
 @media (min-width: 40rem) {
-  .bump .pen { grid-row: 1; align-self: end; margin: 0 4px 14px 0; }
   /* Wider: the big stuff becomes lower thirds on a row, the rest a leaderboard. */
   .aws-big .aw { grid-template-columns: 16rem minmax(0, 1fr); grid-template-areas: "tag tag" "l3 stat" "l3 line" "l3 tape";
                  column-gap: 28px; row-gap: 10px; align-items: start; }
@@ -391,6 +390,7 @@ thead th:first-child { text-align: left; }
   .rundown { grid-template-columns: 17rem minmax(0, 1fr); column-gap: 56px; align-items: start; }
   .rundown .bump h2 { border-bottom: 0; }
   .rundown .bump-k { white-space: normal; }
+  .rundown .bump .pen { grid-column: 1 / -1; grid-row: 3; justify-self: start; text-align: left; margin: 16px 0 0 4px; }
   .pr-row { grid-template-columns: 4.4rem 4.8rem 44px minmax(0, 16rem) minmax(0, 1fr); grid-template-areas: "rk mv av team line" "rk mv av meta line";
             gap: 0 18px; padding: 14px 24px 14px 0; }
   .pr-row:not(:has(.pr-line)) { grid-template-areas: "rk mv av team line" "rk mv av meta line"; padding-bottom: 14px; }
