@@ -103,6 +103,7 @@ def build_facts(week=None):
     weekly = {w: get(f"{api}/matchups/{w}") for w in range(1, week + 1)}
     last_regular = min(week, cfg.get("playoff_week_start", 99) - 1)
     rec = {rid: dict(w=0, l=0, t=0, hw=0, h2h=0, pf=0.0, pa=0.0, ap_w=0, ap_l=0, bench=0.0, weeks=[]) for rid in team}
+    snaps = {}  # week -> {rid: (all-play win rate, points for)} through that week
     for w in range(1, last_regular + 1):
         ms = [m for m in weekly[w] if m.get("matchup_id")]
         score = {m["roster_id"]: m["points"] for m in ms}
@@ -125,6 +126,7 @@ def build_facts(week=None):
             median = (v[len(v) // 2 - 1] + v[len(v) // 2]) / 2
             for rid, p in score.items():
                 rec[rid]["w" if p > median else "l"] += 1
+        snaps[w] = {rid: (r["ap_w"] / max(1, r["ap_w"] + r["ap_l"]), r["pf"]) for rid, r in rec.items()}
     standings = []
     for rid, r in rec.items():
         ap = r["ap_w"] + r["ap_l"]
@@ -298,19 +300,29 @@ def build_facts(week=None):
             dict(a=team[a["roster_id"]], b=team[b["roster_id"]], a_proj=projected(a["roster_id"]),
                  b_proj=projected(b["roster_id"])) for a, b in pairs(upcoming)])
 
+    # Power rankings: season all-play win rate, then points for. Movement is vs the week before.
+    def order(w):
+        return sorted(snaps.get(w, {}), key=lambda rid: snaps[w][rid], reverse=True)
+    now, before = order(last_regular), order(last_regular - 1)
+    power = [dict(rank=i, team=team[rid], prev=before.index(rid) + 1 if before else None,
+                  record=f"{rec[rid]['w']}-{rec[rid]['l']}" + (f"-{rec[rid]['t']}" if rec[rid]["t"] else ""),
+                  all_play=f"{rec[rid]['ap_w']}-{rec[rid]['ap_l']}", pf=round(rec[rid]["pf"], 2),
+                  this_week=card[rid]["pts"] if rid in card else None) for i, rid in enumerate(now, 1)]
+
     return dict(league=lg["name"], season=season, week=week, playoff_teams=cfg.get("playoff_teams"), teams=teams,
-                games=games, awards=awards, gems=gems, lineups=lineups, pickups=pickups, standings=standings,
+                power=power, games=games, awards=awards, gems=gems, lineups=lineups, pickups=pickups, standings=standings,
                 next=nxt)
 
 
 LINES = {"type": "array", "items": {"type": "object", "additionalProperties": False, "required": ["key", "line"],
                                     "properties": {"key": {"type": "string"}, "line": {"type": "string"}}}}
 SCHEMA = {"type": "object", "additionalProperties": False,
-          "required": ["headline", "dek", "hero_value", "hero_caption", "pen_notes",
+          "required": ["headline", "dek", "hero_value", "hero_caption", "pen_notes", "story", "power_lines",
                        "award_lines", "game_lines", "preview_lines", "signoff"],
           "properties": {"headline": {"type": "string"}, "dek": {"type": "string"},
                          "hero_value": {"type": "string"}, "hero_caption": {"type": "string"},
                          "pen_notes": {"type": "array", "items": {"type": "string"}},
+                         "story": {"type": "array", "items": {"type": "string"}}, "power_lines": LINES,
                          "award_lines": LINES, "game_lines": LINES,
                          "preview_lines": LINES, "signoff": {"type": "string"}}}
 
@@ -344,7 +356,7 @@ def template_copy(f):
     lead = a.get("heartbreaker") or a["high"]
     return dict(by="template", headline=lead["label"].upper(), dek=f"{lead['team']}: {lead['stat']}.",
                 hero_value=a["high"]["stat"].split(" ")[0], hero_caption=f"{a['high']['team']} led the week",
-                pen_notes=[], award_lines=[], game_lines=[], preview_lines=[], signoff="")
+                pen_notes=[], story=[], power_lines=[], award_lines=[], game_lines=[], preview_lines=[], signoff="")
 
 
 BIG = ("blowout", "high", "low", "close", "heartbreaker")  # the big stuff; every other trophy is an "other fun stat"

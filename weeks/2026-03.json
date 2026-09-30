@@ -66,6 +66,98 @@
     "commish": false
    }
   ],
+  "power": [
+   {
+    "rank": 1,
+    "team": "aaronargyres",
+    "prev": 2,
+    "record": "2-1",
+    "all_play": "20-7",
+    "pf": 398.6,
+    "this_week": 152.72
+   },
+   {
+    "rank": 2,
+    "team": "casebrabham",
+    "prev": 5,
+    "record": "1-2",
+    "all_play": "16-11",
+    "pf": 364.98,
+    "this_week": 132.82
+   },
+   {
+    "rank": 3,
+    "team": "Lamar JacksOff",
+    "prev": 9,
+    "record": "1-2",
+    "all_play": "15-12",
+    "pf": 370.0,
+    "this_week": 151.44
+   },
+   {
+    "rank": 4,
+    "team": "Stafford's Staffers",
+    "prev": 8,
+    "record": "2-1",
+    "all_play": "14-13",
+    "pf": 338.36,
+    "this_week": 130.58
+   },
+   {
+    "rank": 5,
+    "team": "jwalthier",
+    "prev": 4,
+    "record": "3-0",
+    "all_play": "14-13",
+    "pf": 335.96,
+    "this_week": 109.48
+   },
+   {
+    "rank": 6,
+    "team": "cdb1919",
+    "prev": 3,
+    "record": "1-2",
+    "all_play": "14-13",
+    "pf": 333.62,
+    "this_week": 101.28
+   },
+   {
+    "rank": 7,
+    "team": "briancami",
+    "prev": 1,
+    "record": "2-1",
+    "all_play": "13-14",
+    "pf": 332.68,
+    "this_week": 90.44
+   },
+   {
+    "rank": 8,
+    "team": "naaaaaaaaaaaaaaaate",
+    "prev": 7,
+    "record": "2-1",
+    "all_play": "13-14",
+    "pf": 330.68,
+    "this_week": 109.66
+   },
+   {
+    "rank": 9,
+    "team": "louisnicoletti",
+    "prev": 6,
+    "record": "0-3",
+    "all_play": "10-17",
+    "pf": 312.06,
+    "this_week": 90.72
+   },
+   {
+    "rank": 10,
+    "team": "Corey Dylan Clark",
+    "prev": 10,
+    "record": "1-2",
+    "all_play": "6-21",
+    "pf": 282.44,
+    "this_week": 72.16
+   }
+  ],
   "games": [
    {
     "win": {
@@ -1963,6 +2055,53 @@
     "line": "Two 1-2 teams. One leaves feeling okay about itself."
    }
   ],
-  "signoff": "Dip responsibly."
+  "signoff": "Dip responsibly.",
+  "story": [
+   "Week 3 had one plot and it belonged to @louisnicoletti. Tyler Shough threw four touchdowns from the bench while Drake Maye threw two interceptions from the lineup. The margin was 18.94. The Shough swap was worth 19.04.",
+   "Elsewhere, @aaronargyres set a perfect lineup without spending a FAAB dollar, @jwalthier went 3-0 by drawing the week's worst score again, and the commish benched 29.66 of Sam Darnold and won anyway.",
+   "Next week the league's only unbeaten team meets Stafford's Staffers, who have quietly stopped starting Stafford."
+  ],
+  "power_lines": [
+   {
+    "key": "aaronargyres",
+    "line": "Perfect lineup, zero FAAB, 20-7 all-play. The standard, annoyingly."
+   },
+   {
+    "key": "casebrabham",
+    "line": "Best 1-2 team alive. Just start the right quarterback."
+   },
+   {
+    "key": "Lamar JacksOff",
+    "line": "Up six spots with 70 points on the bench. Imagine if they tried."
+   },
+   {
+    "key": "Stafford's Staffers",
+    "line": "Benched the namesake, won by 40. Growth."
+   },
+   {
+    "key": "jwalthier",
+    "line": "3-0 with the fifth-best résumé. The schedule deserves a trophy."
+   },
+   {
+    "key": "cdb1919",
+    "line": "412 points against. A fruit basket is on its way."
+   },
+   {
+    "key": "briancami",
+    "line": "148, then 93, then 90. The chart would like a word."
+   },
+   {
+    "key": "naaaaaaaaaaaaaaaate",
+    "line": "Won by 0.10 of someone else's decision. Counts the same."
+   },
+   {
+    "key": "louisnicoletti",
+    "line": "0-3 and one yard from 1-2. Start. Shough."
+   },
+   {
+    "key": "Corey Dylan Clark",
+    "line": "$27 of waivers, 10.8 points, one very long week."
+   }
+  ]
  }
 }
