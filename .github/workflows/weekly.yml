@@ -1,0 +1,59 @@
+name: Weekly recap
+
+on:
+  schedule:
+    - cron: "0 2 * * 3" # Tuesday 7pm Pacific (Wednesday 02:00 UTC)
+  workflow_dispatch:
+    inputs:
+      week:
+        description: Week to recap (blank = latest scored week)
+        required: false
+      fresh:
+        description: Rewrite the jokes even if this week already has some
+        type: boolean
+        default: false
+  push:
+    branches: [main]
+    paths: [template.html, recap.py, prompt.md]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: recap
+  cancel-in-progress: false
+
+jobs:
+  recap:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+      - run: pip install anthropic
+      # A push only restyles the existing weeks; the schedule and manual runs fetch a new week.
+      - run: python recap.py ${{ github.event_name == 'push' && 'render' || '' }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          WEEK: ${{ inputs.week }}
+          FRESH: ${{ inputs.fresh }}
+      - name: Commit the new week
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add weeks
+          if ! git diff --cached --quiet; then
+            git commit -m "Recap: week data"
+            git push
+          fi
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: docs
+      - id: deploy
+        uses: actions/deploy-pages@v5

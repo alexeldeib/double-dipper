@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:url" content="{{url}}">
+<meta property="og:type" content="article">
+<link rel="canonical" href="{{url}}">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥣</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Libre+Franklin:wght@400;600;800&family=Permanent+Marker&display=swap">
+<style>
+/* Layout: one phone-width column, a coach's stat sheet marked up in highlighter, blue ink and red marker. */
+:root {
+  --paper: #F3F5F0; --sheet: #FFFFFF; --ink: #17201B; --ink-2: #56625A; --rule: #D9DED6;
+  --hi: #F6E05E; --pen: #D0341F; --blue: #2563A8; --bubble: #2563A8; --on-bubble: #FFFFFF; --win: #2A6B43;
+  --f-display: "Big Shoulders Display", "Arial Narrow", sans-serif;
+  --f-body: "Libre Franklin", "Helvetica Neue", Arial, sans-serif;
+  --f-pen: "Permanent Marker", "Marker Felt", "Comic Sans MS", cursive;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --paper: #0F1411; --sheet: #171E1A; --ink: #E7ECE8; --ink-2: #9DAAA2; --rule: #2A332E;
+          --hi: #6B5B12; --pen: #FF7A62; --blue: #7FB0E8; --bubble: #1F5A9E; --on-bubble: #FFFFFF; --win: #76CB93;
+          color-scheme: dark; }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 1rem/1.5 var(--f-body); -webkit-text-size-adjust: 100%; }
+.wrap { max-width: 46rem; margin-inline: auto; padding-inline: 1rem; padding-block: 1.25rem 4rem; display: grid; gap: 3rem; }
+section { display: grid; gap: 1rem; min-width: 0; }
+p, h1, h2, ul { margin: 0; }
+h2 { font: 900 clamp(2rem, 9vw, 2.75rem)/.9 var(--f-display); text-transform: uppercase; }
+.kicker { font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); }
+.h-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.hl { background: linear-gradient(var(--hi), var(--hi)) 0 88% / 100% 40% no-repeat; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.pen { font: 400 1.35rem/1.1 var(--f-pen); color: var(--pen); transform: rotate(-5deg); }
+.tag { font-size: .65rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); }
+.av { width: 36px; height: 36px; border-radius: 50%; flex: none; object-fit: cover; background: var(--rule); display: inline-grid; place-items: center; font-weight: 800; }
+.mast { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; border-bottom: 4px solid var(--ink); padding-bottom: .75rem; }
+.brand { font: 900 clamp(3.25rem, 19vw, 6.5rem)/.8 var(--f-display); text-transform: uppercase; }
+.sticker { font: 400 clamp(1.4rem, 6vw, 2rem)/1 var(--f-pen); color: var(--pen); border: 3px solid var(--pen); border-radius: 12px; padding: .2em .45em; transform: rotate(6deg); white-space: nowrap; margin-top: .4rem; }
+.lead h1 { font: 900 clamp(3rem, 17vw, 6rem)/.86 var(--f-display); text-transform: uppercase; text-wrap: balance; }
+.dek { font-size: 1.125rem; font-weight: 600; max-width: 34ch; }
+.hero { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; }
+.hero-num { font: 900 clamp(4.5rem, 26vw, 8rem)/.8 var(--f-display); }
+.hero-cap { flex: 1 1 9rem; min-width: 0; max-width: 18ch; font-weight: 800; line-height: 1.25; }
+.send { background: var(--sheet); border: 1px solid var(--rule); border-radius: 14px; padding: 1rem; gap: .75rem; }
+.bubble { background: var(--bubble); color: var(--on-bubble); border-radius: 20px 20px 6px 20px; padding: .85rem 1rem; white-space: pre-wrap; overflow-wrap: anywhere; font-size: .95rem; }
+.actions { display: flex; gap: .5rem; justify-content: flex-end; }
+button { font: 800 .95rem/1 var(--f-body); border: 0; border-radius: 999px; padding: .8rem 1.3rem; min-height: 44px; cursor: pointer; background: var(--ink); color: var(--paper); }
+button.alt { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 2px var(--ink); }
+button:focus-visible, a:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+.trophies { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16.5rem), 1fr)); gap: .75rem; }
+.trophy { background: var(--sheet); border: 1px solid var(--rule); border-radius: 8px; padding: .9rem 1rem 1rem; display: grid; gap: .45rem; align-content: start; min-width: 0; }
+.trophies > .trophy:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.t-label { display: flex; align-items: center; gap: .45rem; font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); }
+.t-label span { font-size: 1.3rem; letter-spacing: 0; }
+.face { display: flex; align-items: center; gap: .6rem; min-width: 0; }
+.face p { font-weight: 800; overflow-wrap: anywhere; line-height: 1.2; }
+.face small { display: block; font-weight: 400; color: var(--ink-2); }
+.t-stat { font: 800 1.35rem/1.1 var(--f-display); font-variant-numeric: tabular-nums; }
+.vs { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: .15rem .6rem; align-items: baseline; padding-top: .5rem; border-top: 1px solid var(--rule); font-size: .875rem; font-variant-numeric: tabular-nums; }
+.games { display: grid; }
+.game { display: grid; gap: .35rem; padding-block: .9rem; border-top: 1px solid var(--rule); }
+.game:last-child { border-bottom: 1px solid var(--rule); }
+.g-row { display: flex; align-items: center; gap: .6rem; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.g-row .av { width: 24px; height: 24px; font-size: .7rem; }
+.g-row span { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.g-row.win { color: var(--ink); font-weight: 800; }
+.g-duel { font-size: .8rem; color: var(--ink-2); }
+.g-duel i { font: 400 .95rem var(--f-pen); color: var(--pen); padding-inline: .2rem; }
+.g-line { font-weight: 600; }
+.psa { border: 2px solid var(--pen); border-radius: 8px; padding: .85rem 1rem; display: grid; gap: .4rem; }
+.psa ul { padding-left: 1.1rem; }
+.scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: .875rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
+caption { text-align: left; font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); padding-bottom: .4rem; }
+th, td { padding: .45rem .6rem; text-align: right; }
+.standings tr > :nth-child(-n+2), .report tr > :first-child { text-align: left; }
+thead th { font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); border-bottom: 2px solid var(--ink); }
+tbody tr + tr > * { border-top: 1px solid var(--rule); }
+tr.cut > * { border-bottom: 2px solid var(--pen); }
+footer { display: grid; gap: 1rem; }
+.signoff { font: 400 1.6rem/1.1 var(--f-pen); color: var(--pen); transform: rotate(-3deg); justify-self: start; }
+.archive { list-style: none; padding: 0; display: grid; gap: .35rem; }
+a { color: var(--blue); }
+.fine { font-size: .8rem; color: var(--ink-2); }
+</style>
+</head>
+<body>
+<main class="wrap">{{body}}</main>
+<script>
+const sms = document.getElementById("sms"), copy = document.getElementById("copy"), share = document.getElementById("share");
+copy.onclick = async () => {
+  try { await navigator.clipboard.writeText(sms.innerText); copy.textContent = "Copied ✓"; }
+  catch { getSelection().selectAllChildren(sms); copy.textContent = "Selected, copy it"; }
+  setTimeout(() => copy.textContent = "Copy text", 2000);
+};
+if (navigator.share) { share.hidden = false; share.onclick = () => navigator.share({ text: sms.innerText }).catch(() => {}); }
+</script>
+</body>
+</html>

@@ -1,0 +1,1789 @@
+{
+ "facts": {
+  "league": "Double Dipper",
+  "season": "2026",
+  "week": 3,
+  "playoff_teams": 6,
+  "teams": [
+   {
+    "team": "Lamar JacksOff",
+    "manager": "dclark34",
+    "avatar": "https://sleepercdn.com/avatars/thumbs/e7af4deab0289b4f5505646424895246",
+    "commish": true
+   },
+   {
+    "team": "louisnicoletti",
+    "manager": "louisnicoletti",
+    "avatar": "https://sleepercdn.com/avatars/thumbs/6b764fc755db413f4517d540edbb54b2",
+    "commish": false
+   },
+   {
+    "team": "casebrabham",
+    "manager": "casebrabham",
+    "avatar": "https://sleepercdn.com/avatars/thumbs/82aec8e811b839b8ec25d7b458afd57b",
+    "commish": false
+   },
+   {
+    "team": "briancami",
+    "manager": "briancami",
+    "avatar": "https://sleepercdn.com/avatars/thumbs/944077d0f6c6bb5e23331bdb80e46843",
+    "commish": false
+   },
+   {
+    "team": "Stafford's Staffers",
+    "manager": "alexeldeib",
+    "avatar": "https://sleepercdn.com/avatars/thumbs/7572250c2fb084c434fed0e82229e183",
+    "commish": false
+   },
+   {
+    "team": "jwalthier",
+    "manager": "jwalthier",
+    "avatar": "https://sleepercdn.com/avatars/thumbs/d55d1f7075eda01948318de4af616075",
+    "commish": false
+   },
+   {
+    "team": "Corey Dylan Clark",
+    "manager": "jonraduazzo",
+    "avatar": "https://sleepercdn.com/avatars/thumbs/51385ba57cd089261f6de9ce483b8716",
+    "commish": false
+   },
+   {
+    "team": "cdb1919",
+    "manager": "cdb1919",
+    "avatar": "https://sleepercdn.com/avatars/thumbs/7572250c2fb084c434fed0e82229e183",
+    "commish": false
+   },
+   {
+    "team": "naaaaaaaaaaaaaaaate",
+    "manager": "naaaaaaaaaaaaaaaate",
+    "avatar": "https://sleepercdn.com/avatars/thumbs/578c6b253dd7b4bab45382e1af102204",
+    "commish": false
+   },
+   {
+    "team": "aaronargyres",
+    "manager": "aaronargyres",
+    "avatar": "https://sleepercdn.com/avatars/thumbs/320f9195b391718105e27b8cc9d40277",
+    "commish": false
+   }
+  ],
+  "games": [
+   {
+    "win": {
+     "team": "aaronargyres",
+     "pts": 152.72,
+     "opt": 152.72,
+     "eff": 100.0,
+     "proj": 114.5,
+     "bench_pts": 18.4,
+     "top": {
+      "player": "G. Kittle",
+      "pts": 23.2
+     },
+     "swap": null
+    },
+    "lose": {
+     "team": "cdb1919",
+     "pts": 101.28,
+     "opt": 114.78,
+     "eff": 88.2,
+     "proj": 114.5,
+     "bench_pts": 25.8,
+     "top": {
+      "player": "J. Burrow",
+      "pts": 22.58
+     },
+     "swap": {
+      "bench": "J. Meyers",
+      "bench_pts": 15.9,
+      "start": "D. Kincaid",
+      "start_pts": 2.8,
+      "gain": 13.1
+     }
+    },
+    "margin": 51.44
+   },
+   {
+    "win": {
+     "team": "Stafford's Staffers",
+     "pts": 130.58,
+     "opt": 135.18,
+     "eff": 96.6,
+     "proj": 115.0,
+     "bench_pts": 37.2,
+     "top": {
+      "player": "B. Purdy",
+      "pts": 31.28
+     },
+     "swap": {
+      "bench": "S. Diggs",
+      "bench_pts": 5.3,
+      "start": "J. Price",
+      "start_pts": 0.7,
+      "gain": 4.6
+     }
+    },
+    "lose": {
+     "team": "briancami",
+     "pts": 90.44,
+     "opt": 97.24,
+     "eff": 93.0,
+     "proj": 119.0,
+     "bench_pts": 31.44,
+     "top": {
+      "player": "C. McCaffrey",
+      "pts": 19.6
+     },
+     "swap": {
+      "bench": "B. Robinson",
+      "bench_pts": 11.0,
+      "start": "B. Irving",
+      "start_pts": 6.8,
+      "gain": 4.2
+     }
+    },
+    "margin": 40.14
+   },
+   {
+    "win": {
+     "team": "naaaaaaaaaaaaaaaate",
+     "pts": 109.66,
+     "opt": 116.66,
+     "eff": 94.0,
+     "proj": 113.9,
+     "bench_pts": 39.24,
+     "top": {
+      "player": "J. Goff",
+      "pts": 19.36
+     },
+     "swap": {
+      "bench": "R. White",
+      "bench_pts": 10.6,
+      "start": "J. Waddle",
+      "start_pts": 5.4,
+      "gain": 5.2
+     }
+    },
+    "lose": {
+     "team": "louisnicoletti",
+     "pts": 90.72,
+     "opt": 125.36,
+     "eff": 72.4,
+     "proj": 112.5,
+     "bench_pts": 57.1,
+     "top": {
+      "player": "J. Smith-Njigba",
+      "pts": 30.36
+     },
+     "swap": {
+      "bench": "T. Shough",
+      "bench_pts": 24.8,
+      "start": "D. Maye",
+      "start_pts": 5.76,
+      "gain": 19.04
+     }
+    },
+    "margin": 18.94
+   },
+   {
+    "win": {
+     "team": "jwalthier",
+     "pts": 109.48,
+     "opt": 116.08,
+     "eff": 94.3,
+     "proj": 110.3,
+     "bench_pts": 30.1,
+     "top": {
+      "player": "T. Lawrence",
+      "pts": 20.78
+     },
+     "swap": {
+      "bench": "J. Addison",
+      "bench_pts": 17.5,
+      "start": "M. Evans",
+      "start_pts": 10.9,
+      "gain": 6.6
+     }
+    },
+    "lose": {
+     "team": "Corey Dylan Clark",
+     "pts": 72.16,
+     "opt": 101.06,
+     "eff": 71.4,
+     "proj": 104.7,
+     "bench_pts": 46.2,
+     "top": {
+      "player": "J. Allen",
+      "pts": 18.96
+     },
+     "swap": {
+      "bench": "T. McLaurin",
+      "bench_pts": 16.7,
+      "start": "T. McMillan",
+      "start_pts": 2.7,
+      "gain": 14.0
+     }
+    },
+    "margin": 37.32
+   },
+   {
+    "win": {
+     "team": "Lamar JacksOff",
+     "pts": 151.44,
+     "opt": 168.96,
+     "eff": 89.6,
+     "proj": 120.1,
+     "bench_pts": 70.46,
+     "top": {
+      "player": "B. Robinson",
+      "pts": 34.3
+     },
+     "swap": {
+      "bench": "S. Darnold",
+      "bench_pts": 29.66,
+      "start": "L. Jackson",
+      "start_pts": 20.44,
+      "gain": 9.22
+     }
+    },
+    "lose": {
+     "team": "casebrabham",
+     "pts": 132.82,
+     "opt": 153.48,
+     "eff": 86.5,
+     "proj": 113.7,
+     "bench_pts": 57.78,
+     "top": {
+      "player": "J. Gibbs",
+      "pts": 37.9
+     },
+     "swap": {
+      "bench": "J. Love",
+      "bench_pts": 19.48,
+      "start": "K. Murray",
+      "start_pts": 11.42,
+      "gain": 8.06
+     }
+    },
+    "margin": 18.62
+   }
+  ],
+  "awards": [
+   {
+    "key": "blowout",
+    "emoji": "💣",
+    "label": "Biggest domination",
+    "team": "aaronargyres",
+    "stat": "by 51.44 over cdb1919",
+    "vs": null
+   },
+   {
+    "key": "high",
+    "emoji": "🥇",
+    "label": "Top score",
+    "team": "aaronargyres",
+    "stat": "152.72 (+38.2 vs proj)",
+    "vs": null
+   },
+   {
+    "key": "low",
+    "emoji": "💩",
+    "label": "Biggest loser",
+    "team": "Corey Dylan Clark",
+    "stat": "72.16 (-32.5 vs proj)",
+    "vs": null
+   },
+   {
+    "key": "close",
+    "emoji": "🤏",
+    "label": "Closest game",
+    "team": "Lamar JacksOff",
+    "stat": "by 18.62 over casebrabham",
+    "vs": null
+   },
+   {
+    "key": "heartbreaker",
+    "emoji": "💔",
+    "label": "Heartbreaker",
+    "team": "louisnicoletti",
+    "stat": "lost by 18.94, one swap from winning by 0.10",
+    "vs": {
+     "a": "T. Shough",
+     "a_pts": 24.8,
+     "a_tag": "bench",
+     "b": "D. Maye",
+     "b_pts": 5.76,
+     "b_tag": "started"
+    }
+   },
+   {
+    "key": "best_mgr",
+    "emoji": "🔥",
+    "label": "Best manager",
+    "team": "aaronargyres",
+    "stat": "100% of max (152.72)",
+    "vs": null
+   },
+   {
+    "key": "worst_mgr",
+    "emoji": "🤡",
+    "label": "Worst manager",
+    "team": "Corey Dylan Clark",
+    "stat": "71.4% of max (101.06)",
+    "vs": {
+     "a": "T. McLaurin",
+     "a_pts": 16.7,
+     "a_tag": "bench",
+     "b": "T. McMillan",
+     "b_pts": 2.7,
+     "b_tag": "started"
+    }
+   },
+   {
+    "key": "best_bench",
+    "emoji": "🪑",
+    "label": "Best bench",
+    "team": "Lamar JacksOff",
+    "stat": "70.46 on the bench",
+    "vs": null
+   },
+   {
+    "key": "mvp",
+    "emoji": "💪",
+    "label": "Best player",
+    "team": "casebrabham",
+    "stat": "J. Gibbs 37.90",
+    "vs": null
+   },
+   {
+    "key": "bench_mvp",
+    "emoji": "🛋️",
+    "label": "Bench MVP",
+    "team": "Lamar JacksOff",
+    "stat": "S. Darnold 29.66",
+    "vs": {
+     "a": "S. Darnold",
+     "a_pts": 29.66,
+     "a_tag": "bench",
+     "b": "L. Jackson",
+     "b_pts": 20.44,
+     "b_tag": "started"
+    }
+   },
+   {
+    "key": "over",
+    "emoji": "📈",
+    "label": "Overachiever",
+    "team": "casebrabham",
+    "stat": "J. Gibbs 37.90, +16.5 vs proj",
+    "vs": null
+   },
+   {
+    "key": "under",
+    "emoji": "👎",
+    "label": "Underachiever",
+    "team": "louisnicoletti",
+    "stat": "D. Maye 5.76, -12.8 vs proj",
+    "vs": null
+   },
+   {
+    "key": "lucky",
+    "emoji": "🍀",
+    "label": "Lucky",
+    "team": "jwalthier",
+    "stat": "won with the 6th-best score",
+    "vs": null
+   },
+   {
+    "key": "unlucky",
+    "emoji": "😡",
+    "label": "Unlucky",
+    "team": "casebrabham",
+    "stat": "lost with the 3rd-best score",
+    "vs": null
+   },
+   {
+    "key": "big_spender",
+    "emoji": "💸",
+    "label": "Big spender",
+    "team": "Corey Dylan Clark",
+    "stat": "$19 on T. Tucker, 6.3 pts",
+    "vs": null
+   }
+  ],
+  "lineups": {
+   "Lamar JacksOff": {
+    "started": [
+     {
+      "slot": "QB",
+      "player": "L. Jackson",
+      "pts": 20.44,
+      "proj": 24.49,
+      "line": "186 pass yds, 2 pass TD, 50 rush yds"
+     },
+     {
+      "slot": "RB",
+      "player": "B. Robinson",
+      "pts": 34.3,
+      "proj": 18.05,
+      "line": "194 rush yds, 2 rush TD, 2 rec, 19 rec yds"
+     },
+     {
+      "slot": "RB",
+      "player": "D. Swift",
+      "pts": 9.8,
+      "proj": 13.08,
+      "line": "84 rush yds, 2 rec, 4 rec yds"
+     },
+     {
+      "slot": "WR",
+      "player": "C. Watson",
+      "pts": 19.1,
+      "proj": 13.64,
+      "line": "7 rec, 96 rec yds, 1 rec TD"
+     },
+     {
+      "slot": "WR",
+      "player": "G. Pickens",
+      "pts": 11.7,
+      "proj": 12.37,
+      "line": "7 rec, 82 rec yds"
+     },
+     {
+      "slot": "TE",
+      "player": "H. Fannin",
+      "pts": 20.6,
+      "proj": 7.53,
+      "line": "7 rec, 51 rec yds, 2 rec TD"
+     },
+     {
+      "slot": "FLEX",
+      "player": "J. Williams",
+      "pts": 6.9,
+      "proj": 10.91,
+      "line": "4 rec, 49 rec yds"
+     },
+     {
+      "slot": "FLEX",
+      "player": "T. Pollard",
+      "pts": 11.6,
+      "proj": 11.46,
+      "line": "74 rush yds, 4 rec, 22 rec yds"
+     },
+     {
+      "slot": "DEF",
+      "player": "MIN D/ST",
+      "pts": 17.0,
+      "proj": 8.6,
+      "line": ""
+     }
+    ],
+    "bench": [
+     {
+      "player": "E. Wilson",
+      "pos": "RB",
+      "pts": 1.4,
+      "line": "14 rush yds"
+     },
+     {
+      "player": "M. Lloyd",
+      "pos": "RB",
+      "pts": 2.8,
+      "line": "11 rush yds, 2 rec, 7 rec yds"
+     },
+     {
+      "player": "D. Vele",
+      "pos": "WR",
+      "pts": 5.4,
+      "line": "3 rec, 39 rec yds"
+     },
+     {
+      "player": "C. Douglas",
+      "pos": "WR",
+      "pts": 0.0,
+      "line": ""
+     },
+     {
+      "player": "S. Darnold",
+      "pos": "QB",
+      "pts": 29.66,
+      "line": "379 pass yds, 4 pass TD, 2 INT, 5 rush yds"
+     },
+     {
+      "player": "A. Brown",
+      "pos": "WR",
+      "pts": 0.0,
+      "line": ""
+     },
+     {
+      "player": "W. Robinson",
+      "pos": "WR",
+      "pts": 15.2,
+      "line": "7 rec, 57 rec yds, 1 rec TD"
+     },
+     {
+      "player": "J. Mason",
+      "pos": "RB",
+      "pts": 0.0,
+      "line": ""
+     },
+     {
+      "player": "LV D/ST",
+      "pos": "DEF",
+      "pts": 16.0,
+      "line": ""
+     }
+    ]
+   },
+   "louisnicoletti": {
+    "started": [
+     {
+      "slot": "QB",
+      "player": "D. Maye",
+      "pts": 5.76,
+      "proj": 18.57,
+      "line": "199 pass yds, 2 INT, 18 rush yds, 1 fumbles lost"
+     },
+     {
+      "slot": "RB",
+      "player": "C. Brown",
+      "pts": 7.9,
+      "proj": 14.16,
+      "line": "61 rush yds, 2 rec, 8 rec yds"
+     },
+     {
+      "slot": "RB",
+      "player": "B. Hall",
+      "pts": 7.0,
+      "proj": 14.14,
+      "line": "32 rush yds, 3 rec, 23 rec yds"
+     },
+     {
+      "slot": "WR",
+      "player": "J. Smith-Njigba",
+      "pts": 30.36,
+      "proj": 18.57,
+      "line": "14 pass yds, 10 rec, 128 rec yds, 2 rec TD"
+     },
+     {
+      "slot": "WR",
+      "player": "J. Downs",
+      "pts": 10.2,
+      "proj": 9.0,
+      "line": "5 rec, 77 rec yds"
+     },
+     {
+      "slot": "TE",
+      "player": "T. Kraft",
+      "pts": 4.6,
+      "proj": 9.56,
+      "line": "4 rec, 26 rec yds"
+     },
+     {
+      "slot": "FLEX",
+      "player": "J. Love",
+      "pts": 19.4,
+      "proj": 12.79,
+      "line": "90 rush yds, 5 rec, 19 rec yds, 1 rec TD"
+     },
+     {
+      "slot": "FLEX",
+      "player": "B. Corum",
+      "pts": 2.5,
+      "proj": 7.89,
+      "line": "15 rush yds, 2 rec"
+     },
+     {
+      "slot": "DEF",
+      "player": "CIN D/ST",
+      "pts": 3.0,
+      "proj": 7.82,
+      "line": ""
+     }
+    ],
+    "bench": [
+     {
+      "player": "L. Burden",
+      "pos": "WR",
+      "pts": 16.3,
+      "line": "7 rush yds, 7 rec, 61 rec yds, 1 rec TD"
+     },
+     {
+      "player": "T. Shough",
+      "pos": "QB",
+      "pts": 24.8,
+      "line": "255 pass yds, 4 pass TD, 1 INT, 36 rush yds, 2 fumbles lost"
+     },
+     {
+      "player": "C. Tate",
+      "pos": "WR",
+      "pts": 8.8,
+      "line": "6 rec, 58 rec yds"
+     },
+     {
+      "player": "J. Coleman",
+      "pos": "RB",
+      "pts": 0.0,
+      "line": ""
+     },
+     {
+      "player": "C. Godwin",
+      "pos": "WR",
+      "pts": 4.0,
+      "line": "3 rec, 25 rec yds"
+     },
+     {
+      "player": "D. Wicks",
+      "pos": "WR",
+      "pts": 4.2,
+      "line": "2 rec, 32 rec yds"
+     },
+     {
+      "player": "NE D/ST",
+      "pos": "DEF",
+      "pts": -1.0,
+      "line": ""
+     }
+    ]
+   },
+   "casebrabham": {
+    "started": [
+     {
+      "slot": "QB",
+      "player": "K. Murray",
+      "pts": 11.42,
+      "proj": 17.47,
+      "line": "168 pass yds, 1 pass TD, 1 INT, 17 rush yds"
+     },
+     {
+      "slot": "RB",
+      "player": "J. Gibbs",
+      "pts": 37.9,
+      "proj": 21.38,
+      "line": "99 rush yds, 2 rush TD, 7 rec, 65 rec yds, 1 rec TD"
+     },
+     {
+      "slot": "RB",
+      "player": "A. Jeanty",
+      "pts": 10.8,
+      "proj": 13.93,
+      "line": "56 rush yds, 3 rec, 37 rec yds"
+     },
+     {
+      "slot": "WR",
+      "player": "M. Wilson",
+      "pts": 20.4,
+      "proj": 9.99,
+      "line": "11 rec, 89 rec yds, 1 rec TD"
+     },
+     {
+      "slot": "WR",
+      "player": "R. Odunze",
+      "pts": 5.9,
+      "proj": 7.37,
+      "line": "3 rec, 44 rec yds"
+     },
+     {
+      "slot": "TE",
+      "player": "B. Bowers",
+      "pts": 22.6,
+      "proj": 10.31,
+      "line": "10 rec, 116 rec yds, 1 rec TD"
+     },
+     {
+      "slot": "FLEX",
+      "player": "B. Tuten",
+      "pts": 16.0,
+      "proj": 10.53,
+      "line": "73 rush yds, 1 rush TD, 2 rec, 17 rec yds"
+     },
+     {
+      "slot": "FLEX",
+      "player": "D. Montgomery",
+      "pts": 5.8,
+      "proj": 13.41,
+      "line": "33 rush yds, 2 rec, 15 rec yds"
+     },
+     {
+      "slot": "DEF",
+      "player": "SEA D/ST",
+      "pts": 2.0,
+      "proj": 9.33,
+      "line": ""
+     }
+    ],
+    "bench": [
+     {
+      "player": "J. Daniels",
+      "pos": "QB",
+      "pts": 0.0,
+      "line": ""
+     },
+     {
+      "player": "X. Worthy",
+      "pos": "WR",
+      "pts": 3.0,
+      "line": "2 rec, 20 rec yds"
+     },
+     {
+      "player": "M. Washington",
+      "pos": "RB",
+      "pts": 11.4,
+      "line": "54 rush yds, 1 rush TD"
+     },
+     {
+      "player": "D. Boston",
+      "pos": "WR",
+      "pts": 7.1,
+      "line": "2 rec, 41 rec yds"
+     },
+     {
+      "player": "M. Andrews",
+      "pos": "TE",
+      "pts": 3.9,
+      "line": "3 rec, 24 rec yds"
+     },
+     {
+      "player": "J. Love",
+      "pos": "QB",
+      "pts": 19.48,
+      "line": "312 pass yds, 2 pass TD, 1 INT"
+     },
+     {
+      "player": "Z. Flowers",
+      "pos": "WR",
+      "pts": 12.9,
+      "line": "20 rush yds, 5 rec, 84 rec yds"
+     }
+    ]
+   },
+   "briancami": {
+    "started": [
+     {
+      "slot": "QB",
+      "player": "P. Mahomes",
+      "pts": 16.94,
+      "proj": 20.65,
+      "line": "246 pass yds, 2 pass TD, 1 INT, 1 rush yds"
+     },
+     {
+      "slot": "RB",
+      "player": "C. McCaffrey",
+      "pts": 19.6,
+      "proj": 18.45,
+      "line": "75 rush yds, 1 rush TD, 4 rec, 41 rec yds"
+     },
+     {
+      "slot": "RB",
+      "player": "B. Irving",
+      "pts": 6.8,
+      "proj": 13.09,
+      "line": "46 rush yds, 2 rec, 12 rec yds"
+     },
+     {
+      "slot": "WR",
+      "player": "J. Jefferson",
+      "pts": 4.2,
+      "proj": 13.79,
+      "line": "2 rec, 32 rec yds"
+     },
+     {
+      "slot": "WR",
+      "player": "E. Egbuka",
+      "pts": 8.7,
+      "proj": 8.08,
+      "line": "5 rec, 62 rec yds"
+     },
+     {
+      "slot": "TE",
+      "player": "T. McBride",
+      "pts": 12.0,
+      "proj": 13.34,
+      "line": "9 rec, 75 rec yds"
+     },
+     {
+      "slot": "FLEX",
+      "player": "D. Moore",
+      "pts": 9.7,
+      "proj": 10.58,
+      "line": "6 rec, 67 rec yds"
+     },
+     {
+      "slot": "FLEX",
+      "player": "P. Washington",
+      "pts": 11.5,
+      "proj": 12.75,
+      "line": "3 rec, 40 rec yds, 1 rec TD"
+     },
+     {
+      "slot": "DEF",
+      "player": "SF D/ST",
+      "pts": 1.0,
+      "proj": 8.22,
+      "line": ""
+     }
+    ],
+    "bench": [
+     {
+      "player": "A. Mitchell",
+      "pos": "WR",
+      "pts": 0.0,
+      "line": ""
+     },
+     {
+      "player": "K. Johnson",
+      "pos": "RB",
+      "pts": 2.1,
+      "line": "6 rush yds, 1 rec, 10 rec yds"
+     },
+     {
+      "player": "J. Tyson",
+      "pos": "WR",
+      "pts": 0.0,
+      "line": ""
+     },
+     {
+      "player": "K. Black",
+      "pos": "RB",
+      "pts": 1.7,
+      "line": "17 rush yds"
+     },
+     {
+      "player": "J. Herbert",
+      "pos": "QB",
+      "pts": 13.74,
+      "line": "226 pass yds, 1 pass TD, 1 INT, 17 rush yds"
+     },
+     {
+      "player": "T. Allgeier",
+      "pos": "RB",
+      "pts": 2.9,
+      "line": "-1 rush yds, 4 rec, 10 rec yds"
+     },
+     {
+      "player": "B. Robinson",
+      "pos": "RB",
+      "pts": 11.0,
+      "line": "50 rush yds, 1 rush TD"
+     },
+     {
+      "player": "Z. Charbonnet",
+      "pos": "RB",
+      "pts": 0.0,
+      "line": ""
+     }
+    ]
+   },
+   "Stafford's Staffers": {
+    "started": [
+     {
+      "slot": "QB",
+      "player": "B. Purdy",
+      "pts": 31.28,
+      "proj": 21.56,
+      "line": "297 pass yds, 4 pass TD, 34 rush yds"
+     },
+     {
+      "slot": "RB",
+      "player": "J. Taylor",
+      "pts": 8.2,
+      "proj": 18.42,
+      "line": "68 rush yds, 2 rec, 4 rec yds"
+     },
+     {
+      "slot": "RB",
+      "player": "K. Williams",
+      "pts": 18.8,
+      "proj": 12.45,
+      "line": "88 rush yds, 6 rec, 70 rec yds"
+     },
+     {
+      "slot": "WR",
+      "player": "D. London",
+      "pts": 23.9,
+      "proj": 11.16,
+      "line": "9 rec, 194 rec yds"
+     },
+     {
+      "slot": "WR",
+      "player": "D. Adams",
+      "pts": 17.2,
+      "proj": 11.73,
+      "line": "7 rec, 137 rec yds"
+     },
+     {
+      "slot": "TE",
+      "player": "T. Kelce",
+      "pts": 12.9,
+      "proj": 9.39,
+      "line": "2 rec, 59 rec yds, 1 rec TD"
+     },
+     {
+      "slot": "FLEX",
+      "player": "L. McConkey",
+      "pts": 8.6,
+      "proj": 11.66,
+      "line": "4 rec, 66 rec yds"
+     },
+     {
+      "slot": "FLEX",
+      "player": "J. Price",
+      "pts": 0.7,
+      "proj": 9.52,
+      "line": "15 rush yds, 1 rec, 7 rec yds, 1 fumbles lost"
+     },
+     {
+      "slot": "DEF",
+      "player": "KC D/ST",
+      "pts": 9.0,
+      "proj": 9.16,
+      "line": ""
+     }
+    ],
+    "bench": [
+     {
+      "player": "J. Coker",
+      "pos": "WR",
+      "pts": 2.8,
+      "line": "2 rec, 18 rec yds"
+     },
+     {
+      "player": "C. Loveland",
+      "pos": "TE",
+      "pts": 5.1,
+      "line": "4 rec, 31 rec yds"
+     },
+     {
+      "player": "S. Diggs",
+      "pos": "WR",
+      "pts": 5.3,
+      "line": "4 rec, 33 rec yds"
+     },
+     {
+      "player": "M. Stafford",
+      "pos": "QB",
+      "pts": 22.9,
+      "line": "390 pass yds, 2 pass TD, 2 INT, 13 rush yds"
+     },
+     {
+      "player": "C. Kirk",
+      "pos": "WR",
+      "pts": 0.0,
+      "line": ""
+     },
+     {
+      "player": "R. Dowdle",
+      "pos": "RB",
+      "pts": 0.0,
+      "line": ""
+     },
+     {
+      "player": "K. Shakir",
+      "pos": "WR",
+      "pts": 1.1,
+      "line": "1 rec, 6 rec yds"
+     },
+     {
+      "player": "T. Dell",
+      "pos": "WR",
+      "pts": 0.0,
+      "line": ""
+     }
+    ]
+   },
+   "jwalthier": {
+    "started": [
+     {
+      "slot": "QB",
+      "player": "T. Lawrence",
+      "pts": 20.78,
+      "proj": 19.29,
+      "line": "182 pass yds, 3 pass TD, 1 INT, 25 rush yds"
+     },
+     {
+      "slot": "RB",
+      "player": "S. Barkley",
+      "pts": 8.5,
+      "proj": 14.88,
+      "line": "82 rush yds, 1 rec, -2 rec yds"
+     },
+     {
+      "slot": "RB",
+      "player": "Q. Judkins",
+      "pts": 8.9,
+      "proj": 11.29,
+      "line": "70 rush yds, 2 rec, 9 rec yds"
+     },
+     {
+      "slot": "WR",
+      "player": "C. Lamb",
+      "pts": 16.7,
+      "proj": 14.36,
+      "line": "7 rec, 112 rec yds"
+     },
+     {
+      "slot": "WR",
+      "player": "R. Rice",
+      "pts": 12.3,
+      "proj": 10.06,
+      "line": "7 rec, 88 rec yds"
+     },
+     {
+      "slot": "TE",
+      "player": "T. Warren",
+      "pts": 10.2,
+      "proj": 8.13,
+      "line": "2 rush yds, 9 rec, 55 rec yds"
+     },
+     {
+      "slot": "FLEX",
+      "player": "C. Olave",
+      "pts": 15.2,
+      "proj": 15.0,
+      "line": "9 rec, 107 rec yds"
+     },
+     {
+      "slot": "FLEX",
+      "player": "M. Evans",
+      "pts": 10.9,
+      "proj": 10.69,
+      "line": "3 rec, 34 rec yds, 1 rec TD"
+     },
+     {
+      "slot": "DEF",
+      "player": "BAL D/ST",
+      "pts": 6.0,
+      "proj": 6.58,
+      "line": ""
+     }
+    ],
+    "bench": [
+     {
+      "player": "C. Williams",
+      "pos": "QB",
+      "pts": 0.0,
+      "line": ""
+     },
+     {
+      "player": "T. Tracy",
+      "pos": "RB",
+      "pts": 0.3,
+      "line": "3 rush yds"
+     },
+     {
+      "player": "R. Harvey",
+      "pos": "RB",
+      "pts": 7.7,
+      "line": "6 rush yds, 6 rec, 41 rec yds"
+     },
+     {
+      "player": "D. Stribling",
+      "pos": "WR",
+      "pts": 0.0,
+      "line": ""
+     },
+     {
+      "player": "A. Kamara",
+      "pos": "RB",
+      "pts": 4.6,
+      "line": "36 rush yds, 1 rec, 5 rec yds"
+     },
+     {
+      "player": "D. Singletary",
+      "pos": "RB",
+      "pts": 0.0,
+      "line": ""
+     },
+     {
+      "player": "A. Pierce",
+      "pos": "WR",
+      "pts": 0.0,
+      "line": ""
+     },
+     {
+      "player": "J. Addison",
+      "pos": "WR",
+      "pts": 17.5,
+      "line": "5 rec, 90 rec yds, 1 rec TD"
+     }
+    ]
+   },
+   "Corey Dylan Clark": {
+    "started": [
+     {
+      "slot": "QB",
+      "player": "J. Allen",
+      "pts": 18.96,
+      "proj": 23.71,
+      "line": "204 pass yds, 2 INT, 22 rush yds, 2 rush TD, 1 rec, 1 rec yds, 1 fumbles lost"
+     },
+     {
+      "slot": "RB",
+      "player": "D. Achane",
+      "pts": 1.7,
+      "proj": 14.37,
+      "line": "17 rush yds"
+     },
+     {
+      "slot": "RB",
+      "player": "C. Skattebo",
+      "pts": 11.5,
+      "proj": 14.14,
+      "line": "60 rush yds, 3 rec, 40 rec yds"
+     },
+     {
+      "slot": "WR",
+      "player": "T. Tucker",
+      "pts": 6.3,
+      "proj": 7.37,
+      "line": "4 rec, 43 rec yds"
+     },
+     {
+      "slot": "WR",
+      "player": "T. McMillan",
+      "pts": 2.7,
+      "proj": 11.9,
+      "line": "2 rec, 17 rec yds"
+     },
+     {
+      "slot": "TE",
+      "player": "D. Schultz",
+      "pts": 4.5,
+      "proj": 9.25,
+      "line": "3 rec, 30 rec yds"
+     },
+     {
+      "slot": "FLEX",
+      "player": "K. Monangai",
+      "pts": 3.1,
+      "proj": 7.25,
+      "line": "31 rush yds"
+     },
+     {
+      "slot": "FLEX",
+      "player": "D. Samuel",
+      "pts": 15.4,
+      "proj": 9.46,
+      "line": "14 rush yds, 80 rec yds, 1 rec TD"
+     },
+     {
+      "slot": "DEF",
+      "player": "DET D/ST",
+      "pts": 8.0,
+      "proj": 7.26,
+      "line": ""
+     }
+    ],
+    "bench": [
+     {
+      "player": "D. Metcalf",
+      "pos": "WR",
+      "pts": 10.6,
+      "line": "3 rec, 31 rec yds, 1 rec TD"
+     },
+     {
+      "player": "T. McLaurin",
+      "pos": "WR",
+      "pts": 16.7,
+      "line": "6 rec, 77 rec yds, 1 rec TD"
+     },
+     {
+      "player": "J. Dobbins",
+      "pos": "RB",
+      "pts": 5.8,
+      "line": "49 rush yds, 1 rec, 4 rec yds"
+     },
+     {
+      "player": "R. Stevenson",
+      "pos": "RB",
+      "pts": 5.3,
+      "line": "22 rush yds, 3 rec, 16 rec yds"
+     },
+     {
+      "player": "J. Ferguson",
+      "pos": "TE",
+      "pts": 7.8,
+      "line": "3 rec, 23 rec yds, 1 rec TD, 1 fumbles lost"
+     },
+     {
+      "player": "P. Nacua",
+      "pos": "WR",
+      "pts": 0.0,
+      "line": ""
+     }
+    ]
+   },
+   "cdb1919": {
+    "started": [
+     {
+      "slot": "QB",
+      "player": "J. Burrow",
+      "pts": 22.58,
+      "proj": 17.48,
+      "line": "282 pass yds, 3 pass TD, 13 rush yds, 1 fumbles lost"
+     },
+     {
+      "slot": "RB",
+      "player": "J. Cook",
+      "pts": 19.4,
+      "proj": 15.48,
+      "line": "154 rush yds, 1 rush TD, 1 fumbles lost"
+     },
+     {
+      "slot": "RB",
+      "player": "K. Walker",
+      "pts": 20.3,
+      "proj": 18.47,
+      "line": "70 rush yds, 1 rush TD, 2 rec, 3 rec yds, 1 rec TD"
+     },
+     {
+      "slot": "WR",
+      "player": "M. Nabers",
+      "pts": 5.1,
+      "proj": 11.31,
+      "line": "5 rec, 26 rec yds"
+     },
+     {
+      "slot": "WR",
+      "player": "D. Smith",
+      "pts": 9.5,
+      "proj": 12.62,
+      "line": "6 rec, 65 rec yds"
+     },
+     {
+      "slot": "TE",
+      "player": "S. LaPorta",
+      "pts": 5.9,
+      "proj": 10.05,
+      "line": "3 rec, 44 rec yds"
+     },
+     {
+      "slot": "FLEX",
+      "player": "A. Jones",
+      "pts": 11.7,
+      "proj": 11.76,
+      "line": "58 rush yds, 5 rec, 34 rec yds"
+     },
+     {
+      "slot": "FLEX",
+      "player": "D. Kincaid",
+      "pts": 2.8,
+      "proj": 10.81,
+      "line": "2 rec, 38 rec yds, 1 fumbles lost"
+     },
+     {
+      "slot": "DEF",
+      "player": "LAR D/ST",
+      "pts": 4.0,
+      "proj": 6.5,
+      "line": ""
+     }
+    ],
+    "bench": [
+     {
+      "player": "M. Harrison",
+      "pos": "WR",
+      "pts": 5.5,
+      "line": "3 rec, 40 rec yds"
+     },
+     {
+      "player": "J. Dart",
+      "pos": "QB",
+      "pts": 0.0,
+      "line": ""
+     },
+     {
+      "player": "M. Lemon",
+      "pos": "WR",
+      "pts": 4.4,
+      "line": "3 rec, 29 rec yds"
+     },
+     {
+      "player": "J. Jacobs",
+      "pos": "RB",
+      "pts": 0.0,
+      "line": ""
+     },
+     {
+      "player": "J. Meyers",
+      "pos": "WR",
+      "pts": 15.9,
+      "line": "7 rec, 64 rec yds, 1 rec TD"
+     }
+    ]
+   },
+   "naaaaaaaaaaaaaaaate": {
+    "started": [
+     {
+      "slot": "QB",
+      "player": "J. Goff",
+      "pts": 19.36,
+      "proj": 19.45,
+      "line": "269 pass yds, 2 pass TD, 6 rush yds"
+     },
+     {
+      "slot": "RB",
+      "player": "O. Hampton",
+      "pts": 5.6,
+      "proj": 12.93,
+      "line": "56 rush yds"
+     },
+     {
+      "slot": "RB",
+      "player": "J. Williams",
+      "pts": 17.3,
+      "proj": 14.05,
+      "line": "98 rush yds, 1 rush TD, 2 rec, 5 rec yds"
+     },
+     {
+      "slot": "WR",
+      "player": "A. St. Brown",
+      "pts": 9.9,
+      "proj": 16.43,
+      "line": "4 rec, 19 rec yds, 1 rec TD"
+     },
+     {
+      "slot": "WR",
+      "player": "T. Higgins",
+      "pts": 18.0,
+      "proj": 11.49,
+      "line": "6 rec, 90 rec yds, 1 rec TD"
+     },
+     {
+      "slot": "TE",
+      "player": "K. Pitts",
+      "pts": 1.0,
+      "proj": 7.71,
+      "line": "1 rec, 5 rec yds"
+     },
+     {
+      "slot": "FLEX",
+      "player": "J. Waddle",
+      "pts": 5.4,
+      "proj": 10.99,
+      "line": "14 rush yds, 2 rec, 10 rec yds"
+     },
+     {
+      "slot": "FLEX",
+      "player": "J. Warren",
+      "pts": 19.1,
+      "proj": 14.38,
+      "line": "127 rush yds, 3 rec, 49 rec yds"
+     },
+     {
+      "slot": "DEF",
+      "player": "DEN D/ST",
+      "pts": 14.0,
+      "proj": 6.45,
+      "line": ""
+     }
+    ],
+    "bench": [
+     {
+      "player": "B. Thomas",
+      "pos": "WR",
+      "pts": 1.3,
+      "line": "1 rec, 8 rec yds"
+     },
+     {
+      "player": "D. Prescott",
+      "pos": "QB",
+      "pts": 18.94,
+      "line": "276 pass yds, 1 pass TD, 19 rush yds"
+     },
+     {
+      "player": "C. Sutton",
+      "pos": "WR",
+      "pts": 6.1,
+      "line": "3 rec, 46 rec yds"
+     },
+     {
+      "player": "I. Likely",
+      "pos": "TE",
+      "pts": 2.3,
+      "line": "2 rec, 13 rec yds"
+     },
+     {
+      "player": "R. White",
+      "pos": "RB",
+      "pts": 10.6,
+      "line": "35 rush yds, 1 rec, 6 rec yds, 1 rec TD"
+     }
+    ]
+   },
+   "aaronargyres": {
+    "started": [
+     {
+      "slot": "QB",
+      "player": "J. Hurts",
+      "pts": 13.62,
+      "proj": 18.47,
+      "line": "153 pass yds, 1 INT, 25 rush yds, 1 rush TD"
+     },
+     {
+      "slot": "RB",
+      "player": "D. Henry",
+      "pts": 21.4,
+      "proj": 18.16,
+      "line": "89 rush yds, 2 rush TD, 1 rec"
+     },
+     {
+      "slot": "RB",
+      "player": "T. Etienne",
+      "pts": 8.0,
+      "proj": 10.17,
+      "line": "57 rush yds, 2 rec, 13 rec yds"
+     },
+     {
+      "slot": "WR",
+      "player": "J. Chase",
+      "pts": 20.3,
+      "proj": 13.86,
+      "line": "9 rec, 98 rec yds, 1 rec TD"
+     },
+     {
+      "slot": "WR",
+      "player": "M. Golden",
+      "pts": 18.5,
+      "proj": 9.17,
+      "line": "5 rec, 100 rec yds, 1 rec TD"
+     },
+     {
+      "slot": "TE",
+      "player": "G. Kittle",
+      "pts": 23.2,
+      "proj": 10.09,
+      "line": "6 rec, 82 rec yds, 2 rec TD"
+     },
+     {
+      "slot": "FLEX",
+      "player": "G. Wilson",
+      "pts": 21.7,
+      "proj": 13.17,
+      "line": "10 rec, 107 rec yds, 1 rec TD"
+     },
+     {
+      "slot": "FLEX",
+      "player": "C. Hubbard",
+      "pts": 13.0,
+      "proj": 13.46,
+      "line": "82 rush yds, 4 rec, 28 rec yds"
+     },
+     {
+      "slot": "DEF",
+      "player": "HOU D/ST",
+      "pts": 13.0,
+      "proj": 7.92,
+      "line": ""
+     }
+    ],
+    "bench": [
+     {
+      "player": "T. Henderson",
+      "pos": "RB",
+      "pts": 3.4,
+      "line": "23 rush yds, 1 rec, 6 rec yds"
+     },
+     {
+      "player": "J. Croskey-Merritt",
+      "pos": "RB",
+      "pts": 4.8,
+      "line": "36 rush yds, 1 rec, 7 rec yds"
+     },
+     {
+      "player": "D. Waller",
+      "pos": "TE",
+      "pts": 7.6,
+      "line": "5 rec, 51 rec yds"
+     },
+     {
+      "player": "M. Pittman",
+      "pos": "WR",
+      "pts": 2.6,
+      "line": "2 rec, 16 rec yds"
+     },
+     {
+      "player": "N. Collins",
+      "pos": "WR",
+      "pts": 0.0,
+      "line": ""
+     }
+    ]
+   }
+  },
+  "pickups": [
+   {
+    "team": "louisnicoletti",
+    "player": "D. Wicks",
+    "bid": null,
+    "pts": 4.2,
+    "started": false
+   },
+   {
+    "team": "Lamar JacksOff",
+    "player": "S. Darnold",
+    "bid": 0,
+    "pts": 29.66,
+    "started": false
+   },
+   {
+    "team": "Lamar JacksOff",
+    "player": "LV D/ST",
+    "bid": 0,
+    "pts": 16.0,
+    "started": false
+   },
+   {
+    "team": "Lamar JacksOff",
+    "player": "E. Wilson",
+    "bid": 1,
+    "pts": 1.4,
+    "started": false
+   },
+   {
+    "team": "jwalthier",
+    "player": "J. Addison",
+    "bid": 4,
+    "pts": 17.5,
+    "started": false
+   },
+   {
+    "team": "jwalthier",
+    "player": "A. Kamara",
+    "bid": 12,
+    "pts": 4.6,
+    "started": false
+   },
+   {
+    "team": "casebrabham",
+    "player": "J. Love",
+    "bid": 0,
+    "pts": 19.48,
+    "started": false
+   },
+   {
+    "team": "casebrabham",
+    "player": "D. Boston",
+    "bid": 3,
+    "pts": 7.1,
+    "started": false
+   },
+   {
+    "team": "Corey Dylan Clark",
+    "player": "T. Tucker",
+    "bid": 19,
+    "pts": 6.3,
+    "started": true
+   },
+   {
+    "team": "Corey Dylan Clark",
+    "player": "D. Schultz",
+    "bid": 8,
+    "pts": 4.5,
+    "started": true
+   },
+   {
+    "team": "louisnicoletti",
+    "player": "CIN D/ST",
+    "bid": 0,
+    "pts": 3.0,
+    "started": true
+   },
+   {
+    "team": "briancami",
+    "player": "K. Johnson",
+    "bid": 4,
+    "pts": 2.1,
+    "started": false
+   },
+   {
+    "team": "briancami",
+    "player": "A. Mitchell",
+    "bid": 4,
+    "pts": 0.0,
+    "started": false
+   }
+  ],
+  "standings": [
+   {
+    "team": "jwalthier",
+    "w": 3,
+    "l": 0,
+    "t": 0,
+    "pf": 335.96,
+    "pa": 237.9,
+    "all_play": "14-13",
+    "bench_left": 6.7,
+    "luck": 1.44
+   },
+   {
+    "team": "aaronargyres",
+    "w": 2,
+    "l": 1,
+    "t": 0,
+    "pf": 398.6,
+    "pa": 343.38,
+    "all_play": "20-7",
+    "bench_left": 29.6,
+    "luck": -0.22
+   },
+   {
+    "team": "Stafford's Staffers",
+    "w": 2,
+    "l": 1,
+    "t": 0,
+    "pf": 338.36,
+    "pa": 335.86,
+    "all_play": "14-13",
+    "bench_left": 103.1,
+    "luck": 0.44
+   },
+   {
+    "team": "briancami",
+    "w": 2,
+    "l": 1,
+    "t": 0,
+    "pf": 332.68,
+    "pa": 358.16,
+    "all_play": "13-14",
+    "bench_left": 42.1,
+    "luck": 0.56
+   },
+   {
+    "team": "naaaaaaaaaaaaaaaate",
+    "w": 2,
+    "l": 1,
+    "t": 0,
+    "pf": 330.68,
+    "pa": 301.62,
+    "all_play": "13-14",
+    "bench_left": 44.2,
+    "luck": 0.56
+   },
+   {
+    "team": "Lamar JacksOff",
+    "w": 1,
+    "l": 2,
+    "t": 0,
+    "pf": 370.0,
+    "pa": 381.5,
+    "all_play": "15-12",
+    "bench_left": 47.9,
+    "luck": -0.67
+   },
+   {
+    "team": "casebrabham",
+    "w": 1,
+    "l": 2,
+    "t": 0,
+    "pf": 364.98,
+    "pa": 379.38,
+    "all_play": "16-11",
+    "bench_left": 47.8,
+    "luck": -0.78
+   },
+   {
+    "team": "cdb1919",
+    "w": 1,
+    "l": 2,
+    "t": 0,
+    "pf": 333.62,
+    "pa": 412.36,
+    "all_play": "14-13",
+    "bench_left": 43.7,
+    "luck": -0.56
+   },
+   {
+    "team": "Corey Dylan Clark",
+    "w": 1,
+    "l": 2,
+    "t": 0,
+    "pf": 282.44,
+    "pa": 278.16,
+    "all_play": "6-21",
+    "bench_left": 71.9,
+    "luck": 0.33
+   },
+   {
+    "team": "louisnicoletti",
+    "w": 0,
+    "l": 3,
+    "t": 0,
+    "pf": 312.06,
+    "pa": 371.06,
+    "all_play": "10-17",
+    "bench_left": 57.7,
+    "luck": -1.11
+   }
+  ],
+  "next": {
+   "week": 4,
+   "psa": [
+    {
+     "team": "louisnicoletti",
+     "player": "B. Hall",
+     "status": "Out"
+    },
+    {
+     "team": "briancami",
+     "player": "J. Jefferson",
+     "status": "Out"
+    },
+    {
+     "team": "Corey Dylan Clark",
+     "player": "D. Achane",
+     "status": "IR"
+    },
+    {
+     "team": "aaronargyres",
+     "player": "T. Etienne",
+     "status": "Out"
+    }
+   ],
+   "games": [
+    {
+     "a": "briancami",
+     "b": "aaronargyres",
+     "a_proj": 119.2,
+     "b_proj": 106.4
+    },
+    {
+     "a": "cdb1919",
+     "b": "naaaaaaaaaaaaaaaate",
+     "a_proj": 113.7,
+     "b_proj": 108.0
+    },
+    {
+     "a": "Stafford's Staffers",
+     "b": "jwalthier",
+     "a_proj": 115.6,
+     "b_proj": 111.9
+    },
+    {
+     "a": "Lamar JacksOff",
+     "b": "louisnicoletti",
+     "a_proj": 123.4,
+     "b_proj": 99.6
+    },
+    {
+     "a": "casebrabham",
+     "b": "Corey Dylan Clark",
+     "a_proj": 127.8,
+     "b_proj": 86.8
+    }
+   ]
+  }
+ },
+ "copy": {
+  "by": "template",
+  "headline": "HEARTBREAKER",
+  "dek": "louisnicoletti: lost by 18.94, one swap from winning by 0.10.",
+  "hero_value": "152.72",
+  "hero_caption": "aaronargyres led the week",
+  "pen_notes": [],
+  "text_message": "Week 3 recap! 🥣\n- Biggest domination: @aaronargyres, by 51.44 over cdb1919 💣\n- Top score: @aaronargyres, 152.72 (+38.2 vs proj) 🥇\n- Biggest loser: @jonraduazzo, 72.16 (-32.5 vs proj) 💩\n- Closest game: @dclark34, by 18.62 over casebrabham 🤏\n- Heartbreaker: @louisnicoletti, lost by 18.94, one swap from winning by 0.10 💔\n- Best manager: @aaronargyres, 100% of max (152.72) 🔥\n- Worst manager: @jonraduazzo, 71.4% of max (101.06) 🤡\n- Best bench: @dclark34, 70.46 on the bench 🪑\n- Best player: @casebrabham, J. Gibbs 37.90 💪\n- Bench MVP: @dclark34, S. Darnold 29.66 🛋️\n- Overachiever: @casebrabham, J. Gibbs 37.90, +16.5 vs proj 📈\n- Underachiever: @louisnicoletti, D. Maye 5.76, -12.8 vs proj 👎\n- Lucky: @jwalthier, won with the 6th-best score 🍀\n- Unlucky: @casebrabham, lost with the 3rd-best score 😡\n- Big spender: @jonraduazzo, $19 on T. Tucker, 6.3 pts 💸",
+  "award_lines": [],
+  "game_lines": [],
+  "preview_lines": [],
+  "signoff": ""
+ }
+}
