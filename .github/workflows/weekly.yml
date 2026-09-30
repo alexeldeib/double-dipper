@@ -51,7 +51,7 @@ jobs:
       - name: Show the jokes (dry run)
         if: ${{ inputs.dry_run }}
         run: |
-          python - >> "$GITHUB_STEP_SUMMARY" <<'EOF'
+          python - <<'EOF' | tee -a "$GITHUB_STEP_SUMMARY"
           import glob, json, os
           d = json.load(open(max(glob.glob("weeks/*.json"), key=os.path.getmtime)))
           c, w = d["copy"], d["facts"]["week"]

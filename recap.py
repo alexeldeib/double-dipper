@@ -360,6 +360,7 @@ def template_copy(f):
 
 
 BIG = ("blowout", "high", "low", "close", "heartbreaker")  # the big stuff; every other trophy is an "other fun stat"
+AT = r"@\w+"  # @mentions get lit up in running text
 
 
 def ems(s):
@@ -367,16 +368,33 @@ def ems(s):
     return sum(.11 if ch == " " else .27 if ch in "I1.,:;'’!|" else .73 if ch in "@MW%" else .53 for ch in s.upper())
 
 
-def ring(w, h):
-    """A telestrator loop around a w x h box: one stroke that overshoots where it started."""
-    return (f"M{w * .68:.0f} {h * .05:.0f} C{w * .3:.0f} {h * -.03:.0f} {w * .02:.0f} {h * .12:.0f} {w * .03:.0f} {h * .5:.0f} "
-            f"C{w * .04:.0f} {h * .9:.0f} {w * .42:.0f} {h * 1.01:.0f} {w * .68:.0f} {h * .96:.0f} "
-            f"C{w * .96:.0f} {h * .91:.0f} {w * 1.01:.0f} {h * .52:.0f} {w * .94:.0f} {h * .28:.0f} "
-            f"C{w * .87:.0f} {h * .07:.0f} {w * .56:.0f} {h * -.01:.0f} {w * .3:.0f} {h * .1:.0f}")
+def led_ems(s):
+    """Advance width of s in the LED numerals (Big Shoulders Display Black), in em."""
+    return sum(.27 if ch in "1.,:" else .45 if ch == "-" else .68 if ch == "%" else .22 if ch == " " else .5 for ch in s)
 
 
-ARROW = ('<svg class="arrow" viewBox="0 0 40 44" aria-hidden="true" focusable="false">'
-         '<path pathLength="1" d="M36 2 C30 14 18 26 8 40 M18 36 L8 40 L8 29"/></svg>')
+def ring(a, b):
+    """The telestrator loop around the hero number: a rounded oval (semi-axes a, b in em) drawn in one stroke that
+    spirals a little past where it started. Returns the viewBox width, height and path, in hundredths of an em."""
+    import math
+    grow, s = 1.075, 7  # how far the loop spirals out by the end, and room for the stroke
+    w, h = 2 * (a * grow * 100 + s), 2 * (b * grow * 100 + s)
+    pts = []
+    for i in range(31):
+        t = math.radians(-50 - 410 * i / 30)
+        c, n = math.cos(t), math.sin(t)
+        r = (1 + .055 * i / 30) * (1 + .015 * math.sin(2.5 * t))
+        pts.append((w / 2 + a * 100 * r * math.copysign(abs(c) ** .8, c), h / 2 + b * 100 * r * math.copysign(abs(n) ** .8, n)))
+    d = "M%.0f %.0f" % pts[0]
+    for i in range(30):  # Catmull-Rom through the points, as cubic Beziers
+        p0, p1, p2, p3 = pts[max(i - 1, 0)], pts[i], pts[i + 1], pts[min(i + 2, 30)]
+        d += " C%.0f %.0f %.0f %.0f %.0f %.0f" % (p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6,
+                                                 p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6, *p2)
+    return w, h, d
+
+
+ARROW = ('<svg class="arrow" viewBox="0 0 44 30" aria-hidden="true" focusable="false">'
+         '<path pathLength="1" d="M42 3 C30 5 16 12 7 26 M17 25 L7 27 L6 17"/></svg>')
 SCRIBBLE = ('<svg class="scrib" viewBox="0 0 120 12" preserveAspectRatio="none" aria-hidden="true" focusable="false">'
             '<path d="M3 8 C28 3 52 10 78 5 S108 3 117 7"/></svg>')
 
@@ -384,7 +402,8 @@ SCRIBBLE = ('<svg class="scrib" viewBox="0 0 120 12" preserveAspectRatio="none" 
 def page(shell, f, c, url, data):
     e = html.escape
     who = {t["team"]: t for t in f["teams"]}
-    lines = {k: {x["key"]: x["line"] for x in c.get(k) or []} for k in ("award_lines", "game_lines", "preview_lines")}
+    lines = {k: {x["key"]: x["line"] for x in c.get(k) or []}
+             for k in ("award_lines", "game_lines", "preview_lines", "power_lines")}
     notes = [(n or "").strip() for n in c.get("pen_notes") or []]
     wk, league = f["week"], f["league"]
 
@@ -403,8 +422,11 @@ def page(shell, f, c, url, data):
             return f'<img class="av" src="{e(t["avatar"])}" alt="" width="{size}" height="{size}" loading="lazy" decoding="async">'
         return f'<span class="av" aria-hidden="true">{e(team[:1].upper())}</span>'
 
+    def manager(team):
+        return who.get(team, {}).get("manager") or team
+
     def lower_third(team, size):
-        mgr = who.get(team, {}).get("manager") or team
+        mgr = manager(team)
         sub = f'<span class="l3-team">{e(team)}</span>' if mgr != team else ""
         return (f'<div class="l3">{avatar(team, size)}<p><span class="l3-name" style="--n:{fit("@" + mgr)}">@{e(mgr)}</span>'
                 f'{sub}</p></div>')
@@ -430,17 +452,40 @@ def page(shell, f, c, url, data):
         return (f'<p class="sb-row {cls}">{avatar(team, 34)}<span class="sb-t" style="--n:{fit(team)}">{e(team)}</span>'
                 f'<b class="sb-s">{shown}</b></p>')
 
-    # Lead: headline, dek, and the stat graphic with the analyst's circle around the number.
+    # Week switcher: every saved week of this season, plus previous/next steps across all of them.
+    def week_url(x):
+        return f'{SITE}{x["season"]}/{x["week"]}/'
+
+    weeks = [d["facts"] for d in data]
+    here = next((i for i, x in enumerate(weeks) if (x["season"], x["week"]) == (f["season"], wk)), None)
+
+    def step(i, cls, label):
+        if here is None or not 0 <= i < len(weeks):
+            return f'<span class="step {cls} off" aria-hidden="true"></span>'
+        return (f'<a class="step {cls}" href="{week_url(weeks[i])}" rel="{cls}">'
+                f'<span class="sr">{label}: week {weeks[i]["week"]}</span></a>')
+
+    chips = "".join(
+        f'<li><a href="{week_url(x)}"{" aria-current=page" if i == here else ""}>Wk {x["week"]}</a></li>'
+        for i, x in enumerate(weeks) if x["season"] == f["season"])
+    week_nav = (f'<nav class="weeks" aria-label="Weeks">{step((here or 0) - 1, "prev", "Previous")}'
+                f'<ol class="wk-list" role="list">{chips}</ol>{step((here or 0) + 1, "next", "Next")}</nav>')
+
+    # Lead: headline, dek, and the stat graphic. The analyst's loop clears the digits' corners by 0.07em,
+    # with more air above, below and to the sides; the board leaves room around the loop.
     head, value, cap = c.get("headline") or "", c.get("hero_value") or "", c.get("hero_caption") or ""
     stat = ""
     if value:
-        lw = ems(value) + .02 * len(value)
-        vb = round(100 * (lw + .5))
-        stat = (f'<div class="stat" style="--lw:{lw:.2f}"><p class="stat-tab">The number</p>'
+        x, y = (led_ems(value) - .08) / 2 + .07, .41 + .07  # half the digits' ink box, plus clearance
+        b = .64
+        a = x / (1 - (y / b) ** 2.5) ** .4 / .985
+        w, h, d = ring(a, b / .985)
+        stat = (f'<div class="stat" style="--rw:{w / 100:.2f};--rh:{h / 100:.2f};--lp:{(h / 100 + .2 - 1) / 2:.2f}">'
+                f'<p class="stat-tab">The number</p>{note(0, ARROW)}'
                 f'<div class="stat-box"><span class="led-glow"><span class="led">{e(value)}</span></span>'
-                f'<svg class="ring" viewBox="0 0 {vb} 118" preserveAspectRatio="none" aria-hidden="true" focusable="false">'
-                f'<path pathLength="1" d="{ring(vb, 118)}"/></svg></div>'
-                f'{note(0, ARROW)}{f"<p class=stat-cap>{e(cap)}</p>" if cap else ""}</div>')
+                f'<svg class="ring" viewBox="0 0 {w:.0f} {h:.0f}" aria-hidden="true" focusable="false">'
+                f'<path pathLength="1" d="{d}"/></svg></div>'
+                f'{f"<p class=stat-cap>{e(cap)}</p>" if cap else ""}</div>')
 
     def crawl_item(i, g):
         quip = lines["game_lines"].get(str(i))
@@ -454,22 +499,52 @@ def page(shell, f, c, url, data):
              f'<input type="checkbox" id="hold" class="hold-box"><label for="hold" class="hold"><span class="sr">Pause the scores ticker</span></label>'
              f'<div class="crawl-view" aria-hidden="true"><p class="crawl-track" style="--dur:{secs}s">'
              f'<span class="crawl-set">{reel}</span><span class="crawl-set">{reel}</span></p></div></div>') if reel else ""
-    dek = lit(c.get("dek") or "", r"@\w+")  # light up the @mentions
     lead = (f'<section class="lead" aria-labelledby="lead-h" data-wk="{wk}"><div class="lead-in"><div class="lead-copy">'
             f'<p class="kick">Week {wk} · Top story</p>'
             f'<h1 id="lead-h" class="headline" style="--hw:{max(map(ems, head.split() or [""])):.2f};--ht:{ems(head):.2f}">{e(head)}</h1>'
-            f'<p class="dek">{dek}</p></div>{stat}</div>{crawl}</section>')
+            f'<p class="dek">{lit(c.get("dek") or "", AT)}</p></div>{stat}</div>{crawl}</section>')
 
-    # Trophies: the big stuff first, then the other fun stats. Every winner gets a lower third.
+    # The Rundown: the lead segment, in the writer's words. Skipped when there's no story (template copy).
+    story = [s.strip() for s in c.get("story") or [] if s and s.strip()]
+    rundown = (f'<section class="seg rundown" aria-labelledby="run-h">{bumper("run-h", "The Rundown", f"Week {wk} · from the desk")}'
+               f'<div class="story">{"".join(f"<p>{lit(s, AT)}</p>" for s in story)}</div></section>') if story else ""
+
+    # Power rankings: all ten, with movement. The analyst circles the week's biggest climb.
+    power = f.get("power") or []
+    climbs = [p["prev"] - p["rank"] for p in power if p.get("prev")]
+    top_climb = max(climbs, default=0)
+
+    def movement(p):
+        if not p.get("prev"):
+            return '<span class="mv new">New</span>'
+        delta = p["prev"] - p["rank"]
+        if delta:
+            hot = " hot" if delta == top_climb >= 3 else ""
+            return (f'<span class="mv {"up" if delta > 0 else "down"}{hot}"><span class="sr">{"up" if delta > 0 else "down"} </span>'
+                    f'{abs(delta)}</span>')
+        return '<span class="mv same"><span class="sr">no change</span></span>'
+
+    def ranked(p):
+        mgr = manager(p["team"])
+        meta = "".join(f"<span>{e(x)}</span>" for x in (f"@{mgr}" if mgr != p["team"] else "", p.get("record"),
+                                                        f'{p["all_play"]} all-play' if p.get("all_play") else "") if x)
+        return (f'<li class="pr-row"><span class="pr-rk">{p["rank"]}</span>{movement(p)}{avatar(p["team"], 44)}'
+                f'<p class="pr-team"><b style="--n:{fit(p["team"])}">{e(p["team"])}</b></p><p class="pr-meta">{meta}</p>'
+                f'{line("power_lines", p["team"], "pr-line")}</li>')
+
+    rankings = (f'<section class="seg power" aria-labelledby="pow-h">{bumper("pow-h", "Power Rankings", "All-play record, then points")}'
+                f'<ol class="pr" role="list">{"".join(map(ranked, power))}</ol></section>') if power else ""
+
+    # Trophies: the supporting stats package. The big stuff first, then the other fun stats.
     def award(a):
         big = a["key"] in BIG
         return (f'<article class="aw{" aw-big" if big else ""}"><h4 class="aw-tag"><span aria-hidden="true">{e(a["emoji"])}</span>'
-                f'{e(a["label"])}</h4>{lower_third(a["team"], 64 if big else 52)}<p class="aw-stat">{lit(a["stat"], hit=value)}</p>'
+                f'{e(a["label"])}</h4>{lower_third(a["team"], 56 if big else 48)}<p class="aw-stat">{lit(a["stat"], hit=value)}</p>'
                 f'{line("award_lines", a["key"], "aw-line")}{tape(a.get("vs"))}</article>')
 
     big = "".join(award(a) for a in f["awards"] if a["key"] in BIG)
     more = "".join(award(a) for a in f["awards"] if a["key"] not in BIG)
-    count = f"The hardware · {len(f['awards'])} awards"
+    count = f"The stats package · {len(f['awards'])} awards"
     trophies = (f'<section class="seg" aria-labelledby="tro-h">{bumper("tro-h", "Trophies", count, note(1, SCRIBBLE))}'
                 + (f'<h3 class="sr">The big stuff</h3><div class="aws aws-big">{big}</div>' if big else "")
                 + (f'<h3 class="sub">Other fun stats</h3><div class="aws aws-more">{more}</div>' if more else "")
@@ -528,17 +603,15 @@ def page(shell, f, c, url, data):
             f'<th scope="col">Max</th><th scope="col">Left</th><th scope="col">Eff</th></tr></thead><tbody>{report}</tbody></table></div>'
             f'</div></section>')
 
-    here = (f["season"], f["week"])
     archive = "".join(
-        f'<li><a href="{SITE}{d["facts"]["season"]}/{d["facts"]["week"]}/"'
-        f'{" aria-current=page" if (d["facts"]["season"], d["facts"]["week"]) == here else ""}>'
-        f'<span class="arc-wk">Wk {d["facts"]["week"]}</span>{e(d["copy"].get("headline") or "")}</a></li>' for d in reversed(data))
+        f'<li><a href="{week_url(d["facts"])}"{" aria-current=page" if i == here else ""}>'
+        f'<span class="arc-wk">Wk {d["facts"]["week"]}</span>{e(d["copy"].get("headline") or "")}</a></li>'
+        for i, d in reversed(list(enumerate(data))))
     mark = "".join(w[:1] for w in league.split()[:2]).upper()
     signoff = f'<p class="pen signoff">{e(c["signoff"])}{SCRIBBLE}</p>' if c.get("signoff") else ""
     body = (f'<header class="mast"><div class="mast-in"><p class="mark" aria-hidden="true">{e(mark)}</p>'
-            f'<p class="brand"><b>{e(league)}</b><span>{e(str(f["season"]))} season recap</span></p>'
-            f'<p class="clock"><span class="wk">Wk {wk}</span><span class="fin">Final</span></p></div></header>'
-            f'<main>{lead}{trophies}{scoreboard}{upcoming}{nerd}</main>'
+            f'<p class="brand"><b>{e(league)}</b><span>{e(str(f["season"]))} season recap</span></p>{week_nav}</div></header>'
+            f'<main>{lead}{rundown}{rankings}{trophies}{scoreboard}{upcoming}{nerd}</main>'
             f'<footer class="foot">{signoff}'
             f'<nav aria-labelledby="arc-h"><h2 id="arc-h" class="foot-h">Previously on {e(league)}</h2><ul class="archive">{archive}</ul></nav>'
             f'<p class="fine">Numbers from Sleeper. Jokes from Claude. Updates Tuesday nights.</p></footer>')
