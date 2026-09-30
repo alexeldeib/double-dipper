@@ -1939,17 +1939,174 @@
   }
  },
  "copy": {
-  "by": "template",
-  "headline": "HEARTBREAKER",
-  "dek": "louisnicoletti: lost by 18.94, one swap from winning by 0.10.",
-  "hero_value": "152.72",
-  "hero_caption": "aaronargyres led the week",
-  "pen_notes": [],
-  "story": [],
-  "power_lines": [],
-  "award_lines": [],
-  "game_lines": [],
-  "preview_lines": [],
-  "signoff": ""
+  "headline": "SIDE SHOUGH",
+  "dek": "@louisnicoletti started Drake Maye over Tyler Shough, and one lineup call turned a win into 0-3.",
+  "hero_value": "0.10",
+  "hero_caption": "The win Shough watched from the bench.",
+  "pen_notes": [
+   "SHOUGH, DON'T TELL",
+   "$0 QBs: IGNORED",
+   "WHO'S 3-0?",
+   "TROPHY CASE",
+   "MERCY RULE?",
+   "TRAFFIC JAM"
+  ],
+  "story": [
+   "@louisnicoletti had two quarterbacks and one decision. Drake Maye got the start, Tyler Shough threw touchdowns to an empty couch, and a win by a dime turned into 0-3. Best Shough in town, and nobody bought a ticket.",
+   "@aaronargyres made zero wrong lineup calls and climbed to first. Revolutionary strategy: start the players who score. The other nine managers have requested a tutorial.",
+   "The hottest position was the free quarterback nobody started. @dclark34 sat Sam Darnold, @casebrabham sat Jordan Love, and naturally they played each other. The commish survived; @casebrabham got the week's third-best score and a loss.",
+   "@alexeldeib benched Matthew Stafford again, and this time Purdy made it look smart. The site owner is up four spots, so expect this page to get smug.",
+   "Meanwhile the power rankings put two losing teams on the podium and the league's only unbeaten team fifth. The rankings and the standings are no longer on speaking terms."
+  ],
+  "power_lines": [
+   {
+    "key": "aaronargyres",
+    "line": "Three straight 120-plus weeks. That loss column is starting to look like a typo."
+   },
+   {
+    "key": "casebrabham",
+    "line": "Collected three trophies and a loss. Somebody check the exchange rate."
+   },
+   {
+    "key": "Lamar JacksOff",
+    "line": "Bijan ran up 194 yards. The commish ran up six spots."
+   },
+   {
+    "key": "Stafford's Staffers",
+    "line": "Leads the league in points left on the bench (103.1). Staffing issue, not talent issue."
+   },
+   {
+    "key": "jwalthier",
+    "line": "Undefeated and slipped a spot. The rankings would like to see some ID."
+   },
+   {
+    "key": "cdb1919",
+    "line": "Allowing 137.5 a game. Opponents save their best stuff for this matchup."
+   },
+   {
+    "key": "briancami",
+    "line": "Owns the wrong B. Robinson, then benched him too. First to seventh, fittingly."
+   },
+   {
+    "key": "naaaaaaaaaaaaaaaate",
+    "line": "Outscored 3-0 @jwalthier by 0.18, just in the wrong game. Down to eighth anyway."
+   },
+   {
+    "key": "louisnicoletti",
+    "line": "JSN caught 128 yards and threw for 14. Maybe let him play quarterback too."
+   },
+   {
+    "key": "Corey Dylan Clark",
+    "line": "Three weeks, three smaller scores. The firm is billing fewer hours."
+   }
+  ],
+  "award_lines": [
+   {
+    "key": "blowout",
+    "line": "Same projection as cdb1919. Only one of them treated it as a floor."
+   },
+   {
+    "key": "high",
+    "line": "Five starters topped 18. Jalen Hurts wasn't one, and it didn't Hurt."
+   },
+   {
+    "key": "low",
+    "line": "Jahmyr Gibbs (37.9) beat seven of these starters combined. By a dime."
+   },
+   {
+    "key": "close",
+    "line": "The week's nailbiter, decided by 26.6 Jadarian Prices."
+   },
+   {
+    "key": "heartbreaker",
+    "line": "Shough threw four touchdowns from the bench. Maye threw two to the defense."
+   },
+   {
+    "key": "best_mgr",
+    "line": "Perfect lineup. Even Nico Collins's zero got benched correctly."
+   },
+   {
+    "key": "worst_mgr",
+    "line": "T. Mc on the bench, T. Mc in the lineup. Picked the wrong Mc."
+   },
+   {
+    "key": "best_bench",
+    "line": "The backups came within 6.24 of the entire week-two lineup."
+   },
+   {
+    "key": "mvp",
+    "line": "Doubled Kyler Murray and David Montgomery combined. Carried the team; the team didn't carry back."
+   },
+   {
+    "key": "bench_mvp",
+    "line": "Cost $0 and outscored the namesake. Darnold nearly got naming rights."
+   },
+   {
+    "key": "over",
+    "line": "Three touchdowns in, one loss out. Gibbs and take."
+   },
+   {
+    "key": "under",
+    "line": "Week one's Maye-day call is now a recurring meeting."
+   },
+   {
+    "key": "lucky",
+    "line": "Started Mike Evans over Addison. The opponent was too busy losing to notice."
+   },
+   {
+    "key": "unlucky",
+    "line": "Its perfect lineup wins by 2.04. That lineup is still on the bench."
+   },
+   {
+    "key": "big_spender",
+    "line": "@jwalthier's $4 Addison nearly tripled Tucker. From the bench."
+   }
+  ],
+  "game_lines": [
+   {
+    "key": "1",
+    "line": "Dalton Kincaid fumbled in the flex while Jakobi Meyers scored from the couch."
+   },
+   {
+    "key": "2",
+    "line": "Drake London's 194 yards more than doubled Jefferson and Egbuka combined."
+   },
+   {
+    "key": "3",
+    "line": "@naaaaaaaaaaaaaaaate picked the right quarterback by 0.42. @louisnicoletti picked the wrong one by 19.04."
+   },
+   {
+    "key": "4",
+    "line": "Lawrence threw three touchdowns, Josh Allen ran for two. Only one had backup."
+   },
+   {
+    "key": "5",
+    "line": "Harold Fannin caught two touchdowns; Kyler Murray threw one. Sign the tight end."
+   }
+  ],
+  "preview_lines": [
+   {
+    "key": "1",
+    "line": "Last week's No. 1 meets this week's No. 1. Musical chairs."
+   },
+   {
+    "key": "2",
+    "line": "Goff or Dak, week four. Flip responsibly."
+   },
+   {
+    "key": "3",
+    "line": "The unbeaten team meets the site owner. Bring ID."
+   },
+   {
+    "key": "4",
+    "line": "@louisnicoletti versus the league's deepest bench. Winless meets endless."
+   },
+   {
+    "key": "5",
+    "line": "Case closed? The projections have already ruled."
+   }
+  ],
+  "signoff": "On with the Shough.",
+  "by": "claude-opus-5-5 (draft + punch-up)"
  }
 }
