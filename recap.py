@@ -255,15 +255,18 @@ def build_facts(week=None):
     same_name = defaultdict(set)
     for m in ms:
         for p in m["players"]:
-            same_name[name(p)].add((p, team[m["roster_id"]]))
+            same_name[name(p)].add((p, team[m["roster_id"]], m["players_points"].get(p, 0)))
         words = {re.sub(r"'s$", "", w).lower() for w in re.findall(r"[A-Za-z']{4,}", team[m["roster_id"]])}
         for mm in ms:
             for p in mm["players"]:
-                if {info(p).get("first_name", "").lower(), info(p).get("last_name", "").lower()} & words:
+                pts, started = mm["players_points"].get(p, 0), p in mm["starters"]
+                notable = pts >= 20 or (started and pts <= 5) or (not started and pts >= 15)  # only when the namesake did something
+                if notable and {info(p).get("first_name", "").lower(), info(p).get("last_name", "").lower()} & words:
                     how = "started" if p in mm["starters"] else "benched"
                     gems.append(f"{team[m['roster_id']]} shares a name with {info(p).get('full_name')}, who scored "
                                 f"{mm['players_points'].get(p, 0):.2f} ({how}) for {team[mm['roster_id']]}")
-    gems += [f"Two players named {n}, on " + " and ".join(sorted(t for _, t in v)) for n, v in same_name.items() if len(v) > 1]
+    gems += [f"Two players named {n}, on " + " and ".join(sorted(t for _, t, _ in v))
+             for n, v in same_name.items() if len(v) > 1 and max(pts for *_, pts in v) >= 20]
 
     pickups = []
     for t in get(f"{api}/transactions/{week}", []):
@@ -365,7 +368,7 @@ def write_copy(facts, previous=()):
             # Streamed with room to think: 16k tokens ran out on a busy week and silently fell back to template copy.
             with client.beta.messages.stream(
                 model=MODEL,
-                max_tokens=64000,
+                max_tokens=128000,  # Opus 5.5's output ceiling; billed only for what's used
                 betas=["server-side-fallback-2026-07-01"],
                 system=system,
                 messages=[{"role": "user", "content": json.dumps(payload, ensure_ascii=False)}],

@@ -511,9 +511,7 @@
    "aaronargyres and cdb1919 were both projected for 114.5, then finished 51.44 apart",
    "Lamar JacksOff shares a name with Lamar Jackson, who scored 20.44 (started) for Lamar JacksOff",
    "Stafford's Staffers shares a name with Matthew Stafford, who scored 22.90 (benched) for Stafford's Staffers",
-   "Two players named J. Williams, on Lamar JacksOff and naaaaaaaaaaaaaaaate",
-   "Two players named B. Robinson, on Lamar JacksOff and briancami",
-   "Two players named J. Love, on casebrabham and louisnicoletti"
+   "Two players named B. Robinson, on Lamar JacksOff and briancami"
   ],
   "lineups": {
    "Lamar JacksOff": {
@@ -1897,11 +1895,6 @@
      "team": "Corey Dylan Clark",
      "player": "D. Achane",
      "status": "IR"
-    },
-    {
-     "team": "aaronargyres",
-     "player": "T. Etienne",
-     "status": "Out"
     }
    ],
    "games": [
@@ -1909,7 +1902,7 @@
      "a": "briancami",
      "b": "aaronargyres",
      "a_proj": 119.4,
-     "b_proj": 106.5
+     "b_proj": 118.0
     },
     {
      "a": "cdb1919",
@@ -1955,8 +1948,7 @@
    "@louisnicoletti had two quarterbacks and one decision. Drake Maye got the start, Tyler Shough threw touchdowns to an empty couch, and a win by a dime turned into 0-3. Best Shough in town, and nobody bought a ticket.",
    "@aaronargyres made zero wrong lineup calls and climbed to first. Revolutionary strategy: start the players who score. The other nine managers have requested a tutorial.",
    "The hottest position was the free quarterback nobody started. @dclark34 sat Sam Darnold, @casebrabham sat Jordan Love, and naturally they played each other. The commish survived; @casebrabham got the week's third-best score and a loss.",
-   "@alexeldeib benched Matthew Stafford again, and this time Purdy made it look smart. The site owner is up four spots, so expect this page to get smug.",
-   "Meanwhile the power rankings put two losing teams on the podium and the league's only unbeaten team fifth. The rankings and the standings are no longer on speaking terms."
+   "Last week Josh Allen did everything but play tight end. This week he caught a pass too, for one yard, and @jonraduazzo lost by even more. Next week, somebody hand him a kicking tee."
   ],
   "power_lines": [
    {
@@ -1969,15 +1961,15 @@
    },
    {
     "key": "Lamar JacksOff",
-    "line": "Bijan ran up 194 yards. The commish ran up six spots."
+    "line": "Bijan ran up 194 yards. The commish has run up the league's second-most points."
    },
    {
     "key": "Stafford's Staffers",
-    "line": "Leads the league in points left on the bench (103.1). Staffing issue, not talent issue."
+    "line": "Purdy threw four touchdowns and Drake London piled up 194 yards. Two guys, one win."
    },
    {
     "key": "jwalthier",
-    "line": "Undefeated and slipped a spot. The rankings would like to see some ID."
+    "line": "Opponents are averaging 79.3 against them. The rankings would like to see some ID."
    },
    {
     "key": "cdb1919",
@@ -1985,11 +1977,11 @@
    },
    {
     "key": "briancami",
-    "line": "Owns the wrong B. Robinson, then benched him too. First to seventh, fittingly."
+    "line": "Owns the wrong B. Robinson, then benched him too. Even the wrong one beat Bucky Irving."
    },
    {
     "key": "naaaaaaaaaaaaaaaate",
-    "line": "Outscored 3-0 @jwalthier by 0.18, just in the wrong game. Down to eighth anyway."
+    "line": "Outscored 3-0 @jwalthier by 0.18, just in the wrong game."
    },
    {
     "key": "louisnicoletti",
@@ -2015,7 +2007,7 @@
    },
    {
     "key": "close",
-    "line": "The week's nailbiter, decided by 26.6 Jadarian Prices."
+    "line": "The week's nail-biter. Everyone's nails survived."
    },
    {
     "key": "heartbreaker",
@@ -2035,7 +2027,7 @@
    },
    {
     "key": "mvp",
-    "line": "Doubled Kyler Murray and David Montgomery combined. Carried the team; the team didn't carry back."
+    "line": "Doubled Kyler Murray and David Montgomery combined. The team didn't return the favor."
    },
    {
     "key": "bench_mvp",
@@ -2047,7 +2039,7 @@
    },
    {
     "key": "under",
-    "line": "Week one's Maye-day call is now a recurring meeting."
+    "line": "Two picks, a lost fumble and no touchdowns. The trifecta nobody bets on."
    },
    {
     "key": "lucky",
@@ -2095,7 +2087,7 @@
    },
    {
     "key": "3",
-    "line": "The unbeaten team meets the site owner. Bring ID."
+    "line": "The unbeaten team finally draws someone with a winning record."
    },
    {
     "key": "4",
