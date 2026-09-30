@@ -1939,140 +1939,33 @@
   }
  },
  "copy": {
-  "by": "sample",
-  "headline": "MAYE DAY",
+  "by": "writers' room (roast, deadpan, chaos) + edit",
+  "headline": "MAYE CULPA",
   "dek": "@louisnicoletti started Drake Maye (5.8) over Tyler Shough (24.8) and lost by 18.94.",
   "hero_value": "0.10",
-  "hero_caption": "margin of victory in the Shough timeline",
+  "hero_caption": "Winning margin, left on the bench.",
   "pen_notes": [
    "START SHOUGH",
-   "$19?!",
-   "3-0 how"
+   "FREE DARNOLD",
+   "3-0 FRAUD?"
   ],
-  "award_lines": [
-   {
-    "key": "blowout",
-    "line": "Two tight ends in one lineup. cdb1919 tried something. It did not work."
-   },
-   {
-    "key": "high",
-    "line": "38 over projection with zero FAAB spent. Vibes-based management."
-   },
-   {
-    "key": "low",
-    "line": "Even the perfect lineup (101.1) loses this one. Thoughts and prayers."
-   },
-   {
-    "key": "close",
-    "line": "Our closest game was an 18-point margin. Nobody's heart rate moved."
-   },
-   {
-    "key": "heartbreaker",
-    "line": "Shough starts, Louis is 1-2. Shough sits, Louis is 0-3."
-   },
-   {
-    "key": "best_mgr",
-    "line": "Left 0.00 on the bench. Played every card right. Insufferable."
-   },
-   {
-    "key": "worst_mgr",
-    "line": "Started Tetairoa McMillan over Terry McLaurin. Bold. Wrong."
-   },
-   {
-    "key": "best_bench",
-    "line": "70.46 on the bench and still won by 18. Commissioner privileges."
-   },
-   {
-    "key": "mvp",
-    "line": "Three touchdowns, 164 yards, one L. Football is cruel."
-   },
-   {
-    "key": "bench_mvp",
-    "line": "$0 pickup, 4 TDs, zero starts. Lamar kept the job anyway."
-   },
-   {
-    "key": "over",
-    "line": "16.5 over projection, in a loss. Gibbs did everything but set the lineup."
-   },
-   {
-    "key": "under",
-    "line": "12.8 under projection. The Maye Day origin story."
-   },
-   {
-    "key": "lucky",
-    "line": "Sixth-best score, easy W. Scheduling is a skill."
-   },
-   {
-    "key": "unlucky",
-    "line": "Third-best score, Gibbs went for 37.9, still an L."
-   },
-   {
-    "key": "big_spender",
-    "line": "$19 for 6.3 points. McLaurin did 16.7 for free, from the bench."
-   }
-  ],
-  "game_lines": [
-   {
-    "key": "1",
-    "line": "A perfect lineup vs. a two-tight-end experiment. Science lost."
-   },
-   {
-    "key": "2",
-    "line": "Purdy threw four TDs. Stafford watched from the bench, like a namesake should."
-   },
-   {
-    "key": "3",
-    "line": "Decided by one Tyler Shough decision. The wrong one."
-   },
-   {
-    "key": "4",
-    "line": "jwalthier needed 109. jonraduazzo needed a new lineup."
-   },
-   {
-    "key": "5",
-    "line": "Bijan ran for 194. Darnold threw for 379 on the bench. Commish wins."
-   }
-  ],
-  "preview_lines": [
-   {
-    "key": "1",
-    "line": "The perfect-lineup machine vs. a 148 → 90 slide."
-   },
-   {
-    "key": "2",
-    "line": "cdb1919 has faced 412 points. The universe owes a soft week."
-   },
-   {
-    "key": "3",
-    "line": "Game of the week. jwalthier's 3-0 meets an actual opponent."
-   },
-   {
-    "key": "4",
-    "line": "Win No. 1 is right there, @louisnicoletti. Start. Shough."
-   },
-   {
-    "key": "5",
-    "line": "Two 1-2 teams. One leaves feeling okay about itself."
-   }
-  ],
-  "signoff": "Dip responsibly.",
   "story": [
-   "Week 3 had one plot and it belonged to @louisnicoletti. Tyler Shough threw four touchdowns from the bench while Drake Maye threw two interceptions from the lineup. The margin was 18.94. The Shough swap was worth 19.04.",
-   "Elsewhere, @aaronargyres set a perfect lineup without spending a FAAB dollar, @jwalthier went 3-0 by drawing the week's worst score again, and the commish benched 29.66 of Sam Darnold and won anyway.",
-   "Next week the league's only unbeaten team meets Stafford's Staffers, who have quietly stopped starting Stafford."
+   "Week 3 came down to one lineup call. @louisnicoletti started Drake Maye (5.8) over Tyler Shough (24.8) and lost by 18.94. Both quarterbacks turned it over three times. Only Shough added four touchdowns. That's 0-3.",
+   "Up top, @aaronargyres set a perfect lineup without touching waivers, and @dclark34 won with Sam Darnold's 29.7 riding the bench. @jwalthier is 3-0 after drawing the week's worst score for the second straight week.",
+   "The power rankings aren't buying it: jwalthier sits fifth, and briancami slid from first to seventh. Next up, the last unbeaten team meets Stafford's Staffers, who have stopped starting Stafford."
   ],
   "power_lines": [
    {
     "key": "aaronargyres",
-    "line": "Perfect lineup, zero FAAB, 20-7 all-play. The standard, annoyingly."
+    "line": "Leads the league in points and just set a perfect lineup. Hard to argue."
    },
    {
     "key": "casebrabham",
-    "line": "Best 1-2 team alive. Just start the right quarterback."
+    "line": "Best 1-2 team alive. The optimal lineup would've been the week's top score."
    },
    {
     "key": "Lamar JacksOff",
-    "line": "Up six spots with 70 points on the bench. Imagine if they tried."
+    "line": "Left 70.46 on the bench and still climbed. Imagine if they tried."
    },
    {
     "key": "Stafford's Staffers",
@@ -2080,28 +1973,135 @@
    },
    {
     "key": "jwalthier",
-    "line": "3-0 with the fifth-best résumé. The schedule deserves a trophy."
+    "line": "Opponents are averaging 79.3. The schedule deserves a cut of the winnings."
    },
    {
     "key": "cdb1919",
-    "line": "412 points against. A fruit basket is on its way."
+    "line": "Has faced a league-high 412.36 points. The fruit basket is in the mail."
    },
    {
     "key": "briancami",
-    "line": "148, then 93, then 90. The chart would like a word."
+    "line": "148.7, then 93.6, then 90.4. The chart would like a word."
    },
    {
     "key": "naaaaaaaaaaaaaaaate",
-    "line": "Won by 0.10 of someone else's decision. Counts the same."
+    "line": "Won because @louisnicoletti benched Shough. A win's a win."
    },
    {
     "key": "louisnicoletti",
-    "line": "0-3 and one yard from 1-2. Start. Shough."
+    "line": "One QB swap from a win. Start. Shough."
    },
    {
     "key": "Corey Dylan Clark",
-    "line": "$27 of waivers, 10.8 points, one very long week."
+    "line": "Even the perfect lineup (101.06) loses this week. Rough stretch, genuinely."
    }
-  ]
+  ],
+  "award_lines": [
+   {
+    "key": "blowout",
+    "line": "Both projected 114.5. Projections are astrology."
+   },
+   {
+    "key": "high",
+    "line": "No waiver moves. No bench regrets. No mercy."
+   },
+   {
+    "key": "low",
+    "line": "Gibbs and Bijan alone outscored this entire lineup. By 0.04."
+   },
+   {
+    "key": "close",
+    "line": "naaaaaaaaaaaaaaaate and jwalthier finished 0.18 apart. They were playing other people."
+   },
+   {
+    "key": "heartbreaker",
+    "line": "Same three turnovers. Shough added four TDs. Maye started."
+   },
+   {
+    "key": "best_mgr",
+    "line": "Everyone else left 140.22 on their benches. That's a third-place score."
+   },
+   {
+    "key": "worst_mgr",
+    "line": "Right idea, wrong Mc."
+   },
+   {
+    "key": "best_bench",
+    "line": "Could've had the week's top score by 16.24. Settled for second."
+   },
+   {
+    "key": "mvp",
+    "line": "Beat Bijan by 3.6. Lost to Bijan anyway."
+   },
+   {
+    "key": "bench_mvp",
+    "line": "Lost the starting job to a team name."
+   },
+   {
+    "key": "over",
+    "line": "Cleared of any involvement in the loss."
+   },
+   {
+    "key": "under",
+    "line": "Beat out Tyler Shough for the job. The job went poorly."
+   },
+   {
+    "key": "lucky",
+    "line": "Would've lost to five teams. Drew the one that scored 72."
+   },
+   {
+    "key": "unlucky",
+    "line": "Outscored seven teams. Drew one of the two it couldn't."
+   },
+   {
+    "key": "big_spender",
+    "line": "$3.02 a point. Still better than briancami's $4 for zero."
+   }
+  ],
+  "game_lines": [
+   {
+    "key": "1",
+    "line": "Kittle outscored both cdb1919 tight ends combined. Why were there two?"
+   },
+   {
+    "key": "2",
+    "line": "Stafford outscored every briancami starter, from the bench."
+   },
+   {
+    "key": "3",
+    "line": "Goff over Dak: right by 0.42. Maye over Shough? naaaaaaaaaaaaaaaah."
+   },
+   {
+    "key": "4",
+    "line": "$4 of Addison on jwalthier's bench beat $27 of Corey Dylan Clark starters."
+   },
+   {
+    "key": "5",
+    "line": "Both managers benched the better QB. Only one got away with it."
+   }
+  ],
+  "preview_lines": [
+   {
+    "key": "1",
+    "line": "Both lineups start a player listed Out. First to notice wins."
+   },
+   {
+    "key": "2",
+    "line": "Nobody has faced more points than cdb1919. naaaaaaaaaaaaaaaate would like to help."
+   },
+   {
+    "key": "3",
+    "line": "The league's luckiest team vs. the team that's benched 103.1 points."
+   },
+   {
+    "key": "4",
+    "line": "Win No. 1 is right there, @louisnicoletti. You know who to start."
+   },
+   {
+    "key": "5",
+    "line": "Gibbs is coming for Corey Dylan Clark. Please start the right T. Mc."
+   }
+  ],
+  "signoff": "Start your Shoughs."
  }
 }
