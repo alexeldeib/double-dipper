@@ -1932,173 +1932,174 @@
   }
  },
  "copy": {
+  "by": "claude-opus-5-5 (draft + punch-up, with web research); headline by hand",
   "headline": "MAYE DAY",
-  "dek": "@louisnicoletti started Drake Maye over Tyler Shough, and one lineup call turned a win into 0-3.",
+  "dek": "@louisnicoletti started Drake Maye over Tyler Shough and lost a game the bench would have won.",
   "hero_value": "0.10",
-  "hero_caption": "The win Shough watched from the bench.",
+  "hero_caption": "The winning margin, left on the bench.",
   "pen_notes": [
-   "SHOUGH, DON'T TELL",
-   "$0 QBs: IGNORED",
-   "WHO'S 3-0?",
-   "TROPHY CASE",
-   "MERCY RULE?",
-   "TRAFFIC JAM"
+   "MAYE-BE NOT",
+   "PICK FLOWERS",
+   "RECORDS LIE",
+   "DARNOLD IT ALL",
+   "GIBBS ME MORE",
+   "LOUIS, SEE ME"
   ],
   "story": [
-   "@louisnicoletti had two quarterbacks and one decision. Drake Maye got the start, Tyler Shough threw touchdowns to an empty couch, and a win by a dime turned into 0-3. Best Shough in town, and nobody bought a ticket.",
-   "@aaronargyres made zero wrong lineup calls and climbed to first. Revolutionary strategy: start the players who score. The other nine managers have requested a tutorial.",
-   "The hottest position was the free quarterback nobody started. @dclark34 sat Sam Darnold, @casebrabham sat Jordan Love, and naturally they played each other. The commish survived; @casebrabham got the week's third-best score and a loss.",
-   "Last week Josh Allen did everything but play tight end. This week he caught a pass too, for one yard, and @jonraduazzo lost by even more. Next week, somebody hand him a kicking tee."
+   "@louisnicoletti started Drake Maye over Tyler Shough, and Maye handed out takeaways like party favors. Shough, meanwhile, posted enough on the bench to win by a dime. Somewhere, he's still warming up.",
+   "@aaronargyres got every lineup call right, a feat the rest of the league files under folklore. @cdb1919 drew the buzzsaw and is still picking sawdust out of the flex.",
+   "@jonraduazzo's entire starting lineup edged @dclark34's bench by less than two points. The bench did it in sweatpants.",
+   "Lamar Jackson's last-second drive in Rio went through Zay Flowers, who spent the week on @casebrabham's bench. Even the other team's quarterback trusts Flowers more."
   ],
   "power_lines": [
    {
     "key": "aaronargyres",
-    "line": "Three straight 120-plus weeks. That loss column is starting to look like a typo."
+    "line": "Even the second receiver was Golden (18.5). The rest of the league is scrap metal."
    },
    {
     "key": "casebrabham",
-    "line": "Collected three trophies and a loss. Somebody check the exchange rate."
+    "line": "The rankings believe in this team. The schedule keeps losing the paperwork."
    },
    {
     "key": "Lamar JacksOff",
-    "line": "Bijan ran up 194 yards. The commish has run up the league's second-most points."
+    "line": "Good week, bad week, good week. By that pattern, week four is a nap."
    },
    {
     "key": "Stafford's Staffers",
-    "line": "Purdy threw four touchdowns and Drake London piled up 194 yards. Two guys, one win."
+    "line": "Two straight 130s after a 75.1 opener. That opener is officially a typo."
    },
    {
     "key": "jwalthier",
-    "line": "Opponents are averaging 79.3 against them. The rankings would like to see some ID."
+    "line": "Opponents average 79.3 against this team. The schedule deserves a game ball."
    },
    {
     "key": "cdb1919",
-    "line": "Allowing 137.5 a game. Opponents save their best stuff for this matchup."
+    "line": "Burrow and two backs cleared 19 apiece. The pass catchers sent regrets."
    },
    {
     "key": "briancami",
-    "line": "Owns the wrong B. Robinson, then benched him too. Even the wrong one beat Bucky Irving."
+    "line": "Scores have dropped every week. The trend line just bought a shovel."
    },
    {
     "key": "naaaaaaaaaaaaaaaate",
-    "line": "Outscored 3-0 @jwalthier by 0.18, just in the wrong game."
+    "line": "Outscored @jwalthier by 0.18 in a different game. Won't count, will be mentioned."
    },
    {
     "key": "louisnicoletti",
-    "line": "JSN caught 128 yards and threw for 14. Maybe let him play quarterback too."
+    "line": "Jaxon Smith-Njigba (30.36) keeps posting. The rest of the starters keep leaving him on read."
    },
    {
     "key": "Corey Dylan Clark",
-    "line": "Three weeks, three smaller scores. The firm is billing fewer hours."
+    "line": "Josh Allen ran in two scores and gave it away three times. Balanced, technically."
    }
   ],
   "award_lines": [
    {
     "key": "blowout",
-    "line": "Same projection as cdb1919. Only one of them treated it as a floor."
+    "line": "Same 114.5 projection going in. Different sports coming out."
    },
    {
     "key": "high",
-    "line": "Five starters topped 18. Jalen Hurts wasn't one, and it didn't Hurt."
+    "line": "Jalen Hurts threw a Monday night pick, and it didn't even Hurt."
    },
    {
     "key": "low",
-    "line": "Jahmyr Gibbs (37.9) beat seven of these starters combined. By a dime."
+    "line": "Lowest score, and somehow not the week's worst quarterback call."
    },
    {
     "key": "close",
-    "line": "The week's nail-biter. Everyone's nails survived."
+    "line": "Lamar's Rio game ended on a last-second kick. This one had room to spare."
    },
    {
     "key": "heartbreaker",
-    "line": "Shough threw four touchdowns from the bench. Maye threw two to the defense."
+    "line": "Shough threw four touchdowns in a Saints loss. The Saints at least played him."
    },
    {
     "key": "best_mgr",
-    "line": "Perfect lineup. Even Nico Collins's zero got benched correctly."
+    "line": "The bench (18.4) never got a speaking role. Typecast as extras."
    },
    {
     "key": "worst_mgr",
-    "line": "T. Mc on the bench, T. Mc in the lineup. Picked the wrong Mc."
+    "line": "Two Mcs on the menu. Ordered the one without the touchdown."
    },
    {
     "key": "best_bench",
-    "line": "The backups came within 6.24 of the entire week-two lineup."
+    "line": "Wan'Dale Robinson and a free Raiders defense both sat. Deep bench, shallow regrets."
    },
    {
     "key": "mvp",
-    "line": "Doubled Kyler Murray and David Montgomery combined. The team didn't return the favor."
+    "line": "ESPN called it shocking. So was the final score."
    },
    {
     "key": "bench_mvp",
-    "line": "Cost $0 and outscored the namesake. Darnold nearly got naming rights."
+    "line": "A $0 waiver claim with four touchdowns. Now accepting raise requests."
    },
    {
     "key": "over",
-    "line": "Three touchdowns in, one loss out. Gibbs and take."
+    "line": "Scored rushing, scored receiving. Next week, maybe try defense."
    },
    {
     "key": "under",
-    "line": "Two picks, a lost fumble and no touchdowns. The trifecta nobody bets on."
+    "line": "Jacksonville's Hunter said Maye 'tried me a couple times.' So did @louisnicoletti."
    },
    {
     "key": "lucky",
-    "line": "Started Mike Evans over Addison. The opponent was too busy losing to notice."
+    "line": "Saquon's only catch went for minus two yards. First place, regardless."
    },
    {
     "key": "unlucky",
-    "line": "Its perfect lineup wins by 2.04. That lineup is still on the bench."
+    "line": "Drew Bijan Robinson the week his rent was due."
    },
    {
     "key": "big_spender",
-    "line": "@jwalthier's $4 Addison nearly tripled Tucker. From the bench."
+    "line": "Plus $8 on Dalton Schultz (4.5). The budget is officially Tucker'd out."
    }
   ],
   "game_lines": [
    {
     "key": "1",
-    "line": "Dalton Kincaid fumbled in the flex while Jakobi Meyers scored from the couch."
+    "line": "Cook and Kincaid both fumbled for Buffalo. The Bills won; @cdb1919 kept the turnovers."
    },
    {
     "key": "2",
-    "line": "Drake London's 194 yards more than doubled Jefferson and Egbuka combined."
+    "line": "Jadarian Price (0.7) fumbled in the flex. At that Price, still a 40-point win."
    },
    {
     "key": "3",
-    "line": "@naaaaaaaaaaaaaaaate picked the right quarterback by 0.42. @louisnicoletti picked the wrong one by 19.04."
+    "line": "Jaylen Warren had a career day; Jaylen Waddle (5.4) waddled. Keep the right Jaylen."
    },
    {
     "key": "4",
-    "line": "Lawrence threw three touchdowns, Josh Allen ran for two. Only one had backup."
+    "line": "Benched Jordan Addison (17.5), won by 37.32 anyway. Addison by subtraction."
    },
    {
     "key": "5",
-    "line": "Harold Fannin caught two touchdowns; Kyler Murray threw one. Sign the tight end."
+    "line": "Harold Fannin (20.6) caught two touchdowns at tight end. Fannin the flames."
    }
   ],
   "preview_lines": [
    {
     "key": "1",
-    "line": "Last week's No. 1 meets this week's No. 1. Musical chairs."
+    "line": "The old No. 1 meets the new one. Gravity is undefeated."
    },
    {
     "key": "2",
-    "line": "Goff or Dak, week four. Flip responsibly."
+    "line": "Buffalo's fumble club meets Jaylen Warren's encore. Hold on to the ball."
    },
    {
     "key": "3",
-    "line": "The unbeaten team finally draws someone with a winning record."
+    "line": "@jwalthier's opponents keep no-showing. This one has been showing up."
    },
    {
     "key": "4",
-    "line": "@louisnicoletti versus the league's deepest bench. Winless meets endless."
+    "line": "@louisnicoletti faces the league's best bench. And, sadly, its lineup."
    },
    {
     "key": "5",
-    "line": "Case closed? The projections have already ruled."
+    "line": "This week's unlucky loser draws a friendlier Sunday. Luck owes it one."
    }
   ],
-  "signoff": "On with the Shough.",
-  "by": "claude-opus-5-5 (draft + punch-up)"
+  "signoff": "Start Shough. Please.",
+  "news": "I found eight Week 3 moments involving your league's players, all confirmed by ESPN or NFL.com. I hit my search limit before I could check every player, so some big games may be missing.\n\n- **Lamar Jackson (Lamar JacksOff):** The Ravens got the ball with the score tied and 7 seconds left in Rio. Jackson hit Zay Flowers for 27 yards, and Tyler Loop then made a 56-yard field goal to win 34-31 over Dallas. It was the NFL's first game in Rio, and the Ravens trolled the Cowboys afterward (\"Rio's team now\"). https://www.espn.com/nfl/story/_/id/50046373/nfl-week-3-trolls-2026\n\n- **Drake Maye (louisnicoletti):** He turned the ball over several times again in a 35-6 loss at Jacksonville. It was his 10th game with multiple turnovers, tied for the most in the NFL since 2024. The Jaguars' Hunter joked after his end-zone interception that Maye had \"tried me a couple times.\" https://www.espn.com/nfl/story/_/id/50043408/week-3-sunday-games-takeaways-questions-2026\n\n- **Jahmyr Gibbs (casebrabham):** He scored three touchdowns. ESPN called it one of the most shocking performances of the early games. Same link as above.\n\n- **Josh Allen (Corey Dylan Clark), James Cook and Dalton Kincaid (cdb1919):** The Bills beat the Chargers 24-13 despite five turnovers. Cook fumbled on the first drive, Allen threw an interception NFL.com called \"shockingly ugly,\" and Kincaid fumbled at the end of a long catch-and-run. Allen and Cook then both ran for touchdowns in the fourth quarter. https://www.nfl.com/news/2026-nfl-season-week-3-what-we-learned-from-sunday-s-games\n\n- **Rome Odunze (casebrabham) and Jalen Hurts (aaronargyres):** In the Bears' Monday night upset of the Eagles, Odunze dropped a possible touchdown and T.J. Edwards intercepted Hurts. D'Andre Swift and DeVonta Smith also appear in the highlights. https://www.nfl.com/videos/channel/game-highlights-vc\n\n- **Matthew Stafford and Davante Adams (Stafford's Staffers):** Against Denver, Stafford threw for 403 yards and two touchdowns, and Adams had 137 receiving yards. The same NFL.com page has highlight videos for CeeDee Lamb (112 yards against Baltimore) and Sam Darnold (four touchdowns). https://www.nfl.com/videos/case-keenum-s-best-plays-from-3-td-game-vs-eagles-week-3\n\n- **Jaylen Warren (naaaaaaaaaaaaaaaate):** He had a career game with 176 total yards as the Steelers beat the Bengals 30-27. https://www.espn.com/nfl/story/_/id/50034932/best-plays-moments-touchdowns-more\n\n- **Brock Bowers (casebrabham):** He had 116 yards and a 4-yard touchdown catch as the Raiders beat Tyler Shough's Saints in New Orleans and went to 3-0. That also helped the LV D/ST (Lamar JacksOff). https://www.nfl.com/videos/channel/game-highlights-vc\n\nI left out a CBS article about a \"butt punt\" and Tom Brady because it's from an earlier season, not 2026."
  }
 }

@@ -482,9 +482,12 @@ def page(shell, f, c, url, data):
         return (f'<div class="l3">{avatar(team, size)}<p><span class="l3-name" style="--n:{fit("@" + mgr)}">@{e(mgr)}</span>'
                 f'{sub}</p></div>')
 
+    taped = set()  # each tale of the tape runs once; the same swap under a second trophy reads like a bug
+
     def tape(v):
-        if not v:
+        if not v or (v["a"], v["b"]) in taped:
             return ""
+        taped.add((v["a"], v["b"]))
         top = max(v["a_pts"], v["b_pts"]) or 1
         return '<div class="tape">' + "".join(
             f'<p class="tp tp-{k}"><span class="tp-tag">{e(v[k + "_tag"])}</span><span class="tp-name">{e(v[k])}</span>'
@@ -493,7 +496,7 @@ def page(shell, f, c, url, data):
 
     def line(kind, key, cls):
         text = lines[kind].get(str(key))
-        return f'<p class="{cls}">{e(text)}</p>' if text else ""
+        return f'<p class="{cls}">{lit(text, AT)}</p>' if text else ""  # @names light up, as in the Rundown
 
     def bumper(hid, title, kicker, pen=""):
         return f'<div class="bump"><h2 id="{hid}"><span>{e(title)}</span></h2><p class="bump-k">{e(kicker)}</p>{pen}</div>'
@@ -550,10 +553,16 @@ def page(shell, f, c, url, data):
              f'<input type="checkbox" id="hold" class="hold-box"><label for="hold" class="hold"><span class="sr">Pause the scores ticker</span></label>'
              f'<div class="crawl-view" aria-hidden="true"><p class="crawl-track" style="--dur:{secs}s">'
              f'<span class="crawl-set">{reel}</span><span class="crawl-set">{reel}</span></p></div></div>') if reel else ""
+    # The dek follows the number, so a phone's first screen is the pun and the circled number; on wide screens the
+    # grid puts it back under the headline. The card bug only shows on the link-preview card (card.html).
+    brand = "Double Dipper"
+    mark = "".join(w[:1] for w in league.split()[:2]).upper()
+    dek = c.get("dek") or ""
     lead = (f'<section class="lead" aria-labelledby="lead-h" data-wk="{wk}"><div class="lead-in"><div class="lead-copy">'
             f'<p class="kick">Week {wk} · Top story</p>'
             f'<h1 id="lead-h" class="headline" style="--hw:{max(map(ems, head.split() or [""])):.2f};--ht:{ems(head):.2f}">{e(head)}</h1>'
-            f'<p class="dek">{lit(c.get("dek") or "", AT)}</p></div>{stat}</div>{crawl}</section>')
+            f'<p class="card-bug" aria-hidden="true"><span class="mark">{e(mark)}</span>{brand}</p></div>'
+            f'{stat}{f"<p class=dek>{lit(dek, AT)}</p>" if dek else ""}</div>{crawl}</section>')
 
     # The Rundown: the lead segment, in the writer's words. Skipped when there's no story (template copy).
     story = [s.strip() for s in c.get("story") or [] if s and s.strip()]
@@ -577,8 +586,9 @@ def page(shell, f, c, url, data):
 
     def ranked(p):
         mgr = manager(p["team"])
-        meta = "".join(f"<span>{e(x)}</span>" for x in (f"@{mgr}" if mgr != p["team"] else "", p.get("record"),
-                                                        f'{p["all_play"]} all-play' if p.get("all_play") else "") if x)
+        # Joined with real spaces so a narrow screen can wrap between the parts (each part stays whole).
+        meta = " ".join(f"<span>{e(x)}</span>" for x in (f"@{mgr}" if mgr != p["team"] else "", p.get("record"),
+                                                         f'{p["all_play"]} all-play' if p.get("all_play") else "") if x)
         return (f'<li class="pr-row"><span class="pr-rk">{p["rank"]}</span>{movement(p)}{avatar(p["team"], 44)}'
                 f'<p class="pr-team"><b style="--n:{fit(p["team"])}">{e(p["team"])}</b></p><p class="pr-meta">{meta}</p>'
                 f'{line("power_lines", p["team"], "pr-line")}</li>')
@@ -644,7 +654,7 @@ def page(shell, f, c, url, data):
         f'<td>{t["opt"] - t["pts"]:.2f}</td><td class="eff">{t["eff"]:g}%<span style="--p:{t["eff"]:g}%"></span></td></tr>'
         for t in teams_wk)
     nerd = (f'<section class="seg" aria-labelledby="nerd-h">{bumper("nerd-h", "Nerd Corner", "Standings & lineup math", note(5, SCRIBBLE))}'
-            f'<details class="fold"><summary>Show the standings and lineup math</summary><div class="boards"><div class="scroll" tabindex="0" role="region" aria-label="Standings table">'
+            f'<details class="fold"><summary><span><span class="if-shut">Show</span><span class="if-open">Hide</span> the standings and lineup math</span></summary><div class="boards"><div class="scroll" tabindex="0" role="region" aria-label="Standings table">'
             f'<table class="standings"><caption>Standings</caption><thead><tr><th scope="col">Team</th><th scope="col">W-L</th>'
             f'<th scope="col">PF</th><th scope="col">PA</th><th scope="col" title="Record if you played every team every week">All-play</th>'
             f'<th scope="col" title="Wins above what your all-play rate predicts">Luck</th>'
@@ -658,7 +668,6 @@ def page(shell, f, c, url, data):
         f'<li><a href="{week_url(d["facts"])}"{" aria-current=page" if i == here else ""}>'
         f'<span class="arc-wk">Wk {d["facts"]["week"]}</span>{e(d["copy"].get("headline") or "")}</a></li>'
         for i, d in reversed(list(enumerate(data))))
-    mark = "".join(w[:1] for w in league.split()[:2]).upper()
     signoff = f'<p class="pen signoff">{e(c["signoff"])}{SCRIBBLE}</p>' if c.get("signoff") else ""
     body = (f'<header class="mast"><div class="mast-in"><p class="mark" aria-hidden="true">{e(mark)}</p>'
             f'<p class="brand"><b>{e(league)}</b><span>{e(str(f["season"]))} season recap</span></p>{week_nav}</div></header>'
@@ -666,8 +675,12 @@ def page(shell, f, c, url, data):
             f'<footer class="foot">{signoff}'
             f'<nav aria-labelledby="arc-h"><h2 id="arc-h" class="foot-h">Previously on {e(league)}</h2><ul class="archive">{archive}</ul></nav>'
             f'<p class="fine">Numbers from Sleeper. Jokes from Claude. Updates Tuesday mornings.</p></footer>')
-    title = f"{league} Wk {wk}: {head}"
-    return (shell.replace("{{title}}", e(title)).replace("{{description}}", e(c.get("dek") or ""))
+    # Pun first: iMessage shows only the preview image and a line or two of title.
+    title = f"{head} · {brand} Week {wk}" if head else f"{brand} Week {wk}"
+    alt = " ".join(x for x in (f"Week {wk}: {head}." if head else f"Week {wk}.",
+                               f"The number: {value}, circled in red marker." if value else "", cap) if x)
+    return (shell.replace("{{title}}", e(title)).replace("{{description}}", e(dek))
+            .replace("{{image}}", e(url + "og.jpg")).replace("{{image_alt}}", e(alt))
             .replace("{{url}}", e(url)).replace("{{body}}", body))
 
 
@@ -682,19 +695,29 @@ def load(p):
 
 
 def render():
+    import shutil
     shell = (ROOT / "template.html").read_text()
     data = [load(p) for p in sorted((ROOT / "weeks").glob("*.json"))]
     docs = ROOT / "docs"
+    docs.mkdir(exist_ok=True)
     for d in data:
         f = d["facts"]
         url = f"{SITE}{f['season']}/{f['week']}/"
         out = docs / f["season"] / str(f["week"]) / "index.html"
         out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(page(shell, f, d["copy"], url, data))
+        doc = page(shell, f, d["copy"], url, data)
+        out.write_text(doc)
+        # The link-preview card: the same page in card mode, without the show-open script. The workflow screenshots
+        # it to og.jpg (every page's og:image) and deletes it before deploying.
+        card = doc.replace('<html lang="en">', '<html lang="en" class="card">', 1)
+        (out.parent / "card.html").write_text(re.sub(r"<script>.*?</script>", "", card, count=1, flags=re.S))
     if data:
         f, c = data[-1]["facts"], data[-1]["copy"]
         url = f"{SITE}{f['season']}/{f['week']}/"
         (docs / "index.html").write_text(page(shell, f, c, url, data))
+    icon = ROOT / "apple-touch-icon.png"  # iMessage and Slack show it beside links; also the home-screen icon
+    if icon.exists():
+        shutil.copyfile(icon, docs / icon.name)
 
 
 def main():

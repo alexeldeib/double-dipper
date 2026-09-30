@@ -20,7 +20,7 @@ on:
         default: false
   push:
     branches: [main]
-    paths: [template.html, recap.py, prompt.md, punchup.md, "weeks/**"] # hand edits to a week redeploy the site
+    paths: [template.html, recap.py, prompt.md, punchup.md, apple-touch-icon.png, "weeks/**"] # hand edits to a week redeploy the site
 
 permissions:
   contents: write
@@ -83,6 +83,23 @@ jobs:
             git push
             python recap.py render # so the deploy below includes that hand edit too
           fi
+      # Link previews: shoot each week's title card (docs/*/*/card.html, written by render) to og.jpg, the image a
+      # pasted link shows. Runs after the last render above. Best effort: without it a link gets a text-only preview.
+      - name: Link-preview images
+        if: ${{ !inputs.dry_run }}
+        continue-on-error: true
+        run: |
+          pip install pillow
+          for card in docs/*/*/card.html; do
+            dir=$(dirname "$card")
+            timeout 60 google-chrome --headless=new --no-sandbox --hide-scrollbars --force-device-scale-factor=1 \
+              --window-size=1200,630 --virtual-time-budget=6000 --screenshot="$dir/og.png" "file://$PWD/$card" || true
+            python -c 'import sys; from PIL import Image; im = Image.open(sys.argv[1]); assert im.size == (1200, 630), im.size; im.convert("RGB").save(sys.argv[2], quality=85, optimize=True, progressive=True)' \
+              "$dir/og.png" "$dir/og.jpg" || echo "::warning::No link-preview image for $dir"
+            rm -f "$dir/og.png"
+          done
+      - name: Drop the card pages # they only exist to be photographed
+        run: rm -f docs/*/*/card.html
       - uses: actions/upload-pages-artifact@v5
         if: ${{ !inputs.dry_run }}
         with:
