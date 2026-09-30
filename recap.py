@@ -9,6 +9,7 @@
 import html
 import json
 import os
+import re
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -128,6 +129,7 @@ def build_facts(week=None):
         ap = r["ap_w"] + r["ap_l"]
         standings.append(dict(team=team[rid], w=r["w"], l=r["l"], t=r["t"], pf=round(r["pf"], 2), pa=round(r["pa"], 2),
                               all_play=f"{r['ap_w']}-{r['ap_l']}", bench_left=round(r["bench"], 1),
+                              pa_per_game=round(r["pa"] / r["h2h"], 1) if r["h2h"] else 0,
                               luck=round(r["hw"] - (r["ap_w"] / ap * r["h2h"] if ap else 0), 2)))
     standings.sort(key=lambda s: (s["w"] + s["t"] / 2, s["pf"]), reverse=True)
 
@@ -218,6 +220,48 @@ def build_facts(week=None):
     award("lucky", "🍀", "Lucky", lucky["team"], f"won with the {ordinal(ranked.index(lucky) + 1)}-best score")
     award("unlucky", "😡", "Unlucky", unlucky["team"], f"lost with the {ordinal(ranked.index(unlucky) + 1)}-best score")
 
+    # Gems: cross-roster comparisons a model won't reliably compute on its own.
+    gems = []
+    scores = sorted((t["pts"], t["team"]) for t in card.values())
+    low_pts, low_team = scores[0]
+    for t in card.values():
+        beaten = [n for p, n in scores if p < t["bench_pts"] and n != t["team"]]
+        if beaten:
+            gems.append(f"{t['team']}'s bench ({t['bench_pts']:.2f}) outscored these whole lineups: {', '.join(beaten)}")
+        elif t["team"] != low_team and low_pts - t["bench_pts"] < 10:
+            gems.append(f"{t['team']}'s bench ({t['bench_pts']:.2f}) finished {low_pts - t['bench_pts']:.2f} "
+                        f"behind {low_team}'s whole lineup ({low_pts:.2f})")
+    low_rid = next(rid for rid, t in card.items() if t["team"] == low_team)
+    low_starts = sorted(p for p, _, rid in starts if rid == low_rid)
+    for pts, pid, rid in sorted(starts, reverse=True)[:3]:
+        k, total = 0, 0.0
+        while k < len(low_starts) and total + low_starts[k] < pts:
+            total += low_starts[k]
+            k += 1
+        if k >= 2 and rid != low_rid:
+            gems.append(f"{name(pid)} ({pts:.2f}, {team[rid]}) outscored {low_team}'s {k} lowest starters combined ({total:.2f})")
+    game_of = {t["team"]: i for i, g in enumerate(games) for t in (g["win"], g["lose"])}
+    near = min(((abs(a[0] - b[0]), a, b) for i, a in enumerate(scores) for b in scores[i + 1:]
+                if game_of[a[1]] != game_of[b[1]]), default=None)
+    if near:
+        gems.append(f"{near[1][1]} ({near[1][0]:.2f}) and {near[2][1]} ({near[2][0]:.2f}) finished {near[0]:.2f} apart in different games")
+    for g in games:
+        if g["win"]["proj"] and g["win"]["proj"] == g["lose"]["proj"]:
+            gems.append(f"{g['win']['team']} and {g['lose']['team']} were both projected for {g['win']['proj']}, "
+                        f"then finished {g['margin']:.2f} apart")
+    same_name = defaultdict(set)
+    for m in ms:
+        for p in m["players"]:
+            same_name[name(p)].add((p, team[m["roster_id"]]))
+        words = {re.sub(r"'s$", "", w).lower() for w in re.findall(r"[A-Za-z']{4,}", team[m["roster_id"]])}
+        for mm in ms:
+            for p in mm["players"]:
+                if {info(p).get("first_name", "").lower(), info(p).get("last_name", "").lower()} & words:
+                    how = "started" if p in mm["starters"] else "benched"
+                    gems.append(f"{team[m['roster_id']]} shares a name with {info(p).get('full_name')}, who scored "
+                                f"{mm['players_points'].get(p, 0):.2f} ({how}) for {team[mm['roster_id']]}")
+    gems += [f"Two players named {n}, on " + " and ".join(sorted(t for _, t in v)) for n, v in same_name.items() if len(v) > 1]
+
     pickups = []
     for t in get(f"{api}/transactions/{week}", []):
         if t.get("status") == "complete":
@@ -252,7 +296,8 @@ def build_facts(week=None):
                  b_proj=projected(b["roster_id"])) for a, b in pairs(upcoming)])
 
     return dict(league=lg["name"], season=season, week=week, playoff_teams=cfg.get("playoff_teams"), teams=teams,
-                games=games, awards=awards, lineups=lineups, pickups=pickups, standings=standings, next=nxt)
+                games=games, awards=awards, gems=gems, lineups=lineups, pickups=pickups, standings=standings,
+                next=nxt)
 
 
 LINES = {"type": "array", "items": {"type": "object", "additionalProperties": False, "required": ["key", "line"],

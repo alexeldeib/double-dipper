@@ -410,6 +410,19 @@
     "vs": null
    }
   ],
+  "gems": [
+   "Lamar JacksOff's bench (70.46) finished 1.70 behind Corey Dylan Clark's whole lineup (72.16)",
+   "J. Gibbs (37.90, casebrabham) outscored Corey Dylan Clark's 7 lowest starters combined (37.80)",
+   "B. Robinson (34.30, Lamar JacksOff) outscored Corey Dylan Clark's 6 lowest starters combined (26.30)",
+   "B. Purdy (31.28, Stafford's Staffers) outscored Corey Dylan Clark's 6 lowest starters combined (26.30)",
+   "jwalthier (109.48) and naaaaaaaaaaaaaaaate (109.66) finished 0.18 apart in different games",
+   "aaronargyres and cdb1919 were both projected for 114.5, then finished 51.44 apart",
+   "Lamar JacksOff shares a name with Lamar Jackson, who scored 20.44 (started) for Lamar JacksOff",
+   "Stafford's Staffers shares a name with Matthew Stafford, who scored 22.90 (benched) for Stafford's Staffers",
+   "Two players named J. Williams, on Lamar JacksOff and naaaaaaaaaaaaaaaate",
+   "Two players named B. Robinson, on Lamar JacksOff and briancami",
+   "Two players named J. Love, on casebrabham and louisnicoletti"
+  ],
   "lineups": {
    "Lamar JacksOff": {
     "started": [
@@ -1613,6 +1626,7 @@
     "pa": 237.9,
     "all_play": "14-13",
     "bench_left": 6.7,
+    "pa_per_game": 79.3,
     "luck": 1.44
    },
    {
@@ -1624,6 +1638,7 @@
     "pa": 343.38,
     "all_play": "20-7",
     "bench_left": 29.6,
+    "pa_per_game": 114.5,
     "luck": -0.22
    },
    {
@@ -1635,6 +1650,7 @@
     "pa": 335.86,
     "all_play": "14-13",
     "bench_left": 103.1,
+    "pa_per_game": 112.0,
     "luck": 0.44
    },
    {
@@ -1646,6 +1662,7 @@
     "pa": 358.16,
     "all_play": "13-14",
     "bench_left": 42.1,
+    "pa_per_game": 119.4,
     "luck": 0.56
    },
    {
@@ -1657,6 +1674,7 @@
     "pa": 301.62,
     "all_play": "13-14",
     "bench_left": 44.2,
+    "pa_per_game": 100.5,
     "luck": 0.56
    },
    {
@@ -1668,6 +1686,7 @@
     "pa": 381.5,
     "all_play": "15-12",
     "bench_left": 47.9,
+    "pa_per_game": 127.2,
     "luck": -0.67
    },
    {
@@ -1679,6 +1698,7 @@
     "pa": 379.38,
     "all_play": "16-11",
     "bench_left": 47.8,
+    "pa_per_game": 126.5,
     "luck": -0.78
    },
    {
@@ -1690,6 +1710,7 @@
     "pa": 412.36,
     "all_play": "14-13",
     "bench_left": 43.7,
+    "pa_per_game": 137.5,
     "luck": -0.56
    },
    {
@@ -1701,6 +1722,7 @@
     "pa": 278.16,
     "all_play": "6-21",
     "bench_left": 71.9,
+    "pa_per_game": 92.7,
     "luck": 0.33
    },
    {
@@ -1712,6 +1734,7 @@
     "pa": 371.06,
     "all_play": "10-17",
     "bench_left": 57.7,
+    "pa_per_game": 123.7,
     "luck": -1.11
    }
   ],
@@ -1743,20 +1766,20 @@
     {
      "a": "briancami",
      "b": "aaronargyres",
-     "a_proj": 119.2,
+     "a_proj": 119.3,
      "b_proj": 106.4
     },
     {
      "a": "cdb1919",
      "b": "naaaaaaaaaaaaaaaate",
-     "a_proj": 113.7,
+     "a_proj": 113.8,
      "b_proj": 108.0
     },
     {
      "a": "Stafford's Staffers",
      "b": "jwalthier",
-     "a_proj": 115.6,
-     "b_proj": 111.9
+     "a_proj": 115.7,
+     "b_proj": 112.0
     },
     {
      "a": "Lamar JacksOff",
@@ -1767,8 +1790,8 @@
     {
      "a": "casebrabham",
      "b": "Corey Dylan Clark",
-     "a_proj": 127.8,
-     "b_proj": 86.8
+     "a_proj": 127.9,
+     "b_proj": 86.9
     }
    ]
   }
