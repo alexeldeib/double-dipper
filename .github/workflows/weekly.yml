@@ -12,6 +12,10 @@ on:
         description: Rewrite the jokes even if this week already has some
         type: boolean
         default: false
+      dry_run:
+        description: Test only; show the jokes in the run summary, don't commit or deploy
+        type: boolean
+        default: false
   push:
     branches: [main]
     paths: [template.html, recap.py, prompt.md]
@@ -43,7 +47,26 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           WEEK: ${{ inputs.week }}
           FRESH: ${{ inputs.fresh }}
+          DRY_RUN: ${{ inputs.dry_run }}
+      - name: Show the jokes (dry run)
+        if: ${{ inputs.dry_run }}
+        run: |
+          python - >> "$GITHUB_STEP_SUMMARY" <<'EOF'
+          import glob, json, os
+          d = json.load(open(max(glob.glob("weeks/*.json"), key=os.path.getmtime)))
+          c, w = d["copy"], d["facts"]["week"]
+          print(f"## Week {w} dry run, written by `{c.get('by')}`\n\n# {c['headline']}\n\n{c['dek']}\n")
+          print(f"**{c['hero_value']}**: {c['hero_caption']}  \nMarker: {' / '.join(c['pen_notes'])}\n")
+          print("\n\n".join(c.get("story", [])) + "\n\n### Power rankings")
+          print("\n".join(f"- **{x['key']}**: {x['line']}" for x in c.get("power_lines", [])))
+          print("\n### Trophies")
+          print("\n".join(f"- **{x['key']}**: {x['line']}" for x in c["award_lines"]))
+          print("\n### Games\n" + "\n".join(f"- {x['line']}" for x in c["game_lines"]))
+          print("\n### Next week\n" + "\n".join(f"- {x['line']}" for x in c["preview_lines"]))
+          print(f"\n_{c['signoff']}_")
+          EOF
       - name: Commit the new week
+        if: ${{ !inputs.dry_run }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -53,7 +76,9 @@ jobs:
             git push
           fi
       - uses: actions/upload-pages-artifact@v5
+        if: ${{ !inputs.dry_run }}
         with:
           path: docs
       - id: deploy
+        if: ${{ !inputs.dry_run }}
         uses: actions/deploy-pages@v5
