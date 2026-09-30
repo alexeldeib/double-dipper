@@ -1814,149 +1814,153 @@
   "next": null
  },
  "copy": {
-  "headline": "SOFA, SO BAD",
-  "dek": "The commish dropped from third to ninth in the power rankings and scored less than @alexeldeib's bench.",
-  "hero_value": "76.70",
-  "hero_caption": "1.48 short of the Staffers' couch.",
+  "headline": "ALLEN VAIN",
+  "dek": "@jonraduazzo got a monster game from Josh Allen and still lost, because Jake Ferguson watched from the bench.",
+  "hero_value": "40.82",
+  "hero_caption": "One-man band, still lost the gig.",
   "pen_notes": [
-   "SIT, COMMISH",
-   "QB ROULETTE",
-   "WHO'S REAL?",
-   "START FERGUSON",
-   "LAMB CHOPS",
-   "SCHEDULE MVP"
+   "SOLO ACT",
+   "4 TD CLUB",
+   "MIND THE GAP",
+   "GOFF, BARELY",
+   "7TH-BEST WINS",
+   "SCHEDULE: GUILTY"
   ],
   "story": [
-   "Nobody played @alexeldeib's bench this week, but it still outscored the commish. @dclark34 scored 76.70, down from 141.86, and the top scorer was namesake Lamar Jackson (15.8). Somewhere, a recliner is gloating.",
-   "Quarterback roulette paid out elsewhere. @naaaaaaaaaaaaaaaate started Jared Goff (29.78) over Dak Prescott (29.76) and got it right by 0.02. @alexeldeib picked Brock Purdy (28.48) over Matthew Stafford (27.98), then started Colston Loveland (0.8) over Travis Kelce (20.6) again. Love is blind, and so is that lineup.",
-   "@briancami benched Patrick Mahomes (28.98) for Justin Herbert (9.88) and still sits 2-0. @louisnicoletti benched $1 Tyler Shough (22.38) for Drake Maye (9.02) and sits 0-2. Karma checks the schedule first.",
-   "@jonraduazzo got 40.82 from Josh Allen and lost by 7.86 with Dallas Goedert (0.9) at tight end. @jwalthier went perfect despite Saquon Barkley (2.50) and is 2-0 allowing 82.9 a game. Perfect lineup, even better schedule.",
-   "@cdb1919 topped the week at 136.38, @aaronargyres lost with the fourth-best score, and @casebrabham fell from 147.72 to 84.44. Week 1 was a rumor."
+   "Josh Allen did everything but play tight end, which is exactly where @jonraduazzo lost. Jake Ferguson scored twice from the bench while Dallas Goedert started and caught one ball. Allen built the house; the tight end left the door open.",
+   "Four-touchdown quarterbacks were so common this week that two of them sat on benches. @alexeldeib picked Purdy over the namesake by half a point, and @naaaaaaaaaaaaaaaate picked Goff over Dak by two hundredths. Genius is a rounding error.",
+   "@louisnicoletti has outscored three teams that already have a win, and still has none. The schedule is the one defender JSN can't beat.",
+   "@jwalthier is 2-0 against the league's softest schedule, while @aaronargyres leads the league in points and owns a loss. Somebody plugged the standings in backwards.",
+   "@casebrabham went from the week's second-best score to its second-worst while @cdb1919 grabbed the crown. The league is a seesaw with a waiver wire."
   ],
   "power_lines": [
    {
     "key": "briancami",
-    "line": "Held first with the seventh-best score. The crown fits loose."
+    "line": "Benched Mahomes (28.98) for Herbert and won. The spare tire is now a lifestyle."
    },
    {
     "key": "aaronargyres",
-    "line": "Most points in the league (245.88), a .500 record. Math is filing an appeal."
+    "line": "Two straight 120s. The wins are stuck in the mail."
    },
    {
     "key": "cdb1919",
-    "line": "Eighth to third. Dalton Kincaid (19.0) finally got the flex spot."
+    "line": "James Cook and Kenneth Walker combined for 41.2. Too many cooks? Not in this kitchen."
    },
    {
     "key": "jwalthier",
-    "line": "0.1 points left on the bench all season. Nothing to regret, nothing in reserve."
+    "line": "Two weeks, 0.1 points left on the bench. Lineups by Swiss watchmaker."
    },
    {
     "key": "casebrabham",
-    "line": "Second to fifth. David Montgomery (3.4) went from flex to flop."
+    "line": "Benched Bowers and Flowers, and both scored zero. Nailed the flower arrangement."
    },
    {
     "key": "louisnicoletti",
-    "line": "Most points against in the league (261.4). Opponents save their best for this one."
+    "line": "The defense scored 23 and still lost. The offense owes it an apology."
    },
    {
     "key": "naaaaaaaaaaaaaaaate",
-    "line": "Up two spots. Turns out the extra a's stand for Amon-Ra."
+    "line": "Up 42.94 from week one. The a's have it."
    },
    {
     "key": "Stafford's Staffers",
-    "line": "98.5 points left on the bench this season. The sideline is the real starting lineup."
+    "line": "Worst score to second-best in a week. The staff finally read the memo."
    },
    {
     "key": "Lamar JacksOff",
-    "line": "Third to ninth. Bijan Robinson (9.6) ran at half his projection."
+    "line": "Paid $0 for Tampa's defense, started it over Minnesota's (18.0). Still overpaid."
    },
    {
     "key": "Corey Dylan Clark",
-    "line": "Dead last with the week's best player. Allen can't play tight end too."
+    "line": "Deebo cost $15 for 5.0 points. Corey Dylan Clark, attorneys at three dollars a point."
    }
   ],
   "award_lines": [
    {
     "key": "blowout",
-    "line": "Goff and Amon-Ra combined for 60.48. Everyone else was garnish."
+    "line": "Amon-Ra St. Brown alone outscored five of the losing starters combined."
    },
    {
     "key": "high",
-    "line": "Malik Nabers caught one ball for one yard, and it still topped the week."
+    "line": "Up 40.42 from week one. Somebody found the start button."
    },
    {
     "key": "low",
-    "line": "MIN D/ST (18.0) sat while TB D/ST (2.0) played. The defense rests."
+    "line": "The Staffers' bench outscored this entire lineup. While sitting down."
    },
    {
     "key": "close",
-    "line": "DJ Moore started at -0.1 and it worked out. Negative yards, positive result."
+    "line": "DJ Moore (-0.1) went negative in the flex. First place didn't notice."
    },
    {
     "key": "heartbreaker",
-    "line": "Four receiving yards from the starter. Ferguson scored twice from the bench."
+    "line": "Ferguson scored twice. The bench keeps its own scoreboard."
+   },
+   {
+    "key": "best_mgr",
+    "line": "Perfect lineup, and it still started Caleb Williams (8.72). Depth is a rumor."
    },
    {
     "key": "worst_mgr",
-    "line": "Goedert and DET D/ST combined for -0.1, exactly one DJ Moore."
+    "line": "Doubs over Rhamondre also wins it, by 0.14. Two exits, both ignored."
    },
    {
     "key": "best_bench",
-    "line": "Kelce, Stafford and Diggs combined for 67.78 from the sideline."
+    "line": "Kelce sat for Colston Loveland again. Loveland upgraded from zero to 0.8. Growth."
    },
    {
     "key": "mvp",
-    "line": "Five total touchdowns and a loss. Allen needed a tight end, not a miracle."
+    "line": "The other eight starters combined for zero touchdowns. Allen was the whole department."
    },
    {
     "key": "bench_mvp",
-    "line": "Four touchdown passes, zero that counted. Lost the job by two hundredths."
+    "line": "Four touchdowns, 26 rushing yards, still second on the depth chart."
    },
    {
     "key": "over",
-    "line": "Davante Adams alone outscored Lamar JacksOff's five lowest starters (28.80)."
+    "line": "195 yards and two scores. Davante Adams just earned a staff promotion."
    },
    {
     "key": "under",
-    "line": "Nine rushing yards, and the bench had nothing better. Depth chart: empty."
+    "line": "Nine rushing yards on the day. All Barkley, no bite."
    },
    {
     "key": "lucky",
-    "line": "Seventh-best score, first place. The schedule deserves its own trophy."
+    "line": "Scored 55.08 fewer than week one and kept the crown."
    },
    {
     "key": "unlucky",
-    "line": "120.86 beats six other teams. It drew Davante Adams instead."
+    "line": "The perfect lineup wins by 4.68. Henderson and Waller watched it not happen."
    },
    {
     "key": "big_spender",
-    "line": "$39 for zero, $1 for Tyler Shough's 22.38. Neither one started."
+    "line": "Meanwhile the $1 Tyler Shough (22.38) sat. Buy high, start low."
    }
   ],
   "game_lines": [
    {
     "key": "1",
-    "line": "Adams (35.5) beat Chase (23.0) by 12.5; the final margin was 11.82."
+    "line": "Chase and Kittle combined for 39.0. Last week's matching outfits got tailored."
    },
    {
     "key": "2",
-    "line": "JSN caught three touchdowns; cdb1919 answered with eight starters in double digits."
+    "line": "JSN caught three touchdowns. Malik Nabers caught one yard. Guess who won."
    },
    {
     "key": "3",
-    "line": "Allen (40.82) nearly doubled McCaffrey (20.6), and McCaffrey's side still won."
+    "line": "McCaffrey: 23 rushing yards, two touchdowns. Short drives, long celebrations."
    },
    {
     "key": "4",
-    "line": "Amon-Ra St. Brown (30.7) more than tripled casebrabham's starting receivers (8.6)."
+    "line": "Waddle (17.8) finally woke up. Kyle Pitts (2.0) hit snooze again."
    },
    {
     "key": "5",
-    "line": "CeeDee Lamb (31.3) outscored Lamar JacksOff's top two starters combined."
+    "line": "Lamb and Olave (49.9) did the heavy lifting. Everyone else spotted."
    }
   ],
   "preview_lines": [],
-  "signoff": "Stay off the couch.",
-  "by": "claude-opus-5-5"
+  "signoff": "Check your tight ends.",
+  "by": "claude-opus-5-5 (draft + punch-up)"
  }
 }
