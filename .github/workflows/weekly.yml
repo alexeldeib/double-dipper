@@ -82,3 +82,13 @@ jobs:
       - id: deploy
         if: ${{ !inputs.dry_run }}
         uses: actions/deploy-pages@v5
+      # Deploy first so the numbers ship, then fail loudly (GitHub emails you) if Claude didn't write the jokes.
+      - name: Check the jokes made it
+        if: ${{ github.event_name != 'push' && !inputs.dry_run }}
+        run: |
+          python - <<'EOF'
+          import glob, json, os, sys
+          d = json.load(open(max(glob.glob("weeks/*.json"), key=os.path.getmtime)))
+          if d["copy"].get("by") == "template":
+              sys.exit(f"Week {d['facts']['week']} shipped without jokes. Rerun it with fresh ticked.")
+          EOF

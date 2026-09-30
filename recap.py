@@ -338,15 +338,17 @@ def write_copy(facts, previous=()):
         client, brief = anthropic.Anthropic(), (ROOT / "prompt.md").read_text()
 
         def ask(system, payload):
-            msg = client.beta.messages.create(
+            # Streamed with room to think: 16k tokens ran out on a busy week and silently fell back to template copy.
+            with client.beta.messages.stream(
                 model=MODEL,
-                max_tokens=16000,
+                max_tokens=64000,
                 betas=["server-side-fallback-2026-07-01"],
                 system=system,
                 messages=[{"role": "user", "content": json.dumps(payload, ensure_ascii=False)}],
                 extra_body={"fallbacks": "default",
                             "output_config": {"effort": "high", "format": {"type": "json_schema", "schema": SCHEMA}}},
-            )
+            ) as stream:
+                msg = stream.get_final_message()
             if msg.stop_reason != "end_turn":
                 raise RuntimeError(f"stop_reason={msg.stop_reason}")
             return json.loads(next(b.text for b in msg.content if b.type == "text")), msg.model
@@ -654,8 +656,10 @@ def main():
         if (not copy or os.environ.get("FRESH") == "true"
                 or (copy.get("by") == "template" and os.environ.get("ANTHROPIC_API_KEY"))):
             earlier = [json.loads(q.read_text()) for q in sorted((ROOT / "weeks").glob(f"{facts['season']}-*.json"))]
-            copy = write_copy(facts, [dict(week=d["facts"]["week"], **{k: v for k, v in d["copy"].items() if k != "by"})
-                                      for d in earlier if d["facts"]["week"] < facts["week"]])
+            fresh = write_copy(facts, [dict(week=d["facts"]["week"], **{k: v for k, v in d["copy"].items() if k != "by"})
+                                       for d in earlier if d["facts"]["week"] < facts["week"]])
+            if fresh.get("by") != "template" or not copy:  # a failed rewrite never replaces jokes we already have
+                copy = fresh
         path.parent.mkdir(exist_ok=True)
         path.write_text(json.dumps(dict(facts=facts, copy=copy), indent=1, ensure_ascii=False) + "\n")
     render()
