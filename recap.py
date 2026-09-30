@@ -258,12 +258,12 @@ def build_facts(week=None):
 LINES = {"type": "array", "items": {"type": "object", "additionalProperties": False, "required": ["key", "line"],
                                     "properties": {"key": {"type": "string"}, "line": {"type": "string"}}}}
 SCHEMA = {"type": "object", "additionalProperties": False,
-          "required": ["headline", "dek", "hero_value", "hero_caption", "pen_notes", "text_message",
+          "required": ["headline", "dek", "hero_value", "hero_caption", "pen_notes",
                        "award_lines", "game_lines", "preview_lines", "signoff"],
           "properties": {"headline": {"type": "string"}, "dek": {"type": "string"},
                          "hero_value": {"type": "string"}, "hero_caption": {"type": "string"},
                          "pen_notes": {"type": "array", "items": {"type": "string"}},
-                         "text_message": {"type": "string"}, "award_lines": LINES, "game_lines": LINES,
+                         "award_lines": LINES, "game_lines": LINES,
                          "preview_lines": LINES, "signoff": {"type": "string"}}}
 
 
@@ -294,12 +294,9 @@ def write_copy(facts):
 def template_copy(f):
     a = {x["key"]: x for x in f["awards"]}
     lead = a.get("heartbreaker") or a["high"]
-    who = {t["team"]: t["manager"] for t in f["teams"]}
-    bullets = [f"- {x['label']}: @{who[x['team']]}, {x['stat']} {x['emoji']}" for x in f["awards"]]
     return dict(by="template", headline=lead["label"].upper(), dek=f"{lead['team']}: {lead['stat']}.",
                 hero_value=a["high"]["stat"].split(" ")[0], hero_caption=f"{a['high']['team']} led the week",
-                pen_notes=[], text_message="\n".join([f"Week {f['week']} recap! 🥣"] + bullets),
-                award_lines=[], game_lines=[], preview_lines=[], signoff="")
+                pen_notes=[], award_lines=[], game_lines=[], preview_lines=[], signoff="")
 
 
 def page(shell, f, c, url, data):
@@ -381,11 +378,6 @@ def page(shell, f, c, url, data):
   <p class="dek">{e(c["dek"])}</p>
   <div class="hero"><p class="hero-num">{e(c["hero_value"])}</p><p class="hero-cap">{e(c["hero_caption"])}</p>{note(0)}</div>
 </section>
-<section class="send" aria-labelledby="send-h">
-  <h2 id="send-h" class="kicker">For the group chat</h2>
-  <div class="bubble" id="sms">{e(text_message(c, url))}</div>
-  <div class="actions"><button type="button" id="share" class="alt" hidden>Share</button><button type="button" id="copy">Copy text</button></div>
-</section>
 <section aria-labelledby="tro-h"><div class="h-row"><h2 id="tro-h">Trophies</h2>{note(1)}</div><div class="trophies">{trophies}</div></section>
 <section aria-labelledby="sb-h"><h2 id="sb-h">Scoreboard</h2><div class="games">{games}</div></section>
 {upcoming}
@@ -408,10 +400,6 @@ def page(shell, f, c, url, data):
             .replace("{{url}}", e(url)).replace("{{body}}", body))
 
 
-def text_message(c, url):
-    return f"{c['text_message'].strip()}\n\n{url}"
-
-
 def render():
     shell = (ROOT / "template.html").read_text()
     data = [json.loads(p.read_text()) for p in sorted((ROOT / "weeks").glob("*.json"))]
@@ -426,7 +414,6 @@ def render():
         f, c = data[-1]["facts"], data[-1]["copy"]
         url = f"{SITE}{f['season']}/{f['week']}/"
         (docs / "index.html").write_text(page(shell, f, c, url, data))
-        (docs / "latest.txt").write_text(text_message(c, url) + "\n")
 
 
 def main():
