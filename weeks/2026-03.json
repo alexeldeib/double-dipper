@@ -1908,200 +1908,48 @@
     {
      "a": "briancami",
      "b": "aaronargyres",
-     "a_proj": 119.3,
-     "b_proj": 106.4
+     "a_proj": 119.4,
+     "b_proj": 106.5
     },
     {
      "a": "cdb1919",
      "b": "naaaaaaaaaaaaaaaate",
-     "a_proj": 113.8,
-     "b_proj": 108.0
+     "a_proj": 114.6,
+     "b_proj": 108.4
     },
     {
      "a": "Stafford's Staffers",
      "b": "jwalthier",
-     "a_proj": 115.7,
-     "b_proj": 112.0
+     "a_proj": 115.9,
+     "b_proj": 112.2
     },
     {
      "a": "Lamar JacksOff",
      "b": "louisnicoletti",
-     "a_proj": 123.4,
-     "b_proj": 99.6
+     "a_proj": 120.6,
+     "b_proj": 99.4
     },
     {
      "a": "casebrabham",
      "b": "Corey Dylan Clark",
      "a_proj": 127.9,
-     "b_proj": 86.9
+     "b_proj": 87.1
     }
    ]
   }
  },
  "copy": {
-  "by": "writers' room (roast, deadpan, chaos) + edit",
-  "headline": "MAYE CULPA",
-  "dek": "@louisnicoletti started Drake Maye (5.8) over Tyler Shough (24.8) and lost by 18.94.",
-  "hero_value": "0.10",
-  "hero_caption": "Winning margin, left on the bench.",
-  "pen_notes": [
-   "START SHOUGH",
-   "FREE DARNOLD",
-   "3-0 FRAUD?"
-  ],
-  "story": [
-   "Week 3 came down to one lineup call. @louisnicoletti started Drake Maye (5.8) over Tyler Shough (24.8) and lost by 18.94. Both quarterbacks turned it over three times. Only Shough added four touchdowns. That's 0-3.",
-   "Up top, @aaronargyres set a perfect lineup without touching waivers, and @dclark34 won with Sam Darnold's 29.7 riding the bench. @jwalthier is 3-0 after drawing the week's worst score for the second straight week.",
-   "The power rankings aren't buying it: jwalthier sits fifth, and briancami slid from first to seventh. Next up, the last unbeaten team meets Stafford's Staffers, who have stopped starting Stafford."
-  ],
-  "power_lines": [
-   {
-    "key": "aaronargyres",
-    "line": "Leads the league in points and just set a perfect lineup. Hard to argue."
-   },
-   {
-    "key": "casebrabham",
-    "line": "Best 1-2 team alive. The optimal lineup would've been the week's top score."
-   },
-   {
-    "key": "Lamar JacksOff",
-    "line": "Left 70.46 on the bench and still climbed. Imagine if they tried."
-   },
-   {
-    "key": "Stafford's Staffers",
-    "line": "Benched the namesake, won by 40. Growth."
-   },
-   {
-    "key": "jwalthier",
-    "line": "Opponents are averaging 79.3. The schedule deserves a cut of the winnings."
-   },
-   {
-    "key": "cdb1919",
-    "line": "Has faced a league-high 412.36 points. The fruit basket is in the mail."
-   },
-   {
-    "key": "briancami",
-    "line": "148.7, then 93.6, then 90.4. The chart would like a word."
-   },
-   {
-    "key": "naaaaaaaaaaaaaaaate",
-    "line": "Won because @louisnicoletti benched Shough. A win's a win."
-   },
-   {
-    "key": "louisnicoletti",
-    "line": "One QB swap from a win. Start. Shough."
-   },
-   {
-    "key": "Corey Dylan Clark",
-    "line": "Even the perfect lineup (101.06) loses this week. Rough stretch, genuinely."
-   }
-  ],
-  "award_lines": [
-   {
-    "key": "blowout",
-    "line": "Both projected 114.5. Projections are astrology."
-   },
-   {
-    "key": "high",
-    "line": "No waiver moves. No bench regrets. No mercy."
-   },
-   {
-    "key": "low",
-    "line": "Gibbs and Bijan alone outscored this entire lineup. By 0.04."
-   },
-   {
-    "key": "close",
-    "line": "naaaaaaaaaaaaaaaate and jwalthier finished 0.18 apart. They were playing other people."
-   },
-   {
-    "key": "heartbreaker",
-    "line": "Same three turnovers. Shough added four TDs. Maye started."
-   },
-   {
-    "key": "best_mgr",
-    "line": "Everyone else left 140.22 on their benches. That's a third-place score."
-   },
-   {
-    "key": "worst_mgr",
-    "line": "Right idea, wrong Mc."
-   },
-   {
-    "key": "best_bench",
-    "line": "Could've had the week's top score by 16.24. Settled for second."
-   },
-   {
-    "key": "mvp",
-    "line": "Beat Bijan by 3.6. Lost to Bijan anyway."
-   },
-   {
-    "key": "bench_mvp",
-    "line": "Lost the starting job to a team name."
-   },
-   {
-    "key": "over",
-    "line": "Cleared of any involvement in the loss."
-   },
-   {
-    "key": "under",
-    "line": "Beat out Tyler Shough for the job. The job went poorly."
-   },
-   {
-    "key": "lucky",
-    "line": "Would've lost to five teams. Drew the one that scored 72."
-   },
-   {
-    "key": "unlucky",
-    "line": "Outscored seven teams. Drew one of the two it couldn't."
-   },
-   {
-    "key": "big_spender",
-    "line": "$3.02 a point. Still better than briancami's $4 for zero."
-   }
-  ],
-  "game_lines": [
-   {
-    "key": "1",
-    "line": "Kittle outscored both cdb1919 tight ends combined. Why were there two?"
-   },
-   {
-    "key": "2",
-    "line": "Stafford outscored every briancami starter, from the bench."
-   },
-   {
-    "key": "3",
-    "line": "Goff over Dak: right by 0.42. Maye over Shough? naaaaaaaaaaaaaaaah."
-   },
-   {
-    "key": "4",
-    "line": "$4 of Addison on jwalthier's bench beat $27 of Corey Dylan Clark starters."
-   },
-   {
-    "key": "5",
-    "line": "Both managers benched the better QB. Only one got away with it."
-   }
-  ],
-  "preview_lines": [
-   {
-    "key": "1",
-    "line": "Both lineups start a player listed Out. First to notice wins."
-   },
-   {
-    "key": "2",
-    "line": "Nobody has faced more points than cdb1919. naaaaaaaaaaaaaaaate would like to help."
-   },
-   {
-    "key": "3",
-    "line": "The league's luckiest team vs. the team that's benched 103.1 points."
-   },
-   {
-    "key": "4",
-    "line": "Win No. 1 is right there, @louisnicoletti. You know who to start."
-   },
-   {
-    "key": "5",
-    "line": "Gibbs is coming for Corey Dylan Clark. Please start the right T. Mc."
-   }
-  ],
-  "signoff": "Start your Shoughs."
+  "by": "template",
+  "headline": "HEARTBREAKER",
+  "dek": "louisnicoletti: lost by 18.94, one swap from winning by 0.10.",
+  "hero_value": "152.72",
+  "hero_caption": "aaronargyres led the week",
+  "pen_notes": [],
+  "story": [],
+  "power_lines": [],
+  "award_lines": [],
+  "game_lines": [],
+  "preview_lines": [],
+  "signoff": ""
  }
 }
