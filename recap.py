@@ -506,7 +506,7 @@ def page(shell, f, c, url, data):
 
     # The Rundown: the lead segment, in the writer's words. Skipped when there's no story (template copy).
     story = [s.strip() for s in c.get("story") or [] if s and s.strip()]
-    rundown = (f'<section class="seg rundown" aria-labelledby="run-h">{bumper("run-h", "The Rundown", f"Week {wk} · from the desk")}'
+    rundown = (f'<section class="seg rundown" aria-labelledby="run-h">{bumper("run-h", "The Rundown", f"Week {wk} · from the desk", note(1, SCRIBBLE))}'
                f'<div class="story">{"".join(f"<p>{lit(s, AT)}</p>" for s in story)}</div></section>') if story else ""
 
     # Power rankings: all ten, with movement. The analyst circles the week's biggest climb.
@@ -532,7 +532,7 @@ def page(shell, f, c, url, data):
                 f'<p class="pr-team"><b style="--n:{fit(p["team"])}">{e(p["team"])}</b></p><p class="pr-meta">{meta}</p>'
                 f'{line("power_lines", p["team"], "pr-line")}</li>')
 
-    rankings = (f'<section class="seg power" aria-labelledby="pow-h">{bumper("pow-h", "Power Rankings", "All-play record, then points")}'
+    rankings = (f'<section class="seg power" aria-labelledby="pow-h">{bumper("pow-h", "Power Rankings", "All-play record, then points", note(2, SCRIBBLE))}'
                 f'<ol class="pr" role="list">{"".join(map(ranked, power))}</ol></section>') if power else ""
 
     # Trophies: the supporting stats package. The big stuff first, then the other fun stats.
@@ -545,7 +545,7 @@ def page(shell, f, c, url, data):
     big = "".join(award(a) for a in f["awards"] if a["key"] in BIG)
     more = "".join(award(a) for a in f["awards"] if a["key"] not in BIG)
     count = f"The stats package · {len(f['awards'])} awards"
-    trophies = (f'<section class="seg" aria-labelledby="tro-h">{bumper("tro-h", "Trophies", count, note(1, SCRIBBLE))}'
+    trophies = (f'<section class="seg" aria-labelledby="tro-h">{bumper("tro-h", "Trophies", count, note(3, SCRIBBLE))}'
                 + (f'<h3 class="sr">The big stuff</h3><div class="aws aws-big">{big}</div>' if big else "")
                 + (f'<h3 class="sub">Other fun stats</h3><div class="aws aws-more">{more}</div>' if more else "")
                 + "</section>")
@@ -558,7 +558,7 @@ def page(shell, f, c, url, data):
         f'<span><i>vs</i>{e(g["lose"]["top"]["player"])} <b>{g["lose"]["top"]["pts"]:.1f}</b></span></p>'
         f'{line("game_lines", i, "sb-line")}</article>'
         for i, g in enumerate(f["games"], 1))
-    scoreboard = (f'<section class="seg" aria-labelledby="sb-h">{bumper("sb-h", "Scoreboard", f"Week {wk} finals")}'
+    scoreboard = (f'<section class="seg" aria-labelledby="sb-h">{bumper("sb-h", "Scoreboard", f"Week {wk} finals", note(4, SCRIBBLE))}'
                   f'<div class="bugs">{games}</div></section>')
 
     upcoming = ""
@@ -592,8 +592,8 @@ def page(shell, f, c, url, data):
         f'<tr><th scope="row">{e(t["team"])}</th><td>{t["pts"]:.2f}</td><td>{t["opt"]:.2f}</td>'
         f'<td>{t["opt"] - t["pts"]:.2f}</td><td class="eff">{t["eff"]:g}%<span style="--p:{t["eff"]:g}%"></span></td></tr>'
         for t in teams_wk)
-    nerd = (f'<section class="seg" aria-labelledby="nerd-h">{bumper("nerd-h", "Nerd Corner", "Standings & lineup math", note(2, SCRIBBLE))}'
-            f'<div class="boards"><div class="scroll" tabindex="0" role="region" aria-label="Standings table">'
+    nerd = (f'<section class="seg" aria-labelledby="nerd-h">{bumper("nerd-h", "Nerd Corner", "Standings & lineup math", note(5, SCRIBBLE))}'
+            f'<details class="fold"><summary>Show the standings and lineup math</summary><div class="boards"><div class="scroll" tabindex="0" role="region" aria-label="Standings table">'
             f'<table class="standings"><caption>Standings</caption><thead><tr><th scope="col">Team</th><th scope="col">W-L</th>'
             f'<th scope="col">PF</th><th scope="col">PA</th><th scope="col" title="Record if you played every team every week">All-play</th>'
             f'<th scope="col" title="Wins above what your all-play rate predicts">Luck</th>'
@@ -601,7 +601,7 @@ def page(shell, f, c, url, data):
             f'<div class="scroll" tabindex="0" role="region" aria-label="Lineup report table"><table class="report">'
             f'<caption>Lineup report, week {wk}</caption><thead><tr><th scope="col">Team</th><th scope="col">Pts</th>'
             f'<th scope="col">Max</th><th scope="col">Left</th><th scope="col">Eff</th></tr></thead><tbody>{report}</tbody></table></div>'
-            f'</div></section>')
+            f'</div></details></section>')
 
     archive = "".join(
         f'<li><a href="{week_url(d["facts"])}"{" aria-current=page" if i == here else ""}>'
