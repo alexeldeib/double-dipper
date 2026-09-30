@@ -2,7 +2,9 @@ name: Weekly recap
 
 on:
   schedule:
-    - cron: "0 13 * * 2" # Tuesday 9am Eastern (8am once daylight saving ends)
+    # GitHub starts scheduled runs late (hours, lately) and can drop them; off the hour helps a little.
+    - cron: "17 13 * * 2" # Tuesday 9:17am Eastern (8:17am once daylight saving ends)
+    - cron: "17 19 * * 2" # retry: does nothing if the morning run already published the week
   workflow_dispatch:
     inputs:
       week:
@@ -32,15 +34,18 @@ concurrency:
 jobs:
   recap:
     runs-on: ubuntu-latest
+    timeout-minutes: 60 # a hung call shouldn't hold the queue (and your hand-edit deploys) for 6 hours
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v7
+        with:
+          ref: main # main as it is when this job starts, so a queued run never deploys an older commit
       - uses: actions/setup-python@v7
         with:
           python-version: "3.13"
-      - run: pip install anthropic
+      - run: pip install anthropic==1.9.0 # the version every run so far used; upgrade on purpose
       # A push only restyles the existing weeks; the schedule and manual runs fetch a new week.
       - run: python recap.py ${{ github.event_name == 'push' && 'render' || '' }}
         env:
@@ -52,8 +57,8 @@ jobs:
         if: ${{ inputs.dry_run }}
         run: |
           python - <<'EOF' | tee -a "$GITHUB_STEP_SUMMARY"
-          import glob, json, os
-          d = json.load(open(max(glob.glob("weeks/*.json"), key=os.path.getmtime)))
+          import json, os
+          d = json.load(open(os.environ["WEEK_FILE"]))
           c, w = d["copy"], d["facts"]["week"]
           print(f"## Week {w} dry run, written by `{c.get('by')}`\n\n# {c['headline']}\n\n{c['dek']}\n")
           print(f"**{c['hero_value']}**: {c['hero_caption']}  \nMarker: {' / '.join(c['pen_notes'])}\n")
@@ -73,8 +78,10 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add weeks
           if ! git diff --cached --quiet; then
-            git commit -m "Recap: week data"
+            git commit -m "Recap: $WEEK_FILE"
+            git pull --rebase origin main # a hand edit to another week landed mid-run: keep both
             git push
+            python recap.py render # so the deploy below includes that hand edit too
           fi
       - uses: actions/upload-pages-artifact@v5
         if: ${{ !inputs.dry_run }}
@@ -88,8 +95,8 @@ jobs:
         if: ${{ github.event_name != 'push' && !inputs.dry_run }}
         run: |
           python - <<'EOF'
-          import glob, json, os, sys
-          d = json.load(open(max(glob.glob("weeks/*.json"), key=os.path.getmtime)))
+          import json, os, sys
+          d = json.load(open(os.environ["WEEK_FILE"]))
           if d["copy"].get("by") == "template":
               sys.exit(f"Week {d['facts']['week']} shipped without jokes. Rerun it with fresh ticked.")
           EOF

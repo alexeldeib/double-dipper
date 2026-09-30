@@ -38,6 +38,7 @@ def get(url, fallback=None):
     except Exception:
         if fallback is None:
             raise
+        print(f"::warning::{url.split('?')[0]} failed; carrying on without it.")
         return fallback
 
 
@@ -343,7 +344,8 @@ def research(client, facts):
            "are talking about: huge plays, bloopers, bizarre moments, viral memes, sideline drama. Focus on these players, who are "
            "on a fantasy league's rosters (their fantasy team in parentheses):\n" + "; ".join(f"{p} ({t})" for p, t in who.items())
            + "\n\nReply with up to 8 short bullets: the player, what happened, why people are talking about it, and one source URL. "
-           "Only include moments your sources confirm. Skip injuries.")
+           "Only include on-field moments that the league, a team or an established sports outlet confirms. "
+           "Skip injuries and anything off the field: legal, personal or health news.")
     messages = [{"role": "user", "content": ask}]
     for _ in range(5):  # a server-side search can pause mid-turn; resending the paused turn resumes it
         msg = client.messages.create(model=MODEL, max_tokens=16000, tools=[WEB_SEARCH], messages=messages,
@@ -362,7 +364,7 @@ def write_copy(facts, previous=()):
     try:
         import anthropic
 
-        client, brief = anthropic.Anthropic(), (ROOT / "prompt.md").read_text()
+        client, brief = anthropic.Anthropic(max_retries=4), (ROOT / "prompt.md").read_text()
 
         def ask(system, payload):
             # Streamed with room to think: 16k tokens ran out on a busy week and silently fell back to template copy.
@@ -378,17 +380,22 @@ def write_copy(facts, previous=()):
                 msg = stream.get_final_message()
             if msg.stop_reason != "end_turn":
                 raise RuntimeError(f"stop_reason={msg.stop_reason}")
-            return json.loads(next(b.text for b in msg.content if b.type == "text")), msg.model
+            # After a mid-stream fallback the new model continues the partial text, so the JSON spans text blocks.
+            return json.loads("".join(b.text for b in msg.content if b.type == "text")), msg.model
 
         try:
-            news = research(client, facts)
+            news = research(client.with_options(timeout=300, max_retries=1), facts)  # best effort: never stall the run
         except Exception as e:  # the recap works without it
             print(f"::warning::Skipped the web research for real-life plays ({e}).")
             news = None
         prior = list(previous)
-        draft, _ = ask(brief, dict(facts=facts, previous_weeks=prior, news=news))
-        final, model = ask(brief + "\n\n---\n\n" + (ROOT / "punchup.md").read_text(),
-                           dict(facts=facts, previous_weeks=prior, news=news, draft=draft))
+        draft, model = ask(brief, dict(facts=facts, previous_weeks=prior, news=news))
+        try:
+            final, model = ask(brief + "\n\n---\n\n" + (ROOT / "punchup.md").read_text(),
+                               dict(facts=facts, previous_weeks=prior, news=news, draft=draft))
+        except Exception as e:  # the draft is real copy already: ship it rather than plain labels
+            print(f"::warning::The punch-up pass failed ({e}); shipping the draft.")
+            return dict(draft, by=f"{model} (draft only)", news=news)
         return dict(final, by=f"{model} (draft + punch-up)", news=news)
     except Exception as e:  # ponytail: any failure falls back to template copy so the numbers still ship
         print(f"::warning::Claude couldn't write the copy ({e}); using template copy.")
@@ -664,9 +671,19 @@ def page(shell, f, c, url, data):
             .replace("{{url}}", e(url)).replace("{{body}}", body))
 
 
+def load(p):
+    """A week file. A broken hand edit stops the run naming the file and the fix, instead of a traceback."""
+    try:
+        return json.loads(p.read_text())
+    except ValueError as err:
+        print(f"::error file={p.relative_to(ROOT)}::{p.name} isn't valid JSON ({err}). A straight double quote "
+              'inside a line must be written \\" and the last item in a list takes no comma.')
+        sys.exit(1)
+
+
 def render():
     shell = (ROOT / "template.html").read_text()
-    data = [json.loads(p.read_text()) for p in sorted((ROOT / "weeks").glob("*.json"))]
+    data = [load(p) for p in sorted((ROOT / "weeks").glob("*.json"))]
     docs = ROOT / "docs"
     for d in data:
         f = d["facts"]
@@ -684,16 +701,24 @@ def main():
     if sys.argv[1:] != ["render"]:
         facts = build_facts(os.environ.get("WEEK"))
         path = ROOT / "weeks" / f"{facts['season']}-{facts['week']:02d}.json"
-        copy = json.loads(path.read_text())["copy"] if path.exists() else None
-        if (not copy or os.environ.get("FRESH") == "true"
+        saved = load(path) if path.exists() else None
+        copy = saved and saved["copy"]
+        if saved and os.environ.get("GITHUB_EVENT_NAME") == "schedule" and copy.get("by") != "template":
+            # Sleeper hasn't scored a newer week, or this is the retry run: leave the published week, hand edits and all.
+            print(f"::notice::Week {facts['week']} is already up and Sleeper has nothing newer. Nothing to do.")
+            facts = saved["facts"]
+        elif (not copy or os.environ.get("FRESH") == "true"
                 or (copy.get("by") == "template" and os.environ.get("ANTHROPIC_API_KEY"))):
-            earlier = [json.loads(q.read_text()) for q in sorted((ROOT / "weeks").glob(f"{facts['season']}-*.json"))]
+            earlier = [load(q) for q in sorted((ROOT / "weeks").glob(f"{facts['season']}-*.json"))]
             fresh = write_copy(facts, [dict(week=d["facts"]["week"], **{k: v for k, v in d["copy"].items() if k not in ("by", "news")})
                                        for d in earlier if d["facts"]["week"] < facts["week"]])
             if fresh.get("by") != "template" or not copy:  # a failed rewrite never replaces jokes we already have
                 copy = fresh
         path.parent.mkdir(exist_ok=True)
         path.write_text(json.dumps(dict(facts=facts, copy=copy), indent=1, ensure_ascii=False) + "\n")
+        if os.environ.get("GITHUB_ENV"):  # tells the workflow's later steps which week this run wrote
+            with open(os.environ["GITHUB_ENV"], "a") as env:
+                env.write(f"WEEK_FILE={path.relative_to(ROOT)}\n")
     render()
 
 
