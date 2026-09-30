@@ -1787,144 +1787,148 @@
   "next": null
  },
  "copy": {
-  "headline": "STAFF INFECTION",
-  "dek": "@alexeldeib's bench outscored the starters, and the team's namesake QB started over a $3 Brock Purdy.",
+  "headline": "STAFF SHORTAGE",
+  "dek": "@alexeldeib's bench outscored the starting lineup, and namesake Matthew Stafford managed 5.10 while Brock Purdy sat.",
   "hero_value": "80.80",
-  "hero_caption": "Bench points. The starters managed 75.10.",
+  "hero_caption": "More than the nine who actually played.",
   "pen_notes": [
-   "START THE BENCH",
-   "KYLER: SEE ME",
-   "JACKSOFF GOT ROBBED"
+   "PLAY THE BENCH",
+   "STAFF MEETING, NOW",
+   "DON'T GET COMFY",
+   "STAFFERS SWEEP, SADLY",
+   "ONE NAILBITER",
+   "PANIC LATER"
   ],
   "story": [
-   "@alexeldeib had a 139.1-point lineup on the roster, enough to win, and started a different one. Matthew Stafford (5.10) got the nod over Purdy (22.1), which is loyalty to a team name.",
-   "@briancami benched Mahomes and still took the top score, edging @dclark34, whose 141.86 would have beaten seven other teams. @louisnicoletti set a perfect lineup and lost; @jonraduazzo set a flawed one and won by drawing the Staffers.",
-   "The scariest note for everyone else: @casebrabham won by 51.76 with Kyler Murray (0.62) at quarterback."
+   "@alexeldeib's bench outscored the lineup, starting with the namesake. Matthew Stafford threw for 155 yards and a pick (5.10) while $3 pickup Brock Purdy (22.1) sat. Jalen Coker (29.8) watched Rico Dowdle (3.1) play. The right nine was worth 139.1, enough to beat Corey Dylan Clark by 14.54. Not understaffed. Misstaffed.",
+   "@dclark34 posted the third-best score, got three touchdowns from D'Andre Swift, and still lost to @briancami by 6.8. The commish's waiver haul went worse: $13 on two pickups, 0.0 combined. Thirteen bucks for a pair of donuts.",
+   "@casebrabham started Kyler Murray (0.62) over Jayden Daniels (17.66) and won by 51.76 anyway. @cdb1919 benched Jaxson Dart (26.6) for Joe Burrow (15.16) and wasted Kenneth Walker's 173 rushing yards. Same QB mistake, opposite endings.",
+   "@louisnicoletti set a perfect lineup and lost to three Drake Maye picks. @jonraduazzo won with the sixth-best score, @jwalthier missed perfect by 0.1, @aaronargyres rode Derrick Henry's three touchdowns, and @naaaaaaaaaaaaaaaate started Kyle Pitts (0.0) over Isaiah Likely (23.8). Naaaaaaaah."
   ],
   "power_lines": [
    {
     "key": "briancami",
-    "line": "Left Mahomes (22.66) on the bench and still beat everybody. Depth like that is annoying."
+    "line": "Beat the week's third-best score. Nobody else had to clear that bar."
    },
    {
     "key": "casebrabham",
-    "line": "Won going away with a QB who threw for 18 yards. Imagine a real quarterback."
+    "line": "Won big with a QB at 0.62. Start Daniels and hide the children."
    },
    {
     "key": "Lamar JacksOff",
-    "line": "Lamar (24.96) lived up to the team name. The schedule did not."
+    "line": "Lamar did his part; A.J. Brown (4.1) did not."
    },
    {
     "key": "jwalthier",
-    "line": "Missed a perfect lineup by 0.1, courtesy of RJ Harvey. Terrifyingly organized."
+    "line": "Benched a 26.1-point Trevor Lawrence and it was somehow the right call."
    },
    {
     "key": "aaronargyres",
-    "line": "Henry (34.8) carried a lineup where Ja'Marr Chase and the Texans defense combined for 1.2."
+    "line": "King Henry carried a roster where Chase and Kittle both managed 2.2."
    },
    {
     "key": "Corey Dylan Clark",
-    "line": "Started J.K. Dobbins (3.6) over Kyle Monangai (19.4). Good thing the Staffers were worse."
+    "line": "Sixth-best score, winning record. Luck spends the same in the standings."
    },
    {
     "key": "louisnicoletti",
-    "line": "Perfect lineup and still 0-1. The roster needs work, not the manager."
+    "line": "Nothing left to fix except Drake Maye's reads."
    },
    {
     "key": "cdb1919",
-    "line": "Walker showed up. Burrow, Cook and the Rams defense combined for 25.56. Long season."
+    "line": "Dalton Kincaid (15.5) sat, Marvin Harrison (3.8) played flex. Pattern forming."
    },
    {
     "key": "naaaaaaaaaaaaaaaate",
-    "line": "The team name has more A's than Kyle Pitts had points."
+    "line": "Projected highest in the league, finished ninth. Too many a's, not enough points."
    },
    {
     "key": "Stafford's Staffers",
-    "line": "Josh Allen alone outscored seven of these starters combined. Rebuild starts at the lineup screen."
+    "line": "Time to rename it Purdy's Staffers. Brock (22.1) earned the jersey."
    }
   ],
   "award_lines": [
    {
     "key": "blowout",
-    "line": "Gibbs, Jeanty and Montgomery combined for 88.2. @cdb1919 never stood a chance."
+    "line": "Three running backs over 27 points each. cdb1919 never had a chance."
    },
    {
     "key": "high",
-    "line": "Top score with Mahomes (22.66) on the pine. Justin Herbert sends his thanks."
+    "line": "Parker Washington (16.8) at flex. Somebody did homework."
    },
    {
     "key": "low",
-    "line": "The namesake QB put up 5.10. Rename the team after Purdy."
+    "line": "Colston Loveland (0.0) at tight end, Travis Kelce (8.6) on the pine."
    },
    {
     "key": "close",
-    "line": "Needed both Justin Jefferson touchdowns to survive @dclark34."
+    "line": "Mahomes on the bench cost 8.4. The margin was 6.8. Phew."
    },
    {
     "key": "best_mgr",
-    "line": "A flawless lineup and a loss by 15.6. Perfection is overrated."
+    "line": "Flawless lineup, zero regrets, one loss. Drake Maye's three picks send regards."
    },
    {
     "key": "worst_mgr",
-    "line": "Even the optimal lineup was a 14.54-point win. This one was self-inflicted."
+    "line": "Lost by 49.46; this one swap alone was worth 26.7."
    },
    {
     "key": "best_bench",
-    "line": "Bench beat the starters by 5.70. Promote the whole bench."
+    "line": "Brock Purdy was a $3 pickup for this exact role: spectator."
    },
    {
     "key": "mvp",
-    "line": "Two passing TDs, two rushing TDs, more than seven Staffers starters combined."
+    "line": "Two passing TDs, two rushing TDs, and Trevor Lawrence (26.1) still rode pine."
    },
    {
     "key": "bench_mvp",
-    "line": "138 yards and two touchdowns, delivered straight to the sideline."
+    "line": "Eight catches, 138 yards, two scores, zero lineup spots."
    },
    {
     "key": "over",
-    "line": "Walker did his part. The other eight starters split 63.36."
+    "line": "173 rushing yards poured into a 51.76-point loss."
    },
    {
     "key": "under",
-    "line": "18 passing yards while Jayden Daniels (17.66) sat. Won anyway, somehow."
+    "line": "Projected 18.05, delivered 18 passing yards. Close, wrong unit."
    },
    {
     "key": "lucky",
-    "line": "Sixth-best score, one win. The schedule handed over the Staffers."
+    "line": "Kyle Monangai (19.4) sat behind J.K. Dobbins (3.6). Didn't matter."
    },
    {
     "key": "unlucky",
-    "line": "141.86 beats seven of nine teams, just not the one on the schedule."
+    "line": "Three Swift touchdowns, 141.86 points, and a loss. Wrong week to be good."
    },
    {
     "key": "big_spender",
-    "line": "Vele and Douglas cost $13 combined and scored exactly zero."
+    "line": "$8 for a zero, plus $5 on C. Douglas for a matching set."
    }
   ],
   "game_lines": [
    {
     "key": "1",
-    "line": "Three Henry touchdowns beat three Drake Maye interceptions. Clean math."
+    "line": "Henry (34.8) beat Chase and Kittle combined by 30.4."
    },
    {
     "key": "2",
-    "line": "Josh Allen (35.66) outscored Stafford by 30.56. Wrong QB, wrong week."
+    "line": "Josh Allen alone outscored seven Staffers starters put together."
    },
    {
     "key": "3",
-    "line": "Dart threw three TDs from @cdb1919's bench. A perfect lineup still loses by 24.22."
+    "line": "Walker topped Gibbs; no other cdb1919 starter cleared 16."
    },
    {
     "key": "4",
-    "line": "Lost by 6.8 with Jameson Williams (6.5) in the flex. Javonte had 21.7."
+    "line": "Swift scored three times; A.J. Brown and George Pickens combined for 8.4."
    },
    {
     "key": "5",
-    "line": "Trevor Lawrence threw four TDs on @jwalthier's bench, and it didn't even matter."
+    "line": "Waddle and Pitts combined for 0.7 while Likely's 23.8 idled."
    }
   ],
   "preview_lines": [],
-  "signoff": "Start the bench, @alexeldeib.",
+  "signoff": "Staff dismissed. Check benches.",
   "by": "claude-opus-5-5"
  }
 }
