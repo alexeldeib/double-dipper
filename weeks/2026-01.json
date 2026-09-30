@@ -1787,148 +1787,149 @@
   "next": null
  },
  "copy": {
-  "headline": "STAFF SHORTAGE",
-  "dek": "@alexeldeib's bench outscored the starting lineup, and namesake Matthew Stafford managed 5.10 while Brock Purdy sat.",
-  "hero_value": "80.80",
-  "hero_caption": "More than the nine who actually played.",
+  "headline": "SHORT STAFFED",
+  "dek": "@alexeldeib's Stafford's Staffers finished last, and the guys on the bench put up more than the guys playing.",
+  "hero_value": "80.8",
+  "hero_caption": "Bench points. The starters? 75.1.",
   "pen_notes": [
-   "PLAY THE BENCH",
-   "STAFF MEETING, NOW",
-   "DON'T GET COMFY",
-   "STAFFERS SWEEP, SADLY",
-   "ONE NAILBITER",
-   "PANIC LATER"
+   "START THE BENCH",
+   "HR NOTIFIED",
+   "PINK SLIP: #10",
+   "SWEEP. WRONG KIND.",
+   "NOT CLOSE. MOSTLY.",
+   "PANIC? NOT YET."
   ],
   "story": [
-   "@alexeldeib's bench outscored the lineup, starting with the namesake. Matthew Stafford threw for 155 yards and a pick (5.10) while $3 pickup Brock Purdy (22.1) sat. Jalen Coker (29.8) watched Rico Dowdle (3.1) play. The right nine was worth 139.1, enough to beat Corey Dylan Clark by 14.54. Not understaffed. Misstaffed.",
-   "@dclark34 posted the third-best score, got three touchdowns from D'Andre Swift, and still lost to @briancami by 6.8. The commish's waiver haul went worse: $13 on two pickups, 0.0 combined. Thirteen bucks for a pair of donuts.",
-   "@casebrabham started Kyler Murray (0.62) over Jayden Daniels (17.66) and won by 51.76 anyway. @cdb1919 benched Jaxson Dart (26.6) for Joe Burrow (15.16) and wasted Kenneth Walker's 173 rushing yards. Same QB mistake, opposite endings.",
-   "@louisnicoletti set a perfect lineup and lost to three Drake Maye picks. @jonraduazzo won with the sixth-best score, @jwalthier missed perfect by 0.1, @aaronargyres rode Derrick Henry's three touchdowns, and @naaaaaaaaaaaaaaaate started Kyle Pitts (0.0) over Isaiah Likely (23.8). Naaaaaaaah."
+   "The owner of this website finished last on it. Short-staffed doesn't begin to cover it: Derrick Henry, who plays for @aaronargyres, matched seven Staffers starters combined. To the decimal.",
+   "@dclark34's namesake actually showed up, and Lamar JacksOff still lost, because @briancami picked week one to be good at everything. Mahomes was the spare tire.",
+   "@casebrabham started Kyler Murray, got 0.62, and won by 51.76 anyway. Somebody warn the league about the week a quarterback shows up.",
+   "The hottest position in the league was backup quarterback: Jaxson Dart, Trevor Lawrence and Brock Purdy all topped 22 from the pine. Only @jwalthier had a good excuse, and it's named Caleb Williams.",
+   "After one week the commish is 0-1 with the third-most points, and @jonraduazzo is 1-0 with the sixth-most. Scoring is apparently optional."
   ],
   "power_lines": [
    {
     "key": "briancami",
-    "line": "Beat the week's third-best score. Nobody else had to clear that bar."
+    "line": "Mahomes is the backup here. That's the whole scouting report."
    },
    {
     "key": "casebrabham",
-    "line": "Won big with a QB at 0.62. Start Daniels and hide the children."
+    "line": "Gibbs, Jeanty and Montgomery combined for 88.2. That backfield needs its own zip code."
    },
    {
     "key": "Lamar JacksOff",
-    "line": "Lamar did his part; A.J. Brown (4.1) did not."
+    "line": "Slim Pickens at wide receiver: A.J. Brown and George Pickens combined for 8.4."
    },
    {
     "key": "jwalthier",
-    "line": "Benched a 26.1-point Trevor Lawrence and it was somehow the right call."
+    "line": "Only lineup mistake: Judkins (6.0) over RJ Harvey (6.1). A tenth of a point. Surgical."
    },
    {
     "key": "aaronargyres",
-    "line": "King Henry carried a roster where Chase and Kittle both managed 2.2."
+    "line": "Houston's defense scored negative and the team won anyway. Don't expect that coupon twice."
    },
    {
     "key": "Corey Dylan Clark",
-    "line": "Sixth-best score, winning record. Luck spends the same in the standings."
+    "line": "Sounds like a law firm. Drew the Staffers, the easiest case on the docket."
    },
    {
     "key": "louisnicoletti",
-    "line": "Nothing left to fix except Drake Maye's reads."
+    "line": "Drake Maye threw three picks. That's not a stat line, it's a Maye-day call."
    },
    {
     "key": "cdb1919",
-    "line": "Dalton Kincaid (15.5) sat, Marvin Harrison (3.8) played flex. Pattern forming."
+    "line": "Jaxson Dart (26.6) sat behind Burrow. Next week, aim for the board."
    },
    {
     "key": "naaaaaaaaaaaaaaaate",
-    "line": "Projected highest in the league, finished ninth. Too many a's, not enough points."
+    "line": "Kyle Pitts and Jaylen Waddle combined for 0.7. The team name has more a's."
    },
    {
     "key": "Stafford's Staffers",
-    "line": "Time to rename it Purdy's Staffers. Brock (22.1) earned the jersey."
+    "line": "Jonathan Taylor did his job. The rest of the staff is on a performance plan."
    }
   ],
   "award_lines": [
    {
     "key": "blowout",
-    "line": "Three running backs over 27 points each. cdb1919 never had a chance."
+    "line": "Even a perfect cdb1919 lineup (123.5) loses this one by 24.22."
    },
    {
     "key": "high",
-    "line": "Parker Washington (16.8) at flex. Somebody did homework."
+    "line": "Sleeper projected a normal week. Sleeper has been corrected."
    },
    {
     "key": "low",
-    "line": "Colston Loveland (0.0) at tight end, Travis Kelce (8.6) on the pine."
+    "line": "Josh Allen alone outscored seven Staffers starters combined. He was on the other team."
    },
    {
     "key": "close",
-    "line": "Mahomes on the bench cost 8.4. The margin was 6.8. Phew."
+    "line": "Jacksonville's defense (15.0) covered this margin twice over."
    },
    {
     "key": "best_mgr",
-    "line": "Flawless lineup, zero regrets, one loss. Drake Maye's three picks send regards."
+    "line": "Nailed every lineup call and lost anyway. Next week, try being wrong."
    },
    {
     "key": "worst_mgr",
-    "line": "Lost by 49.46; this one swap alone was worth 26.7."
+    "line": "Paid $3 for Brock Purdy (22.1), then started the namesake (5.1). Loyalty isn't free."
    },
    {
     "key": "best_bench",
-    "line": "Brock Purdy was a $3 pickup for this exact role: spectator."
+    "line": "Kelce (8.6) sat so Colston Loveland could start and post a zero. Love hurts."
    },
    {
     "key": "mvp",
-    "line": "Two passing TDs, two rushing TDs, and Trevor Lawrence (26.1) still rode pine."
+    "line": "Outscored Jameson and Javonte Williams combined. Undisputed Williams of the week."
    },
    {
     "key": "bench_mvp",
-    "line": "Eight catches, 138 yards, two scores, zero lineup spots."
+    "line": "Two touchdowns from the couch. London and Adams managed 8.6 combined in uniform."
    },
    {
     "key": "over",
-    "line": "173 rushing yards poured into a 51.76-point loss."
+    "line": "Named Walker, ran for 173 yards. False advertising, the good kind."
    },
    {
     "key": "under",
-    "line": "Projected 18.05, delivered 18 passing yards. Close, wrong unit."
+    "line": "Eighteen passing yards. Jayden Daniels (17.66) nearly matched that in points from the bench."
    },
    {
     "key": "lucky",
-    "line": "Kyle Monangai (19.4) sat behind J.K. Dobbins (3.6). Didn't matter."
+    "line": "Sixth-best score, drew the tenth-best. Right place, right time, right Staffers."
    },
    {
     "key": "unlucky",
-    "line": "Three Swift touchdowns, 141.86 points, and a loss. Wrong week to be good."
+    "line": "Would've beaten seven teams. Drew one of the two it couldn't."
    },
    {
     "key": "big_spender",
-    "line": "$8 for a zero, plus $5 on C. Douglas for a matching set."
+    "line": "Eight dollars, zero points, and Douglas ($5) matched it. Cost per point: undefined."
    }
   ],
   "game_lines": [
    {
     "key": "1",
-    "line": "Henry (34.8) beat Chase and Kittle combined by 30.4."
+    "line": "Ja'Marr Chase and George Kittle both posted 2 catches, 12 yards. Coordinated outfits."
    },
    {
     "key": "2",
-    "line": "Josh Allen alone outscored seven Staffers starters put together."
+    "line": "@alexeldeib's best possible lineup wins this by 14.54. The one that played did not."
    },
    {
     "key": "3",
-    "line": "Walker topped Gibbs; no other cdb1919 starter cleared 16."
+    "line": "Zay Flowers averaged 30 yards a catch. Say it with Flowers."
    },
    {
     "key": "4",
-    "line": "Swift scored three times; A.J. Brown and George Pickens combined for 8.4."
+    "line": "Swift and Watson combined for five touchdowns. @briancami simply declined to lose."
    },
    {
     "key": "5",
-    "line": "Waddle and Pitts combined for 0.7 while Likely's 23.8 idled."
+    "line": "Isaiah Likely (23.8) sat while Kyle Pitts started. In hindsight, the Likely choice."
    }
   ],
   "preview_lines": [],
-  "signoff": "Staff dismissed. Check benches.",
-  "by": "claude-opus-5-5"
+  "signoff": "Staff meeting. Bench invited.",
+  "by": "claude-opus-5-5 (draft + punch-up)"
  }
 }
