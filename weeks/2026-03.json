@@ -428,56 +428,56 @@
     "started": [
      {
       "slot": "QB",
-      "player": "L. Jackson",
+      "player": "Lamar Jackson",
       "pts": 20.44,
       "proj": 24.49,
       "line": "186 pass yds, 2 pass TD, 50 rush yds"
      },
      {
       "slot": "RB",
-      "player": "B. Robinson",
+      "player": "Bijan Robinson",
       "pts": 34.3,
       "proj": 18.05,
       "line": "194 rush yds, 2 rush TD, 2 rec, 19 rec yds"
      },
      {
       "slot": "RB",
-      "player": "D. Swift",
+      "player": "D'Andre Swift",
       "pts": 9.8,
       "proj": 13.08,
       "line": "84 rush yds, 2 rec, 4 rec yds"
      },
      {
       "slot": "WR",
-      "player": "C. Watson",
+      "player": "Christian Watson",
       "pts": 19.1,
       "proj": 13.64,
       "line": "7 rec, 96 rec yds, 1 rec TD"
      },
      {
       "slot": "WR",
-      "player": "G. Pickens",
+      "player": "George Pickens",
       "pts": 11.7,
       "proj": 12.37,
       "line": "7 rec, 82 rec yds"
      },
      {
       "slot": "TE",
-      "player": "H. Fannin",
+      "player": "Harold Fannin",
       "pts": 20.6,
       "proj": 7.53,
       "line": "7 rec, 51 rec yds, 2 rec TD"
      },
      {
       "slot": "FLEX",
-      "player": "J. Williams",
+      "player": "Jameson Williams",
       "pts": 6.9,
       "proj": 10.91,
       "line": "4 rec, 49 rec yds"
      },
      {
       "slot": "FLEX",
-      "player": "T. Pollard",
+      "player": "Tony Pollard",
       "pts": 11.6,
       "proj": 11.46,
       "line": "74 rush yds, 4 rec, 22 rec yds"
@@ -492,49 +492,49 @@
     ],
     "bench": [
      {
-      "player": "E. Wilson",
+      "player": "Emanuel Wilson",
       "pos": "RB",
       "pts": 1.4,
       "line": "14 rush yds"
      },
      {
-      "player": "M. Lloyd",
+      "player": "MarShawn Lloyd",
       "pos": "RB",
       "pts": 2.8,
       "line": "11 rush yds, 2 rec, 7 rec yds"
      },
      {
-      "player": "D. Vele",
+      "player": "Devaughn Vele",
       "pos": "WR",
       "pts": 5.4,
       "line": "3 rec, 39 rec yds"
      },
      {
-      "player": "C. Douglas",
+      "player": "Caleb Douglas",
       "pos": "WR",
       "pts": 0.0,
       "line": ""
      },
      {
-      "player": "S. Darnold",
+      "player": "Sam Darnold",
       "pos": "QB",
       "pts": 29.66,
       "line": "379 pass yds, 4 pass TD, 2 INT, 5 rush yds"
      },
      {
-      "player": "A. Brown",
+      "player": "A.J. Brown",
       "pos": "WR",
       "pts": 0.0,
       "line": ""
      },
      {
-      "player": "W. Robinson",
+      "player": "Wan'Dale Robinson",
       "pos": "WR",
       "pts": 15.2,
       "line": "7 rec, 57 rec yds, 1 rec TD"
      },
      {
-      "player": "J. Mason",
+      "player": "Jordan Mason",
       "pos": "RB",
       "pts": 0.0,
       "line": ""
@@ -551,56 +551,56 @@
     "started": [
      {
       "slot": "QB",
-      "player": "D. Maye",
+      "player": "Drake Maye",
       "pts": 5.76,
       "proj": 18.57,
       "line": "199 pass yds, 2 INT, 18 rush yds, 1 fumbles lost"
      },
      {
       "slot": "RB",
-      "player": "C. Brown",
+      "player": "Chase Brown",
       "pts": 7.9,
       "proj": 14.16,
       "line": "61 rush yds, 2 rec, 8 rec yds"
      },
      {
       "slot": "RB",
-      "player": "B. Hall",
+      "player": "Breece Hall",
       "pts": 7.0,
       "proj": 14.14,
       "line": "32 rush yds, 3 rec, 23 rec yds"
      },
      {
       "slot": "WR",
-      "player": "J. Smith-Njigba",
+      "player": "Jaxon Smith-Njigba",
       "pts": 30.36,
       "proj": 18.57,
       "line": "14 pass yds, 10 rec, 128 rec yds, 2 rec TD"
      },
      {
       "slot": "WR",
-      "player": "J. Downs",
+      "player": "Josh Downs",
       "pts": 10.2,
       "proj": 9.0,
       "line": "5 rec, 77 rec yds"
      },
      {
       "slot": "TE",
-      "player": "T. Kraft",
+      "player": "Tucker Kraft",
       "pts": 4.6,
       "proj": 9.56,
       "line": "4 rec, 26 rec yds"
      },
      {
       "slot": "FLEX",
-      "player": "J. Love",
+      "player": "Jeremiyah Love",
       "pts": 19.4,
       "proj": 12.79,
       "line": "90 rush yds, 5 rec, 19 rec yds, 1 rec TD"
      },
      {
       "slot": "FLEX",
-      "player": "B. Corum",
+      "player": "Blake Corum",
       "pts": 2.5,
       "proj": 7.89,
       "line": "15 rush yds, 2 rec"
@@ -615,37 +615,37 @@
     ],
     "bench": [
      {
-      "player": "L. Burden",
+      "player": "Luther Burden",
       "pos": "WR",
       "pts": 16.3,
       "line": "7 rush yds, 7 rec, 61 rec yds, 1 rec TD"
      },
      {
-      "player": "T. Shough",
+      "player": "Tyler Shough",
       "pos": "QB",
       "pts": 24.8,
       "line": "255 pass yds, 4 pass TD, 1 INT, 36 rush yds, 2 fumbles lost"
      },
      {
-      "player": "C. Tate",
+      "player": "Carnell Tate",
       "pos": "WR",
       "pts": 8.8,
       "line": "6 rec, 58 rec yds"
      },
      {
-      "player": "J. Coleman",
+      "player": "Jonah Coleman",
       "pos": "RB",
       "pts": 0.0,
       "line": ""
      },
      {
-      "player": "C. Godwin",
+      "player": "Chris Godwin",
       "pos": "WR",
       "pts": 4.0,
       "line": "3 rec, 25 rec yds"
      },
      {
-      "player": "D. Wicks",
+      "player": "Dontayvion Wicks",
       "pos": "WR",
       "pts": 4.2,
       "line": "2 rec, 32 rec yds"
@@ -662,56 +662,56 @@
     "started": [
      {
       "slot": "QB",
-      "player": "K. Murray",
+      "player": "Kyler Murray",
       "pts": 11.42,
       "proj": 17.47,
       "line": "168 pass yds, 1 pass TD, 1 INT, 17 rush yds"
      },
      {
       "slot": "RB",
-      "player": "J. Gibbs",
+      "player": "Jahmyr Gibbs",
       "pts": 37.9,
       "proj": 21.38,
       "line": "99 rush yds, 2 rush TD, 7 rec, 65 rec yds, 1 rec TD"
      },
      {
       "slot": "RB",
-      "player": "A. Jeanty",
+      "player": "Ashton Jeanty",
       "pts": 10.8,
       "proj": 13.93,
       "line": "56 rush yds, 3 rec, 37 rec yds"
      },
      {
       "slot": "WR",
-      "player": "M. Wilson",
+      "player": "Michael Wilson",
       "pts": 20.4,
       "proj": 9.99,
       "line": "11 rec, 89 rec yds, 1 rec TD"
      },
      {
       "slot": "WR",
-      "player": "R. Odunze",
+      "player": "Rome Odunze",
       "pts": 5.9,
       "proj": 7.37,
       "line": "3 rec, 44 rec yds"
      },
      {
       "slot": "TE",
-      "player": "B. Bowers",
+      "player": "Brock Bowers",
       "pts": 22.6,
       "proj": 10.31,
       "line": "10 rec, 116 rec yds, 1 rec TD"
      },
      {
       "slot": "FLEX",
-      "player": "B. Tuten",
+      "player": "Bhayshul Tuten",
       "pts": 16.0,
       "proj": 10.53,
       "line": "73 rush yds, 1 rush TD, 2 rec, 17 rec yds"
      },
      {
       "slot": "FLEX",
-      "player": "D. Montgomery",
+      "player": "David Montgomery",
       "pts": 5.8,
       "proj": 13.41,
       "line": "33 rush yds, 2 rec, 15 rec yds"
@@ -726,43 +726,43 @@
     ],
     "bench": [
      {
-      "player": "J. Daniels",
+      "player": "Jayden Daniels",
       "pos": "QB",
       "pts": 0.0,
       "line": ""
      },
      {
-      "player": "X. Worthy",
+      "player": "Xavier Worthy",
       "pos": "WR",
       "pts": 3.0,
       "line": "2 rec, 20 rec yds"
      },
      {
-      "player": "M. Washington",
+      "player": "Mike Washington",
       "pos": "RB",
       "pts": 11.4,
       "line": "54 rush yds, 1 rush TD"
      },
      {
-      "player": "D. Boston",
+      "player": "Denzel Boston",
       "pos": "WR",
       "pts": 7.1,
       "line": "2 rec, 41 rec yds"
      },
      {
-      "player": "M. Andrews",
+      "player": "Mark Andrews",
       "pos": "TE",
       "pts": 3.9,
       "line": "3 rec, 24 rec yds"
      },
      {
-      "player": "J. Love",
+      "player": "Jordan Love",
       "pos": "QB",
       "pts": 19.48,
       "line": "312 pass yds, 2 pass TD, 1 INT"
      },
      {
-      "player": "Z. Flowers",
+      "player": "Zay Flowers",
       "pos": "WR",
       "pts": 12.9,
       "line": "20 rush yds, 5 rec, 84 rec yds"
@@ -773,56 +773,56 @@
     "started": [
      {
       "slot": "QB",
-      "player": "P. Mahomes",
+      "player": "Patrick Mahomes",
       "pts": 16.94,
       "proj": 20.65,
       "line": "246 pass yds, 2 pass TD, 1 INT, 1 rush yds"
      },
      {
       "slot": "RB",
-      "player": "C. McCaffrey",
+      "player": "Christian McCaffrey",
       "pts": 19.6,
       "proj": 18.45,
       "line": "75 rush yds, 1 rush TD, 4 rec, 41 rec yds"
      },
      {
       "slot": "RB",
-      "player": "B. Irving",
+      "player": "Bucky Irving",
       "pts": 6.8,
       "proj": 13.09,
       "line": "46 rush yds, 2 rec, 12 rec yds"
      },
      {
       "slot": "WR",
-      "player": "J. Jefferson",
+      "player": "Justin Jefferson",
       "pts": 4.2,
       "proj": 13.79,
       "line": "2 rec, 32 rec yds"
      },
      {
       "slot": "WR",
-      "player": "E. Egbuka",
+      "player": "Emeka Egbuka",
       "pts": 8.7,
       "proj": 8.08,
       "line": "5 rec, 62 rec yds"
      },
      {
       "slot": "TE",
-      "player": "T. McBride",
+      "player": "Trey McBride",
       "pts": 12.0,
       "proj": 13.34,
       "line": "9 rec, 75 rec yds"
      },
      {
       "slot": "FLEX",
-      "player": "D. Moore",
+      "player": "DJ Moore",
       "pts": 9.7,
       "proj": 10.58,
       "line": "6 rec, 67 rec yds"
      },
      {
       "slot": "FLEX",
-      "player": "P. Washington",
+      "player": "Parker Washington",
       "pts": 11.5,
       "proj": 12.75,
       "line": "3 rec, 40 rec yds, 1 rec TD"
@@ -837,49 +837,49 @@
     ],
     "bench": [
      {
-      "player": "A. Mitchell",
+      "player": "Adonai Mitchell",
       "pos": "WR",
       "pts": 0.0,
       "line": ""
      },
      {
-      "player": "K. Johnson",
+      "player": "Kaleb Johnson",
       "pos": "RB",
       "pts": 2.1,
       "line": "6 rush yds, 1 rec, 10 rec yds"
      },
      {
-      "player": "J. Tyson",
+      "player": "Jordyn Tyson",
       "pos": "WR",
       "pts": 0.0,
       "line": ""
      },
      {
-      "player": "K. Black",
+      "player": "Kaelon Black",
       "pos": "RB",
       "pts": 1.7,
       "line": "17 rush yds"
      },
      {
-      "player": "J. Herbert",
+      "player": "Justin Herbert",
       "pos": "QB",
       "pts": 13.74,
       "line": "226 pass yds, 1 pass TD, 1 INT, 17 rush yds"
      },
      {
-      "player": "T. Allgeier",
+      "player": "Tyler Allgeier",
       "pos": "RB",
       "pts": 2.9,
       "line": "-1 rush yds, 4 rec, 10 rec yds"
      },
      {
-      "player": "B. Robinson",
+      "player": "Brian Robinson",
       "pos": "RB",
       "pts": 11.0,
       "line": "50 rush yds, 1 rush TD"
      },
      {
-      "player": "Z. Charbonnet",
+      "player": "Zach Charbonnet",
       "pos": "RB",
       "pts": 0.0,
       "line": ""
@@ -890,56 +890,56 @@
     "started": [
      {
       "slot": "QB",
-      "player": "B. Purdy",
+      "player": "Brock Purdy",
       "pts": 31.28,
       "proj": 21.56,
       "line": "297 pass yds, 4 pass TD, 34 rush yds"
      },
      {
       "slot": "RB",
-      "player": "J. Taylor",
+      "player": "Jonathan Taylor",
       "pts": 8.2,
       "proj": 18.42,
       "line": "68 rush yds, 2 rec, 4 rec yds"
      },
      {
       "slot": "RB",
-      "player": "K. Williams",
+      "player": "Kyren Williams",
       "pts": 18.8,
       "proj": 12.45,
       "line": "88 rush yds, 6 rec, 70 rec yds"
      },
      {
       "slot": "WR",
-      "player": "D. London",
+      "player": "Drake London",
       "pts": 23.9,
       "proj": 11.16,
       "line": "9 rec, 194 rec yds"
      },
      {
       "slot": "WR",
-      "player": "D. Adams",
+      "player": "Davante Adams",
       "pts": 17.2,
       "proj": 11.73,
       "line": "7 rec, 137 rec yds"
      },
      {
       "slot": "TE",
-      "player": "T. Kelce",
+      "player": "Travis Kelce",
       "pts": 12.9,
       "proj": 9.39,
       "line": "2 rec, 59 rec yds, 1 rec TD"
      },
      {
       "slot": "FLEX",
-      "player": "L. McConkey",
+      "player": "Ladd McConkey",
       "pts": 8.6,
       "proj": 11.66,
       "line": "4 rec, 66 rec yds"
      },
      {
       "slot": "FLEX",
-      "player": "J. Price",
+      "player": "Jadarian Price",
       "pts": 0.7,
       "proj": 9.52,
       "line": "15 rush yds, 1 rec, 7 rec yds, 1 fumbles lost"
@@ -954,49 +954,49 @@
     ],
     "bench": [
      {
-      "player": "J. Coker",
+      "player": "Jalen Coker",
       "pos": "WR",
       "pts": 2.8,
       "line": "2 rec, 18 rec yds"
      },
      {
-      "player": "C. Loveland",
+      "player": "Colston Loveland",
       "pos": "TE",
       "pts": 5.1,
       "line": "4 rec, 31 rec yds"
      },
      {
-      "player": "S. Diggs",
+      "player": "Stefon Diggs",
       "pos": "WR",
       "pts": 5.3,
       "line": "4 rec, 33 rec yds"
      },
      {
-      "player": "M. Stafford",
+      "player": "Matthew Stafford",
       "pos": "QB",
       "pts": 22.9,
       "line": "390 pass yds, 2 pass TD, 2 INT, 13 rush yds"
      },
      {
-      "player": "C. Kirk",
+      "player": "Christian Kirk",
       "pos": "WR",
       "pts": 0.0,
       "line": ""
      },
      {
-      "player": "R. Dowdle",
+      "player": "Rico Dowdle",
       "pos": "RB",
       "pts": 0.0,
       "line": ""
      },
      {
-      "player": "K. Shakir",
+      "player": "Khalil Shakir",
       "pos": "WR",
       "pts": 1.1,
       "line": "1 rec, 6 rec yds"
      },
      {
-      "player": "T. Dell",
+      "player": "Tank Dell",
       "pos": "WR",
       "pts": 0.0,
       "line": ""
@@ -1007,56 +1007,56 @@
     "started": [
      {
       "slot": "QB",
-      "player": "T. Lawrence",
+      "player": "Trevor Lawrence",
       "pts": 20.78,
       "proj": 19.29,
       "line": "182 pass yds, 3 pass TD, 1 INT, 25 rush yds"
      },
      {
       "slot": "RB",
-      "player": "S. Barkley",
+      "player": "Saquon Barkley",
       "pts": 8.5,
       "proj": 14.88,
       "line": "82 rush yds, 1 rec, -2 rec yds"
      },
      {
       "slot": "RB",
-      "player": "Q. Judkins",
+      "player": "Quinshon Judkins",
       "pts": 8.9,
       "proj": 11.29,
       "line": "70 rush yds, 2 rec, 9 rec yds"
      },
      {
       "slot": "WR",
-      "player": "C. Lamb",
+      "player": "CeeDee Lamb",
       "pts": 16.7,
       "proj": 14.36,
       "line": "7 rec, 112 rec yds"
      },
      {
       "slot": "WR",
-      "player": "R. Rice",
+      "player": "Rashee Rice",
       "pts": 12.3,
       "proj": 10.06,
       "line": "7 rec, 88 rec yds"
      },
      {
       "slot": "TE",
-      "player": "T. Warren",
+      "player": "Tyler Warren",
       "pts": 10.2,
       "proj": 8.13,
       "line": "2 rush yds, 9 rec, 55 rec yds"
      },
      {
       "slot": "FLEX",
-      "player": "C. Olave",
+      "player": "Chris Olave",
       "pts": 15.2,
       "proj": 15.0,
       "line": "9 rec, 107 rec yds"
      },
      {
       "slot": "FLEX",
-      "player": "M. Evans",
+      "player": "Mike Evans",
       "pts": 10.9,
       "proj": 10.69,
       "line": "3 rec, 34 rec yds, 1 rec TD"
@@ -1071,49 +1071,49 @@
     ],
     "bench": [
      {
-      "player": "C. Williams",
+      "player": "Caleb Williams",
       "pos": "QB",
       "pts": 0.0,
       "line": ""
      },
      {
-      "player": "T. Tracy",
+      "player": "Tyrone Tracy",
       "pos": "RB",
       "pts": 0.3,
       "line": "3 rush yds"
      },
      {
-      "player": "R. Harvey",
+      "player": "RJ Harvey",
       "pos": "RB",
       "pts": 7.7,
       "line": "6 rush yds, 6 rec, 41 rec yds"
      },
      {
-      "player": "D. Stribling",
+      "player": "De'Zhaun Stribling",
       "pos": "WR",
       "pts": 0.0,
       "line": ""
      },
      {
-      "player": "A. Kamara",
+      "player": "Alvin Kamara",
       "pos": "RB",
       "pts": 4.6,
       "line": "36 rush yds, 1 rec, 5 rec yds"
      },
      {
-      "player": "D. Singletary",
+      "player": "Devin Singletary",
       "pos": "RB",
       "pts": 0.0,
       "line": ""
      },
      {
-      "player": "A. Pierce",
+      "player": "Alec Pierce",
       "pos": "WR",
       "pts": 0.0,
       "line": ""
      },
      {
-      "player": "J. Addison",
+      "player": "Jordan Addison",
       "pos": "WR",
       "pts": 17.5,
       "line": "5 rec, 90 rec yds, 1 rec TD"
@@ -1124,56 +1124,56 @@
     "started": [
      {
       "slot": "QB",
-      "player": "J. Allen",
+      "player": "Josh Allen",
       "pts": 18.96,
       "proj": 23.71,
       "line": "204 pass yds, 2 INT, 22 rush yds, 2 rush TD, 1 rec, 1 rec yds, 1 fumbles lost"
      },
      {
       "slot": "RB",
-      "player": "D. Achane",
+      "player": "De'Von Achane",
       "pts": 1.7,
       "proj": 14.37,
       "line": "17 rush yds"
      },
      {
       "slot": "RB",
-      "player": "C. Skattebo",
+      "player": "Cam Skattebo",
       "pts": 11.5,
       "proj": 14.14,
       "line": "60 rush yds, 3 rec, 40 rec yds"
      },
      {
       "slot": "WR",
-      "player": "T. Tucker",
+      "player": "Tre Tucker",
       "pts": 6.3,
       "proj": 7.37,
       "line": "4 rec, 43 rec yds"
      },
      {
       "slot": "WR",
-      "player": "T. McMillan",
+      "player": "Tetairoa McMillan",
       "pts": 2.7,
       "proj": 11.9,
       "line": "2 rec, 17 rec yds"
      },
      {
       "slot": "TE",
-      "player": "D. Schultz",
+      "player": "Dalton Schultz",
       "pts": 4.5,
       "proj": 9.25,
       "line": "3 rec, 30 rec yds"
      },
      {
       "slot": "FLEX",
-      "player": "K. Monangai",
+      "player": "Kyle Monangai",
       "pts": 3.1,
       "proj": 7.25,
       "line": "31 rush yds"
      },
      {
       "slot": "FLEX",
-      "player": "D. Samuel",
+      "player": "Deebo Samuel",
       "pts": 15.4,
       "proj": 9.46,
       "line": "14 rush yds, 80 rec yds, 1 rec TD"
@@ -1188,37 +1188,37 @@
     ],
     "bench": [
      {
-      "player": "D. Metcalf",
+      "player": "DK Metcalf",
       "pos": "WR",
       "pts": 10.6,
       "line": "3 rec, 31 rec yds, 1 rec TD"
      },
      {
-      "player": "T. McLaurin",
+      "player": "Terry McLaurin",
       "pos": "WR",
       "pts": 16.7,
       "line": "6 rec, 77 rec yds, 1 rec TD"
      },
      {
-      "player": "J. Dobbins",
+      "player": "J.K. Dobbins",
       "pos": "RB",
       "pts": 5.8,
       "line": "49 rush yds, 1 rec, 4 rec yds"
      },
      {
-      "player": "R. Stevenson",
+      "player": "Rhamondre Stevenson",
       "pos": "RB",
       "pts": 5.3,
       "line": "22 rush yds, 3 rec, 16 rec yds"
      },
      {
-      "player": "J. Ferguson",
+      "player": "Jake Ferguson",
       "pos": "TE",
       "pts": 7.8,
       "line": "3 rec, 23 rec yds, 1 rec TD, 1 fumbles lost"
      },
      {
-      "player": "P. Nacua",
+      "player": "Puka Nacua",
       "pos": "WR",
       "pts": 0.0,
       "line": ""
@@ -1229,56 +1229,56 @@
     "started": [
      {
       "slot": "QB",
-      "player": "J. Burrow",
+      "player": "Joe Burrow",
       "pts": 22.58,
       "proj": 17.48,
       "line": "282 pass yds, 3 pass TD, 13 rush yds, 1 fumbles lost"
      },
      {
       "slot": "RB",
-      "player": "J. Cook",
+      "player": "James Cook",
       "pts": 19.4,
       "proj": 15.48,
       "line": "154 rush yds, 1 rush TD, 1 fumbles lost"
      },
      {
       "slot": "RB",
-      "player": "K. Walker",
+      "player": "Kenneth Walker",
       "pts": 20.3,
       "proj": 18.47,
       "line": "70 rush yds, 1 rush TD, 2 rec, 3 rec yds, 1 rec TD"
      },
      {
       "slot": "WR",
-      "player": "M. Nabers",
+      "player": "Malik Nabers",
       "pts": 5.1,
       "proj": 11.31,
       "line": "5 rec, 26 rec yds"
      },
      {
       "slot": "WR",
-      "player": "D. Smith",
+      "player": "DeVonta Smith",
       "pts": 9.5,
       "proj": 12.62,
       "line": "6 rec, 65 rec yds"
      },
      {
       "slot": "TE",
-      "player": "S. LaPorta",
+      "player": "Sam LaPorta",
       "pts": 5.9,
       "proj": 10.05,
       "line": "3 rec, 44 rec yds"
      },
      {
       "slot": "FLEX",
-      "player": "A. Jones",
+      "player": "Aaron Jones",
       "pts": 11.7,
       "proj": 11.76,
       "line": "58 rush yds, 5 rec, 34 rec yds"
      },
      {
       "slot": "FLEX",
-      "player": "D. Kincaid",
+      "player": "Dalton Kincaid",
       "pts": 2.8,
       "proj": 10.81,
       "line": "2 rec, 38 rec yds, 1 fumbles lost"
@@ -1293,31 +1293,31 @@
     ],
     "bench": [
      {
-      "player": "M. Harrison",
+      "player": "Marvin Harrison",
       "pos": "WR",
       "pts": 5.5,
       "line": "3 rec, 40 rec yds"
      },
      {
-      "player": "J. Dart",
+      "player": "Jaxson Dart",
       "pos": "QB",
       "pts": 0.0,
       "line": ""
      },
      {
-      "player": "M. Lemon",
+      "player": "Makai Lemon",
       "pos": "WR",
       "pts": 4.4,
       "line": "3 rec, 29 rec yds"
      },
      {
-      "player": "J. Jacobs",
+      "player": "Josh Jacobs",
       "pos": "RB",
       "pts": 0.0,
       "line": ""
      },
      {
-      "player": "J. Meyers",
+      "player": "Jakobi Meyers",
       "pos": "WR",
       "pts": 15.9,
       "line": "7 rec, 64 rec yds, 1 rec TD"
@@ -1328,56 +1328,56 @@
     "started": [
      {
       "slot": "QB",
-      "player": "J. Goff",
+      "player": "Jared Goff",
       "pts": 19.36,
       "proj": 19.45,
       "line": "269 pass yds, 2 pass TD, 6 rush yds"
      },
      {
       "slot": "RB",
-      "player": "O. Hampton",
+      "player": "Omarion Hampton",
       "pts": 5.6,
       "proj": 12.93,
       "line": "56 rush yds"
      },
      {
       "slot": "RB",
-      "player": "J. Williams",
+      "player": "Javonte Williams",
       "pts": 17.3,
       "proj": 14.05,
       "line": "98 rush yds, 1 rush TD, 2 rec, 5 rec yds"
      },
      {
       "slot": "WR",
-      "player": "A. St. Brown",
+      "player": "Amon-Ra St. Brown",
       "pts": 9.9,
       "proj": 16.43,
       "line": "4 rec, 19 rec yds, 1 rec TD"
      },
      {
       "slot": "WR",
-      "player": "T. Higgins",
+      "player": "Tee Higgins",
       "pts": 18.0,
       "proj": 11.49,
       "line": "6 rec, 90 rec yds, 1 rec TD"
      },
      {
       "slot": "TE",
-      "player": "K. Pitts",
+      "player": "Kyle Pitts",
       "pts": 1.0,
       "proj": 7.71,
       "line": "1 rec, 5 rec yds"
      },
      {
       "slot": "FLEX",
-      "player": "J. Waddle",
+      "player": "Jaylen Waddle",
       "pts": 5.4,
       "proj": 10.99,
       "line": "14 rush yds, 2 rec, 10 rec yds"
      },
      {
       "slot": "FLEX",
-      "player": "J. Warren",
+      "player": "Jaylen Warren",
       "pts": 19.1,
       "proj": 14.38,
       "line": "127 rush yds, 3 rec, 49 rec yds"
@@ -1392,31 +1392,31 @@
     ],
     "bench": [
      {
-      "player": "B. Thomas",
+      "player": "Brian Thomas",
       "pos": "WR",
       "pts": 1.3,
       "line": "1 rec, 8 rec yds"
      },
      {
-      "player": "D. Prescott",
+      "player": "Dak Prescott",
       "pos": "QB",
       "pts": 18.94,
       "line": "276 pass yds, 1 pass TD, 19 rush yds"
      },
      {
-      "player": "C. Sutton",
+      "player": "Courtland Sutton",
       "pos": "WR",
       "pts": 6.1,
       "line": "3 rec, 46 rec yds"
      },
      {
-      "player": "I. Likely",
+      "player": "Isaiah Likely",
       "pos": "TE",
       "pts": 2.3,
       "line": "2 rec, 13 rec yds"
      },
      {
-      "player": "R. White",
+      "player": "Rachaad White",
       "pos": "RB",
       "pts": 10.6,
       "line": "35 rush yds, 1 rec, 6 rec yds, 1 rec TD"
@@ -1427,56 +1427,56 @@
     "started": [
      {
       "slot": "QB",
-      "player": "J. Hurts",
+      "player": "Jalen Hurts",
       "pts": 13.62,
       "proj": 18.47,
       "line": "153 pass yds, 1 INT, 25 rush yds, 1 rush TD"
      },
      {
       "slot": "RB",
-      "player": "D. Henry",
+      "player": "Derrick Henry",
       "pts": 21.4,
       "proj": 18.16,
       "line": "89 rush yds, 2 rush TD, 1 rec"
      },
      {
       "slot": "RB",
-      "player": "T. Etienne",
+      "player": "Travis Etienne",
       "pts": 8.0,
       "proj": 10.17,
       "line": "57 rush yds, 2 rec, 13 rec yds"
      },
      {
       "slot": "WR",
-      "player": "J. Chase",
+      "player": "Ja'Marr Chase",
       "pts": 20.3,
       "proj": 13.86,
       "line": "9 rec, 98 rec yds, 1 rec TD"
      },
      {
       "slot": "WR",
-      "player": "M. Golden",
+      "player": "Matthew Golden",
       "pts": 18.5,
       "proj": 9.17,
       "line": "5 rec, 100 rec yds, 1 rec TD"
      },
      {
       "slot": "TE",
-      "player": "G. Kittle",
+      "player": "George Kittle",
       "pts": 23.2,
       "proj": 10.09,
       "line": "6 rec, 82 rec yds, 2 rec TD"
      },
      {
       "slot": "FLEX",
-      "player": "G. Wilson",
+      "player": "Garrett Wilson",
       "pts": 21.7,
       "proj": 13.17,
       "line": "10 rec, 107 rec yds, 1 rec TD"
      },
      {
       "slot": "FLEX",
-      "player": "C. Hubbard",
+      "player": "Chuba Hubbard",
       "pts": 13.0,
       "proj": 13.46,
       "line": "82 rush yds, 4 rec, 28 rec yds"
@@ -1491,31 +1491,31 @@
     ],
     "bench": [
      {
-      "player": "T. Henderson",
+      "player": "TreVeyon Henderson",
       "pos": "RB",
       "pts": 3.4,
       "line": "23 rush yds, 1 rec, 6 rec yds"
      },
      {
-      "player": "J. Croskey-Merritt",
+      "player": "Jacory Croskey-Merritt",
       "pos": "RB",
       "pts": 4.8,
       "line": "36 rush yds, 1 rec, 7 rec yds"
      },
      {
-      "player": "D. Waller",
+      "player": "Darren Waller",
       "pos": "TE",
       "pts": 7.6,
       "line": "5 rec, 51 rec yds"
      },
      {
-      "player": "M. Pittman",
+      "player": "Michael Pittman",
       "pos": "WR",
       "pts": 2.6,
       "line": "2 rec, 16 rec yds"
      },
      {
-      "player": "N. Collins",
+      "player": "Nico Collins",
       "pos": "WR",
       "pts": 0.0,
       "line": ""
@@ -1627,7 +1627,12 @@
     "all_play": "14-13",
     "bench_left": 6.7,
     "pa_per_game": 79.3,
-    "luck": 1.44
+    "luck": 1.44,
+    "weekly_scores": [
+     126.46,
+     100.02,
+     109.48
+    ]
    },
    {
     "team": "aaronargyres",
@@ -1639,7 +1644,12 @@
     "all_play": "20-7",
     "bench_left": 29.6,
     "pa_per_game": 114.5,
-    "luck": -0.22
+    "luck": -0.22,
+    "weekly_scores": [
+     125.02,
+     120.86,
+     152.72
+    ]
    },
    {
     "team": "Stafford's Staffers",
@@ -1651,7 +1661,12 @@
     "all_play": "14-13",
     "bench_left": 103.1,
     "pa_per_game": 112.0,
-    "luck": 0.44
+    "luck": 0.44,
+    "weekly_scores": [
+     75.1,
+     132.68,
+     130.58
+    ]
    },
    {
     "team": "briancami",
@@ -1663,7 +1678,12 @@
     "all_play": "13-14",
     "bench_left": 42.1,
     "pa_per_game": 119.4,
-    "luck": 0.56
+    "luck": 0.56,
+    "weekly_scores": [
+     148.66,
+     93.58,
+     90.44
+    ]
    },
    {
     "team": "naaaaaaaaaaaaaaaate",
@@ -1675,7 +1695,12 @@
     "all_play": "13-14",
     "bench_left": 44.2,
     "pa_per_game": 100.5,
-    "luck": 0.56
+    "luck": 0.56,
+    "weekly_scores": [
+     89.04,
+     131.98,
+     109.66
+    ]
    },
    {
     "team": "Lamar JacksOff",
@@ -1687,7 +1712,12 @@
     "all_play": "15-12",
     "bench_left": 47.9,
     "pa_per_game": 127.2,
-    "luck": -0.67
+    "luck": -0.67,
+    "weekly_scores": [
+     141.86,
+     76.7,
+     151.44
+    ]
    },
    {
     "team": "casebrabham",
@@ -1699,7 +1729,12 @@
     "all_play": "16-11",
     "bench_left": 47.8,
     "pa_per_game": 126.5,
-    "luck": -0.78
+    "luck": -0.78,
+    "weekly_scores": [
+     147.72,
+     84.44,
+     132.82
+    ]
    },
    {
     "team": "cdb1919",
@@ -1711,7 +1746,12 @@
     "all_play": "14-13",
     "bench_left": 43.7,
     "pa_per_game": 137.5,
-    "luck": -0.56
+    "luck": -0.56,
+    "weekly_scores": [
+     95.96,
+     136.38,
+     101.28
+    ]
    },
    {
     "team": "Corey Dylan Clark",
@@ -1723,7 +1763,12 @@
     "all_play": "6-21",
     "bench_left": 71.9,
     "pa_per_game": 92.7,
-    "luck": 0.33
+    "luck": 0.33,
+    "weekly_scores": [
+     124.56,
+     85.72,
+     72.16
+    ]
    },
    {
     "team": "louisnicoletti",
@@ -1735,7 +1780,12 @@
     "all_play": "10-17",
     "bench_left": 57.7,
     "pa_per_game": 123.7,
-    "luck": -1.11
+    "luck": -1.11,
+    "weekly_scores": [
+     109.42,
+     111.92,
+     90.72
+    ]
    }
   ],
   "next": {

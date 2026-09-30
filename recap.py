@@ -102,13 +102,14 @@ def build_facts(week=None):
     # Season to date: record, all-play, bench points left.
     weekly = {w: get(f"{api}/matchups/{w}") for w in range(1, week + 1)}
     last_regular = min(week, cfg.get("playoff_week_start", 99) - 1)
-    rec = {rid: dict(w=0, l=0, t=0, hw=0, h2h=0, pf=0.0, pa=0.0, ap_w=0, ap_l=0, bench=0.0) for rid in team}
+    rec = {rid: dict(w=0, l=0, t=0, hw=0, h2h=0, pf=0.0, pa=0.0, ap_w=0, ap_l=0, bench=0.0, weeks=[]) for rid in team}
     for w in range(1, last_regular + 1):
         ms = [m for m in weekly[w] if m.get("matchup_id")]
         score = {m["roster_id"]: m["points"] for m in ms}
         for m in ms:
             r, others = rec[m["roster_id"]], [v for k, v in score.items() if k != m["roster_id"]]
             r["pf"] += m["points"]
+            r["weeks"].append(m["points"])
             r["bench"] += optimal(m["players_points"]) - m["points"]
             r["ap_w"] += sum(m["points"] > v for v in others)
             r["ap_l"] += sum(m["points"] < v for v in others)
@@ -130,7 +131,7 @@ def build_facts(week=None):
         standings.append(dict(team=team[rid], w=r["w"], l=r["l"], t=r["t"], pf=round(r["pf"], 2), pa=round(r["pa"], 2),
                               all_play=f"{r['ap_w']}-{r['ap_l']}", bench_left=round(r["bench"], 1),
                               pa_per_game=round(r["pa"] / r["h2h"], 1) if r["h2h"] else 0,
-                              luck=round(r["hw"] - (r["ap_w"] / ap * r["h2h"] if ap else 0), 2)))
+                              luck=round(r["hw"] - (r["ap_w"] / ap * r["h2h"] if ap else 0), 2), weekly_scores=r["weeks"]))
     standings.sort(key=lambda s: (s["w"] + s["t"] / 2, s["pf"]), reverse=True)
 
     # This week, per team.
@@ -158,9 +159,9 @@ def build_facts(week=None):
             swap=dict(bench=name(b), bench_pts=pp.get(b, 0), start=name(s), start_pts=pp.get(s, 0),
                       gain=round(gain, 2)) if gain > 0 else None)
         lineups[team[rid]] = dict(
-            started=[dict(slot=slot, player=name(p), pts=pp.get(p, 0), proj=proj.get(p), line=line(p))
+            started=[dict(slot=slot, player=info(p).get("full_name") or name(p), pts=pp.get(p, 0), proj=proj.get(p), line=line(p))
                      for p, slot in zip(st, slots) if p != "0"],
-            bench=[dict(player=name(p), pos=info(p).get("position"), pts=pp.get(p, 0), line=line(p)) for p in bench])
+            bench=[dict(player=info(p).get("full_name") or name(p), pos=info(p).get("position"), pts=pp.get(p, 0), line=line(p)) for p in bench])
     games = []
     for a, b in pairs(ms):
         if a["points"] < b["points"]:
@@ -312,7 +313,7 @@ SCHEMA = {"type": "object", "additionalProperties": False,
                          "preview_lines": LINES, "signoff": {"type": "string"}}}
 
 
-def write_copy(facts):
+def write_copy(facts, last_week=None):
     if not os.environ.get("ANTHROPIC_API_KEY"):
         print("::warning::ANTHROPIC_API_KEY is not set, so this week gets template copy instead of jokes.")
         return template_copy(facts)
@@ -324,7 +325,7 @@ def write_copy(facts):
             max_tokens=16000,
             betas=["server-side-fallback-2026-07-01"],
             system=(ROOT / "prompt.md").read_text(),
-            messages=[{"role": "user", "content": json.dumps(facts, ensure_ascii=False)}],
+            messages=[{"role": "user", "content": json.dumps(dict(facts=facts, last_week_copy=last_week), ensure_ascii=False)}],
             extra_body={"fallbacks": "default",
                         "output_config": {"effort": "high", "format": {"type": "json_schema", "schema": SCHEMA}}},
         )
@@ -468,7 +469,8 @@ def main():
         copy = json.loads(path.read_text())["copy"] if path.exists() else None
         if (not copy or os.environ.get("FRESH") == "true"
                 or (copy.get("by") == "template" and os.environ.get("ANTHROPIC_API_KEY"))):
-            copy = write_copy(facts)
+            prev = ROOT / "weeks" / f"{facts['season']}-{facts['week'] - 1:02d}.json"
+            copy = write_copy(facts, json.loads(prev.read_text())["copy"] if prev.exists() else None)
         path.parent.mkdir(exist_ok=True)
         path.write_text(json.dumps(dict(facts=facts, copy=copy), indent=1, ensure_ascii=False) + "\n")
     render()
