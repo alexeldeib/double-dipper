@@ -327,6 +327,30 @@ SCHEMA = {"type": "object", "additionalProperties": False,
                          "preview_lines": LINES, "signoff": {"type": "string"}}}
 
 
+WEB_SEARCH = {"type": "web_search_20260209", "name": "web_search", "max_uses": 8}
+
+
+def research(client, facts):
+    """Best effort: web-search the week's real NFL moments (big plays, bloopers, memes) for players in this league."""
+    who = {}
+    for team, lineup in facts["lineups"].items():
+        for x in lineup["started"] + [b for b in lineup["bench"] if b["pts"] >= 15]:
+            who.setdefault(x["player"], team)
+    ask = (f"NFL Week {facts['week']} of the {facts['season']} season just finished. Search the web for the real-life moments fans "
+           "are talking about: huge plays, bloopers, bizarre moments, viral memes, sideline drama. Focus on these players, who are "
+           "on a fantasy league's rosters (their fantasy team in parentheses):\n" + "; ".join(f"{p} ({t})" for p, t in who.items())
+           + "\n\nReply with up to 8 short bullets: the player, what happened, why people are talking about it, and one source URL. "
+           "Only include moments your sources confirm. Skip injuries.")
+    messages = [{"role": "user", "content": ask}]
+    for _ in range(5):  # a server-side search can pause mid-turn; resending the paused turn resumes it
+        msg = client.messages.create(model=MODEL, max_tokens=16000, tools=[WEB_SEARCH], messages=messages,
+                                     extra_body={"output_config": {"effort": "medium"}})
+        if msg.stop_reason != "pause_turn":
+            break
+        messages = [messages[0], {"role": "assistant", "content": msg.content}]
+    return "".join(b.text for b in msg.content if b.type == "text").strip() or None
+
+
 def write_copy(facts, previous=()):
     """Claude drafts the week, then a second pass punches it up. `previous` is this season's earlier copy."""
     if not os.environ.get("ANTHROPIC_API_KEY"):
@@ -353,11 +377,16 @@ def write_copy(facts, previous=()):
                 raise RuntimeError(f"stop_reason={msg.stop_reason}")
             return json.loads(next(b.text for b in msg.content if b.type == "text")), msg.model
 
+        try:
+            news = research(client, facts)
+        except Exception as e:  # the recap works without it
+            print(f"::warning::Skipped the web research for real-life plays ({e}).")
+            news = None
         prior = list(previous)
-        draft, _ = ask(brief, dict(facts=facts, previous_weeks=prior))
+        draft, _ = ask(brief, dict(facts=facts, previous_weeks=prior, news=news))
         final, model = ask(brief + "\n\n---\n\n" + (ROOT / "punchup.md").read_text(),
-                           dict(facts=facts, previous_weeks=prior, draft=draft))
-        return dict(final, by=f"{model} (draft + punch-up)")
+                           dict(facts=facts, previous_weeks=prior, news=news, draft=draft))
+        return dict(final, by=f"{model} (draft + punch-up)", news=news)
     except Exception as e:  # ponytail: any failure falls back to template copy so the numbers still ship
         print(f"::warning::Claude couldn't write the copy ({e}); using template copy.")
         return template_copy(facts)
@@ -656,7 +685,7 @@ def main():
         if (not copy or os.environ.get("FRESH") == "true"
                 or (copy.get("by") == "template" and os.environ.get("ANTHROPIC_API_KEY"))):
             earlier = [json.loads(q.read_text()) for q in sorted((ROOT / "weeks").glob(f"{facts['season']}-*.json"))]
-            fresh = write_copy(facts, [dict(week=d["facts"]["week"], **{k: v for k, v in d["copy"].items() if k != "by"})
+            fresh = write_copy(facts, [dict(week=d["facts"]["week"], **{k: v for k, v in d["copy"].items() if k not in ("by", "news")})
                                        for d in earlier if d["facts"]["week"] < facts["week"]])
             if fresh.get("by") != "template" or not copy:  # a failed rewrite never replaces jokes we already have
                 copy = fresh

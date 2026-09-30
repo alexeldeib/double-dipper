@@ -64,6 +64,7 @@ jobs:
           print("\n### Games\n" + "\n".join(f"- {x['line']}" for x in c["game_lines"]))
           print("\n### Next week\n" + "\n".join(f"- {x['line']}" for x in c["preview_lines"]))
           print(f"\n_{c['signoff']}_")
+          print("\n### Web research brief\n" + (c.get("news") or "(none)"))
           EOF
       - name: Commit the new week
         if: ${{ !inputs.dry_run }}
