@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Double Dipper weekly recap: Sleeper stats -> facts -> Claude-written jokes -> static site in docs/.
+"""Weekly fantasy recap: Sleeper stats -> facts -> Claude-written jokes -> static site in docs/.
 
   python recap.py              recap the latest scored week, then rebuild docs/
   WEEK=3 python recap.py       recap a specific week
@@ -321,11 +321,12 @@ def build_facts(week=None):
 LINES = {"type": "array", "items": {"type": "object", "additionalProperties": False, "required": ["key", "line"],
                                     "properties": {"key": {"type": "string"}, "line": {"type": "string"}}}}
 SCHEMA = {"type": "object", "additionalProperties": False,
-          "required": ["headline", "dek", "hero_value", "hero_caption", "pen_notes", "story", "power_lines",
+          "required": ["headline", "dek", "hero_value", "hero_caption", "pen_notes", "story_title", "story", "power_lines",
                        "award_lines", "game_lines", "preview_lines", "signoff"],
           "properties": {"headline": {"type": "string"}, "dek": {"type": "string"},
                          "hero_value": {"type": "string"}, "hero_caption": {"type": "string"},
                          "pen_notes": {"type": "array", "items": {"type": "string"}},
+                         "story_title": {"type": "string"},
                          "story": {"type": "array", "items": {"type": "string"}}, "power_lines": LINES,
                          "award_lines": LINES, "game_lines": LINES,
                          "preview_lines": LINES, "signoff": {"type": "string"}}}
@@ -407,7 +408,7 @@ def template_copy(f):
     lead = a.get("heartbreaker") or a["high"]
     return dict(by="template", headline=lead["label"].upper(), dek=f"{lead['team']}: {lead['stat']}.",
                 hero_value=a["high"]["stat"].split(" ")[0], hero_caption=f"{a['high']['team']} led the week",
-                pen_notes=[], story=[], power_lines=[], award_lines=[], game_lines=[], preview_lines=[], signoff="")
+                pen_notes=[], story_title="", story=[], power_lines=[], award_lines=[], game_lines=[], preview_lines=[], signoff="")
 
 
 BIG = ("blowout", "high", "low", "close", "heartbreaker")  # the big stuff; every other trophy is an "other fun stat"
@@ -555,7 +556,7 @@ def page(shell, f, c, url, data):
              f'<span class="crawl-set">{reel}</span><span class="crawl-set">{reel}</span></p></div></div>') if reel else ""
     # The dek follows the number, so a phone's first screen is the pun and the circled number; on wide screens the
     # grid puts it back under the headline. The card bug only shows on the link-preview card (card.html).
-    brand = "Double Dipper"
+    brand = re.sub(r"[^\w\s'’().&-]", "", league).strip() or league  # the league's own name, minus any emoji
     mark = "".join(w[:1] for w in league.split()[:2]).upper()
     dek = c.get("dek") or ""
     lead = (f'<section class="lead" aria-labelledby="lead-h" data-wk="{wk}"><div class="lead-in"><div class="lead-copy">'
@@ -566,8 +567,9 @@ def page(shell, f, c, url, data):
 
     # The Rundown: the lead segment, in the writer's words. Skipped when there's no story (template copy).
     story = [s.strip() for s in c.get("story") or [] if s and s.strip()]
+    story_title = f'<h3 class="story-title">{e(c["story_title"])}</h3>' if c.get("story_title") else ""
     rundown = (f'<section class="seg rundown" aria-labelledby="run-h">{bumper("run-h", "The Rundown", f"Week {wk} · from the desk", note(1, SCRIBBLE))}'
-               f'<div class="story">{"".join(f"<p>{lit(s, AT)}</p>" for s in story)}</div></section>') if story else ""
+               f'<div class="story">{story_title}{"".join(f"<p>{lit(s, AT)}</p>" for s in story)}</div></section>') if story else ""
 
     # Power rankings: all ten, with movement. The analyst circles the week's biggest climb.
     power = f.get("power") or []
@@ -681,7 +683,7 @@ def page(shell, f, c, url, data):
                                f"The number: {value}, circled in red marker." if value else "", cap) if x)
     return (shell.replace("{{title}}", e(title)).replace("{{description}}", e(dek))
             .replace("{{image}}", e(url + "og.jpg")).replace("{{image_alt}}", e(alt))
-            .replace("{{url}}", e(url)).replace("{{body}}", body))
+            .replace("{{url}}", e(url)).replace("{{brand}}", e(brand)).replace("{{body}}", body))
 
 
 def load(p):
@@ -711,6 +713,9 @@ def render():
         # it to og.jpg (every page's og:image) and deletes it before deploying.
         card = doc.replace('<html lang="en">', '<html lang="en" class="card">', 1)
         (out.parent / "card.html").write_text(re.sub(r"<script>.*?</script>", "", card, count=1, flags=re.S))
+    if not data:  # a brand-new site before its first recap
+        (docs / "index.html").write_text("<!doctype html><meta charset=utf-8><title>Coming soon</title>"
+                                         "<p style='font:20px system-ui;padding:2rem'>The first recap lands after this week's games.</p>")
     if data:
         f, c = data[-1]["facts"], data[-1]["copy"]
         url = f"{SITE}{f['season']}/{f['week']}/"
