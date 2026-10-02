@@ -37,15 +37,14 @@ When a run emails you:
 
 ## Knobs
 
-- `prompt.md` sets the writer's voice and league lore. Add in-jokes, rivalries, and past champions there.
-- `punchup.md` is the second pass: Claude rereads its draft as an editor and makes it funnier.
-- `template.html` controls the look. `recap.py` builds the facts and the page.
+- `league.toml` holds the league ID, the site address, the first line of the writer's brief, and `lore`: add in-jokes, rivalries, and past champions there.
+- The writer's voice, the punch-up pass, and the page design are shared by every league, in the engine: [fantasy-recap](https://github.com/alexeldeib/fantasy-recap). Changes there reach this site on its next run.
 
 ## Season notes
 
 - Weeks 14 to 17 are the playoffs. The two-week championship (weeks 16 and 17, decided on the total) isn't labeled specially yet; that's a planned change before the Dec 8 run.
 - Once week 17 is up, scheduled runs do nothing, and GitHub switches the schedule off after 60 days without a commit.
-- Next season, Sleeper gives the renewed league a new ID. Put it in `LEAGUE` at the top of `recap.py`, turn the workflow back on (**Actions → Weekly recap → Enable workflow**), and refresh the lore in `prompt.md`.
+- Next season, Sleeper gives the renewed league a new ID. Put it in `league_id` in `league.toml`, turn the workflow back on (**Actions → Weekly recap → Enable workflow**), and refresh the `lore` there too.
 
 Each run makes three Claude Opus 5.5 calls (web research, draft, punch-up), which usually costs $1 to $2. A season runs about $20 to $35.
 
@@ -62,6 +61,7 @@ Then set a monthly spend limit for that key's workspace in the Anthropic Console
 ## Local
 
 ```bash
-python3 recap.py          # recap the latest scored week
-python3 recap.py render   # rebuild docs/ from weeks/*.json
+pip install git+https://github.com/alexeldeib/fantasy-recap
+fantasy-recap run      # recap the latest scored week
+fantasy-recap render   # rebuild docs/ from weeks/*.json
 ```
