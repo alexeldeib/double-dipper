@@ -1,6 +1,6 @@
 # Double Dipper
 
-The weekly recap for the Double Dipper fantasy league, now at **https://thebenchpress.app/double-dipper**.
+The weekly recap for the Double Dipper fantasy league, now at **https://thebenchpress.app/double-dipper-188480**.
 
 > **Moved (Oct 2026).** The league runs on the hosted version ([fantasy-recap/worker](https://github.com/alexeldeib/fantasy-recap/tree/main/worker)): the Tuesday recap plus game-day updates. This repo's workflow is disabled; `weeks/` is the archive of weeks 1-3, which the hosted version imported. The old address, double-dip.alexeldeib.xyz, is retired. Everything below describes the GitHub-era setup.
 
